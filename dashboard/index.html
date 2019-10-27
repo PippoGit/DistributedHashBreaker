@@ -13,16 +13,27 @@
 	<!-- HEADER -->
     <div class="top-bar">
         <div class="content-wrapper">
-            <p class="top-bar-title">Distributed Hash Breaker</p>
-            <p class="top-bar-subtitle">CONCURRENT AND DISTRIBUTED SYSTEMS PROJECT</p>
-        </div>
-    </div>
+			<img
+				style="border: 0;
+				background: #fafbfe;
+				border-radius: 100%;
+				padding: 8px;
+				float: left;
+				height: 107px;
+				margin-right: 20px;" 
+				src="http://www.biolab.ing.unipi.it/sites/default/files/unipi.png">
+			<p class="top-bar-title">Distributed Hash Breaker</p>
+			<p class="top-bar-subtitle">CONCURRENT AND DISTRIBUTED SYSTEMS PROJECT</p>
+		</div>
+	</div>
+	<div style="
+		margin-bottom: 16px;
+	">Maybe some menu actions? Revoke Attack - Log Out - Whatever</div>
 	
 	<!-- MAIN CONTENT -->
-    <div class="content-wrapper">
+	<section id="main-section" class="content-wrapper">
+		<!-- MAIN SECTION -->
 		<h2 class="title"> Dashboard </h2>
-
-		<!-- MAIN CHART -->
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">attack #001 - progress</h4>
@@ -30,7 +41,7 @@
 				<span style="
 					font-size: 0.8rem;
 				"><b>Expected time</b>: 2h 30m</span>
-			    <canvas id="myChart" style="display:none;" width="200" height="200"></canvas>
+			    <canvas id="myChart"></canvas>
             </div>
 		</div>
 		
@@ -61,7 +72,47 @@
 			</div>
 		</div>
 		</div>
-    </div>
+	</section>
+	
+	<section id="bucket-inspection" class="content-wrapper"> 
+		<h2>Bucket Inspection</h2>
+		<div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Buckets Status</h4>
+				
+				<div class="pure-g">
+					<div class="pure-u-2-3">
+						<div style="background:red; height: 100%;"></div>
+					</div>
+					<div class="pure-u-1-3">
+							<div style=" height: 100%;">
+								<canvas id="bucket-allocation-chart"></canvas>
+							</div>
+					</div>
+				</div>
+            </div>
+		</div>
+
+		<div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bucket 1</h4>
+				<div class="progress-bar"><span style="width:40%">40%</span></div>
+				<span style="
+					font-size: 0.8rem;
+					display: block;
+				"><b>Assigned to </b>: username</span>
+				<span style="
+					font-size: 0.8rem;
+					display: block;
+				"><b>Date</b>: 10-02-2019</span>
+				<span style="
+					font-size: 0.8rem;
+					display: block;
+				"><b>Last heartbeat</b>: 12-02-2019 10:37</span>
+				<button>revoke</button>
+            </div>
+		</div>
+	</section>
 
     <!-- INCLUDE SCRIPTS -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -74,8 +125,8 @@
 				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 				datasets: [{
 					label: 'My First dataset',
-					backgroundColor:"red",
-					borderColor:"red",
+					backgroundColor:"#ec407a",
+					borderColor:"#ec407a",
 					data: [
 						15,
 						115,
@@ -89,8 +140,8 @@
 				}, {
 					label: 'My Second dataset',
 					fill: false,
-					backgroundColor: "blue",
-					borderColor: "blue",
+					backgroundColor: "#536de6",
+					borderColor: "#536de6",
 					data: [
 						123,
 						133,
@@ -103,10 +154,11 @@
 				}]
 			},
 			options: {
+				aspectRatio: 2,
 				responsive: true,
 				title: {
 					display: true,
-					text: 'Chart.js Line Chart'
+					text: 'Some kind of Performance Chart'
 				},
 				tooltips: {
 					mode: 'index',
@@ -135,7 +187,42 @@
 			}
 		};
         var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, config);
+		var myChart = new Chart(ctx, config);
+		
+		var bucketAllocationCtx = document.getElementById('bucket-allocation-chart').getContext('2d');
+		var bucketAllocationChart = new Chart(bucketAllocationCtx, {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [30, 20, 10],
+					backgroundColor: [
+						"#fff48f",
+						"#3cba9f",
+						"#e2eaef"
+					]
+				}],
+
+				// These labels appear in the legend and in the tooltips when hovering different arcs
+				labels: [
+					'Working',
+					'Completed',
+					'Available'
+				]
+			}
+			,
+			options: {
+				legend: {
+					display: true,
+					position: "right"
+				},
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Buckets Allocation'
+				},
+			}
+		});
+
     </script>
 </body>
 </html>

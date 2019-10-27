@@ -22,25 +22,32 @@ body {
     position: relative;
     left: 0!important;
     background-color: #313a46;
+    margin-bottom: 10px;
+    padding-top: 20px;
 }
 
 .top-bar p {
     margin: 0;
     color: #fafbfe;
     font-weight: bold;
+    /* float: left; */
 }
 
 .top-bar-title {
     font-size: 1.3rem;
-    letter-spacing: 1px;
+    letter-spacing: 0.02em;
+    /* color: #6c757d !important; */
+    /* margin-top: -5px !important; */
 }
 
 .top-bar-subtitle {
     font-size: 0.7rem;
     text-transform: uppercase;
+    letter-spacing: 0.03rem;
+    color: #6c757d !important;
 }
 
-.title {
+section h2 {
     font-size: 18px;
     /* margin: 0; */
     /* line-height: 75px; */
@@ -49,6 +56,8 @@ body {
     text-overflow: ellipsis;
     color: inherit;
     margin-left: 8px;
+    /* text-align: center; */
+    /* display: none; */
 }
 
 .card {
