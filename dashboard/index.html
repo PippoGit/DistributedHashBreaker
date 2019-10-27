@@ -245,22 +245,15 @@
 			for(i=0; i<N; i++) {
 				var percentage = Math.random();
 				buckets.push({id:i, percentage: percentage});
-				heatmap.append("<div id='bucket-" + i + "' onclick='load_bucket(" + i +")' style='opacity:" + (0.05 + percentage) + ";'>" + i +  "</div")
+				heatmap.append("<div id='bucket-" + i + "' onclick='load_bucket(" + i +")' style='opacity:" + 0.5 + ";'>" + i +  "</div")
 
 				// THIS IS REALLY BAD AND IT SHOULD BE CHANGED SOMEHOW
-				if (percentage > 0.75) {
-					$('#bucket-'+i).addClass('bucket-m-75');
-				}
-				else if(percentage > 0.50) {
-					$('#bucket-'+i).addClass('bucket-m-50');
-				}
-				else if(percentage > 0.25) {
-					$('#bucket-'+i).addClass('bucket-m-25');
-				}
-				else if(percentage <= 0.25) {
-					$('#bucket-'+i).addClass('bucket-l-25');
-				}
-
+				var bucket_style = ['bucket-l-25', 
+									'bucket-m-25',
+									'bucket-m-50',
+									'bucket-m-75'];
+				
+				$('#bucket-'+i).addClass(bucket_style[Math.floor(percentage*4)]);
 			}
 		});
 

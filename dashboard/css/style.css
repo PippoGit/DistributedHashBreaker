@@ -151,23 +151,23 @@ section h2 {
 
 .completed-bucket { 
     color: white !important;
-    background: #3cba9f;
+    background: #009688;
 }
 
 .bucket-m-75 {
-    color: #3cba9f !important;
+    color: #009688 !important;
 }
 
 .bucket-m-50 { 
-    color: orange !important;
+    color: #CDDC39 !important;
 }
 
 .bucket-m-25 {
-    color: #fff48f !important;
+    color: #F9A825 !important;
 }
 
 .bucket-l-25 {
-    color:red !important;
+    color:#f44336 !important;
 }
 
 section {
