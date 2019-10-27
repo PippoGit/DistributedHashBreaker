@@ -1,6 +1,11 @@
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: Nunito, sans-serif !important;
+}
+
 body {
     margin: 0;
-    font-family: Nunito,sans-serif;
     font-size: .9rem;
     font-weight: 400;
     line-height: 1.5;
@@ -107,6 +112,7 @@ section h2 {
     letter-spacing: .02em;
     font-size: .9rem;
     margin-top: 0;
+    font-weight: 800;
 }
 
 .progress-bar {
@@ -199,4 +205,18 @@ section {
     margin: 0 auto;
     font-weight: bold;
     font-size: 1.7rem;
+}
+
+.menu-wrapper {
+    margin-bottom: 16px;
+}
+
+
+.button-error {
+    background: rgb(202, 60, 60) !important; /* this is a maroon */
+    color: white;
+    border-radius: 5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    outline: none;
+    padding: 4px 8px;
 }
