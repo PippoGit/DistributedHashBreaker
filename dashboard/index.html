@@ -28,7 +28,16 @@
 	</div>
 	<div style="
 		margin-bottom: 16px;
-	">Maybe some menu actions? Revoke Attack - Log Out - Whatever</div>
+	">
+		<div class="pure-menu pure-menu-horizontal">
+				<ul class="pure-menu-list">
+					<li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Current attack</a></li>
+					<li class="pure-menu-item"><a href="#" class="pure-menu-link">Plan new attack</a></li>
+					<li class="pure-menu-item"><a href="#" class="pure-menu-link">Revoke attack</a></li>
+					<li class="pure-menu-item pure-menu-disabled">Preferences</li>
+				</ul>
+			</div>
+	</div>
 	
 	<!-- MAIN CONTENT -->
 	<section id="main-section" class="content-wrapper">
@@ -76,27 +85,32 @@
 	
 	<section id="bucket-inspection" class="content-wrapper"> 
 		<h2>Bucket Inspection</h2>
-		<div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Buckets Status</h4>
-				
-				<div class="pure-g">
-					<div class="pure-u-2-3">
-						<div style="background:red; height: 100%;"></div>
-					</div>
-					<div class="pure-u-1-3">
-							<div style=" height: 100%;">
-								<canvas id="bucket-allocation-chart"></canvas>
-							</div>
+		<div class="pure-g">
+			<div class="pure-u-2-3">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Heatmap</h4>
+						<!-- Bucket heatmap -->
+						<div id="heatmap">
+						</div>
 					</div>
 				</div>
-            </div>
+			</div>
+			
+			<div class="pure-u-1-3">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Allocation</h4>
+						<canvas id="bucket-allocation-chart"></canvas>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<div class="card">
+		<div id="bucket-inspector" class="card">
             <div class="card-body">
-                <h4 class="card-title">Bucket 1</h4>
-				<div class="progress-bar"><span style="width:40%">40%</span></div>
+                <h4 id="bucket-id" class="card-title">Bucket 1</h4>
+				<div class="progress-bar"><span id="bucket-progress"></span></div>
 				<span style="
 					font-size: 0.8rem;
 					display: block;
@@ -115,10 +129,11 @@
 	</section>
 
     <!-- INCLUDE SCRIPTS -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0/dist/Chart.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0/dist/Chart.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script>
+   
+   <script>
         var config = {
 			type: 'line',
 			data: {
@@ -215,14 +230,31 @@
 					display: true,
 					position: "right"
 				},
-				responsive: true,
-				title: {
-					display: true,
-					text: 'Buckets Allocation'
-				},
+				responsive: true
 			}
 		});
 
+		var buckets = [];
+
+		$( document ).ready(function() {
+			// generate random heatmap
+			var heatmap = $("#heatmap");
+			var N = 35;
+
+			for(i=0; i<N; i++) {
+				var percentage = Math.random();
+				buckets.push({id:i, percentage: percentage});
+				heatmap.append("<div id='bucket-" + i + "' onclick='load_bucket(" + i +")' style='opacity:" + (0.2 + percentage) + ";'>" + i +  "</div")
+			}
+		});
+
+		function load_bucket(bucket) {
+			var percentage = Math.floor(buckets[bucket].percentage * 100);
+			$("#bucket-inspector").slideDown();
+			$("#bucket-id").text("Bucket " + bucket);
+			$("#bucket-progress").css("width", percentage + "%");
+			$("#bucket-progress").text(percentage + "%");
+		}
     </script>
 </body>
 </html>
