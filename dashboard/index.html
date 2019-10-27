@@ -85,6 +85,27 @@
 	
 	<section id="bucket-inspection" class="content-wrapper"> 
 		<h2>Bucket Inspection</h2>
+
+		<div id="bucket-inspector" class="card">
+			<div class="card-body">
+				<h4 id="bucket-id" class="card-title">Bucket 1</h4>
+				<div class="progress-bar"><span id="bucket-progress"></span></div>
+				<span style="
+					font-size: 0.8rem;
+					display: block;
+				"><b>Assigned to </b>: username</span>
+				<span style="
+					font-size: 0.8rem;
+					display: block;
+				"><b>Date</b>: 10-02-2019</span>
+				<span style="
+					font-size: 0.8rem;
+					display: block;
+				"><b>Last heartbeat</b>: 12-02-2019 10:37</span>
+				<button>revoke</button>
+			</div>
+		</div>
+
 		<div class="pure-g">
 			<div class="pure-u-2-3">
 				<div class="card">
@@ -105,26 +126,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div id="bucket-inspector" class="card">
-            <div class="card-body">
-                <h4 id="bucket-id" class="card-title">Bucket 1</h4>
-				<div class="progress-bar"><span id="bucket-progress"></span></div>
-				<span style="
-					font-size: 0.8rem;
-					display: block;
-				"><b>Assigned to </b>: username</span>
-				<span style="
-					font-size: 0.8rem;
-					display: block;
-				"><b>Date</b>: 10-02-2019</span>
-				<span style="
-					font-size: 0.8rem;
-					display: block;
-				"><b>Last heartbeat</b>: 12-02-2019 10:37</span>
-				<button>revoke</button>
-            </div>
 		</div>
 	</section>
 
@@ -244,7 +245,22 @@
 			for(i=0; i<N; i++) {
 				var percentage = Math.random();
 				buckets.push({id:i, percentage: percentage});
-				heatmap.append("<div id='bucket-" + i + "' onclick='load_bucket(" + i +")' style='opacity:" + (0.2 + percentage) + ";'>" + i +  "</div")
+				heatmap.append("<div id='bucket-" + i + "' onclick='load_bucket(" + i +")' style='opacity:" + (0.05 + percentage) + ";'>" + i +  "</div")
+
+				// THIS IS REALLY BAD AND IT SHOULD BE CHANGED SOMEHOW
+				if (percentage > 0.75) {
+					$('#bucket-'+i).addClass('bucket-m-75');
+				}
+				else if(percentage > 0.50) {
+					$('#bucket-'+i).addClass('bucket-m-50');
+				}
+				else if(percentage > 0.25) {
+					$('#bucket-'+i).addClass('bucket-m-25');
+				}
+				else if(percentage <= 0.25) {
+					$('#bucket-'+i).addClass('bucket-l-25');
+				}
+
 			}
 		});
 

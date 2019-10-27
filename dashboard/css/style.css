@@ -144,3 +144,32 @@ section h2 {
     display: none;
     margin-top: 16px; /*temporary hack*/
 }
+
+.not-assigned-bucket {
+    color: gray !important;
+}
+
+.completed-bucket { 
+    color: white !important;
+    background: #3cba9f;
+}
+
+.bucket-m-75 {
+    color: #3cba9f !important;
+}
+
+.bucket-m-50 { 
+    color: orange !important;
+}
+
+.bucket-m-25 {
+    color: #fff48f !important;
+}
+
+.bucket-l-25 {
+    color:red !important;
+}
+
+section {
+    margin-bottom: 24px !important;
+}
