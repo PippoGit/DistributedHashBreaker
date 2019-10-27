@@ -47,6 +47,16 @@ body {
     color: #6c757d !important;
 }
 
+.top-bar img {
+    border: 0;
+    background: #fafbfe;
+    border-radius: 100%;
+    padding: 8px;
+    float: left;
+    height: 107px;
+    margin-right: 20px;
+}
+
 section h2 {
     font-size: 18px;
     /* margin: 0; */
@@ -172,4 +182,21 @@ section h2 {
 
 section {
     margin-bottom: 24px !important;
+}
+
+.info-text {
+    font-size: 0.8rem;
+    display: block;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.info-card-text {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 1.7rem;
 }
