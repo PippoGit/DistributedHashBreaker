@@ -1,0 +1,86 @@
+{
+    "idAttack" : "001",
+    "totalPercentage" : 0.40,
+    "numCollisions" : 1234,
+    "buckets": [
+        {
+            "id": 0,
+            "percentage": 0.23
+        },
+        {
+            "id": 1,
+            "percentage": 0.23
+        },
+        {
+            "id": 2,
+            "percentage": 0.23
+        },
+        {
+            "id": 3,
+            "percentage": 0.23
+        },
+        {
+            "id": 4,
+            "percentage": 0.23
+        },
+        {
+            "id": 5,
+            "percentage": 0.23
+        },
+        {
+            "id": 6,
+            "percentage": 0.23
+        },
+        {
+            "id": 7,
+            "percentage": 0.23
+        },
+        {
+            "id": 8,
+            "percentage": 0.23
+        },
+        {
+            "id": 9,
+            "percentage": 0.23
+        },
+        {
+            "id": 10,
+            "percentage": 0.23
+        },
+        {
+            "id": 11,
+            "percentage": 0.23
+        },
+        {
+            "id": 12,
+            "percentage": 0.23
+        },
+        {
+            "id": 13,
+            "percentage": 0.23
+        },
+        {
+            "id": 14,
+            "percentage": 0.23
+        },
+        {
+            "id": 15,
+            "percentage": 0.23
+        },
+        {
+            "id": 16,
+            "percentage": 0.23
+        },
+        {
+            "id": 17,
+            "percentage": 0.23
+        },
+        {
+            "id": 18,
+            "percentage": 0.23
+        }
+    ],
+    "numAvailableBuckets": 10,
+    "numAssignedBuckets" : 20,
+    "numCompletedBuckets" : 25
+}

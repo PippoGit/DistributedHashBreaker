@@ -38,8 +38,8 @@
 			<div class="pure-u-1">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Attack #001 - progress</h4>
-						<div class="progress-bar"><span style="width:40%">40%</span></div>
+						<h4 class="card-title">Attack <span id="attack-id-label"></span> - progress</h4>
+						<div class="progress-bar"><span id="total-percentage"></span></div>
 						<span class="info-text"><b>Expected time</b>: 2h 30m</span>
 						<canvas id="myChart"></canvas>
 					</div>
@@ -53,7 +53,7 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title align-center">collisions found</h4>
-						<span class="info-card-text"> <i class="fas fa-arrow-up"></i> 1234</span>
+						<span class="info-card-text"> <i class="fas fa-arrow-up"></i> <span id='num-collisions-label'></span></span>
 					</div>
 				</div>
 			</div>
@@ -112,135 +112,7 @@
     <script type="text/javascript" src="js/main.js"></script>
    
    <script>
-        var config = {
-			type: 'line',
-			data: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-				datasets: [{
-					label: 'My First dataset',
-					backgroundColor:"#ec407a",
-					borderColor:"#ec407a",
-					data: [
-						15,
-						115,
-						15,
-						315,
-						145,
-						155,
-						144
-					],
-					fill: false,
-				}, {
-					label: 'My Second dataset',
-					fill: false,
-					backgroundColor: "#536de6",
-					borderColor: "#536de6",
-					data: [
-						123,
-						133,
-						144,
-						122,
-						151,
-						125,
-						145
-					],
-				}]
-			},
-			options: {
-				aspectRatio: 2,
-				responsive: true,
-				title: {
-					display: true,
-					text: 'Some kind of Performance Chart'
-				},
-				tooltips: {
-					mode: 'index',
-					intersect: false,
-				},
-				hover: {
-					mode: 'nearest',
-					intersect: true
-				},
-				scales: {
-					xAxes: [{
-						display: true,
-						scaleLabel: {
-							display: true,
-							labelString: 'Month'
-						}
-					}],
-					yAxes: [{
-						display: true,
-						scaleLabel: {
-							display: true,
-							labelString: 'Value'
-						}
-					}]
-				}
-			}
-		};
-        var ctx = document.getElementById('myChart').getContext('2d');
-		var myChart = new Chart(ctx, config);
-		
-		var bucketAllocationCtx = document.getElementById('bucket-allocation-chart').getContext('2d');
-		var bucketAllocationChart = new Chart(bucketAllocationCtx, {
-			type: 'doughnut',
-			data: {
-				datasets: [{
-					data: [30, 20, 10],
-					backgroundColor: [
-						"#fff48f",
-						"#3cba9f",
-						"#e2eaef"
-					]
-				}],
-
-				// These labels appear in the legend and in the tooltips when hovering different arcs
-				labels: [
-					'Working',
-					'Completed',
-					'Available'
-				]
-			}
-			,
-			options: {
-				legend: {
-					display: true,
-					position: "right"
-				},
-				responsive: true
-			}
-		});
-
-		var buckets = [];
-
-		$( document ).ready(function() {
-			// generate random heatmap
-			var heatmap = $("#heatmap");
-			var N = 35;
-
-			for(i=0; i<N; i++) {
-				var percentage = Math.random();
-				buckets.push({id:i, percentage: percentage});
-				heatmap.append("<div id='bucket-" + i + "' onclick='load_bucket(" + i +")' style='opacity:" + 0.5 + ";'>" + i +  "</div")
-
-				// THIS IS REALLY BAD AND IT SHOULD BE CHANGED SOMEHOW
-				var bucket_style = ['bucket-l-25', 
-									'bucket-m-25',
-									'bucket-m-50',
-									'bucket-m-75'];
-				
-				$('#bucket-'+i).addClass(bucket_style[Math.floor(percentage*4)]);
-			}
-		});
-
-		function load_bucket(bucket) {
-			var percentage = Math.floor(buckets[bucket].percentage * 100);
-			$("#bucket-inspector").slideDown();
-			$("#bucket-id").text("Bucket " + bucket);
-			$("#bucket-progress").css("width", percentage + "%");
-			$("#bucket-progress").text(percentage + "%");
-		}
+        
     </script>
 </body>
 </html>
