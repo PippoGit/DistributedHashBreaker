@@ -46,7 +46,8 @@ var test_configuration = `
         },
         {
             "id": 10,
-            "percentage": 35
+            "percentage": 35,
+            "available" : true
         },
         {
             "id": 11,
@@ -83,25 +84,41 @@ var test_configuration = `
     ],
     "numAvailableBuckets": 10,
     "numWorkingBuckets" : 20,
-    "numCompletedBuckets" : 25
-}
-`;
+    "numCompletedBuckets" : 25,
+    "etc" : "2h 30m"
+}`;
+
+var test_bucket = `
+{
+    "id"             : "id",
+    "percentage"     : 0.0,
+    "idWorker"       : "username",
+    "dateAllocation" : "2016-07-24 19:20:13",
+    "lastHeartbeat"  : "2016-07-25 00:00:00",
+    "available"      : false
+}`;
 
 var current_state = {};
 
 $(document).ready(function() {
     current_state = JSON.parse(test_configuration);
-
     load_state();
-    init_graphs();
-    generate_heatmap();
 });
 
 function load_state() {
+    
+    // Load main GUI elements 
     $("#attack-id-label").text("#" + current_state.idAttack);
     $("#total-percentage").text('' + current_state.totalPercentage + "%");
     $("#total-percentage").css('width', '' + current_state.totalPercentage + "%");
+    $("#etc-label").text(current_state.etc);
     $("#num-collisions-label").text(current_state.numCollisions);
+
+    // Init graphs and buckets stuff
+    init_allocation_chart();
+    generate_heatmap();
+    init_graphs();
+
 }
 
 function generate_heatmap(){
@@ -110,27 +127,47 @@ function generate_heatmap(){
     current_state.buckets.forEach( function(b) {
         var percentage = b.percentage;
         var id = b.id;
-        heatmap.append("<div class='" + bucket_style(percentage) + "' id='bucket-" + id + "' onclick='load_bucket(" + id +")' style='opacity:" + 0.5 + ";'>" + id +  "</div")
+        heatmap.append("<div class='" + bucket_style(b.id) + "' id='bucket-" + b.id + "' onclick='load_bucket(" + b.id +")'>" + b.id +  "</div")
     });
 }
 
-function bucket_style(percentage) {
-
-    if(percentage == 100) return "completed-bucket";
-
+function bucket_style(id) {
+    var percentage = current_state.buckets[id].percentage;
     var bucket_style = ['bucket-l-25', 
                         'bucket-m-25',
                         'bucket-m-50',
                         'bucket-m-75'];
+
+    if(percentage == 100) return "completed-bucket";
+    else if (current_state.buckets[id].available) return "available-bucket";
+
     return bucket_style[Math.floor(percentage/25)]
 }
 
-function load_bucket(bucket) {
-    var percentage = current_state.buckets[bucket].percentage;
+function load_bucket(id) {
+    
+    var bucket = JSON.parse(test_bucket);
+    
+    // temp stuff to be removed...
+    var temp = current_state.buckets[id];
+    bucket.percentage = temp.percentage;
+    bucket.id = temp.id;
+    ////////
+
+    $("#bucket-id").text("Bucket " + bucket.id);
+    $("#bucket-progress").css("width", Math.max(3, bucket.percentage) + "%");
+    $("#bucket-progress").text(bucket.percentage + "%");
+    
+    var idWorker = (bucket.available)?"Not assigned":bucket.idWorker;
+    var dateAllocation = (bucket.available)?"Not assigned":bucket.dateAllocation;
+    var lastHeartbeat = (bucket.available)?"Not assigned":bucket.lastHeartbeat;
+
+
+    $("#bucket-username-label").text(idWorker);
+    $("#bucket-allocation-date-label").text(dateAllocation);
+    $("#bucket-last-heartbeat-label").text(lastHeartbeat);
+    
     $("#bucket-inspector").slideDown();
-    $("#bucket-id").text("Bucket " + bucket);
-    $("#bucket-progress").css("width", percentage + "%");
-    $("#bucket-progress").text(percentage + "%");
 }
 
 function init_graphs() {
@@ -203,8 +240,9 @@ function init_graphs() {
     };
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, config);
-    
-    
+}
+
+function init_allocation_chart() {
     var bucketAllocationCtx = document.getElementById('bucket-allocation-chart').getContext('2d');
     var bucketAllocationChart = new Chart(bucketAllocationCtx, {
         type: 'doughnut',

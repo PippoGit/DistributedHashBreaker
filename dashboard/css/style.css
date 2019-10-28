@@ -149,6 +149,7 @@ section h2 {
     padding-top: 5px;
     float: left;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 #heatmap div:hover {
@@ -161,8 +162,9 @@ section h2 {
     margin-top: 16px; /*temporary hack*/
 }
 
-.not-assigned-bucket {
-    color: gray !important;
+.available-bucket {
+    color: white !important;
+    background: #6c757d;
 }
 
 .completed-bucket { 

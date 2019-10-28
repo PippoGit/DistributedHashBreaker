@@ -40,7 +40,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Attack <span id="attack-id-label"></span> - progress</h4>
 						<div class="progress-bar"><span id="total-percentage"></span></div>
-						<span class="info-text"><b>Expected time</b>: 2h 30m</span>
+						<span class="info-text"><b>Expected time to complete (ETC)</b>: <span id="etc-label"></span></span>
 						<canvas id="myChart"></canvas>
 					</div>
 				</div>
@@ -73,11 +73,11 @@
 
 		<div id="bucket-inspector" class="card">
 			<div class="card-body">
-				<h4 id="bucket-id" class="card-title">Bucket 1</h4>
+				<h4 id="bucket-id" class="card-title"></h4>
 				<div class="progress-bar"><span id="bucket-progress"></span></div>
-				<span class="info-text"><b>Assigned to </b>: username</span>
-				<span class="info-text"><b>Date</b>: 10-02-2019</span>
-				<span class="info-text"><b>Last heartbeat</b>: 12-02-2019 10:37</span>
+				<span class="info-text"><b>Assigned to </b>: <span id="bucket-username-label"></span></span>
+				<span class="info-text"><b>Allocation Date</b>: <span id="bucket-allocation-date-label"></span></span>
+				<span class="info-text"><b>Last heartbeat</b>: <span id="bucket-last-heartbeat-label"></span></span>
 				<p>Some information about this bucket...</p>
 				<button class="button-error"> <i class="fas fa-trash"></i> Revoke</button>
 			</div> 
@@ -110,9 +110,5 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0/dist/Chart.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-   
-   <script>
-        
-    </script>
 </body>
 </html>
