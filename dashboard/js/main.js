@@ -110,7 +110,7 @@ function load_state() {
     // Load main GUI elements 
     $("#attack-id-label").text("#" + current_state.idAttack);
     $("#total-percentage").text('' + current_state.totalPercentage + "%");
-    $("#total-percentage").css('width', '' + current_state.totalPercentage + "%");
+    $("#total-percentage").css('width', '' + Math.max(3, current_state.totalPercentage) + "%");
     $("#etc-label").text(current_state.etc);
     $("#num-collisions-label").text(current_state.numCollisions);
 
