@@ -101,6 +101,11 @@ var test_bucket = `
 var current_state = {};
 
 $(document).ready(function() {
+    
+    $("#heatmap").on("click", "div", function(event){
+        load_bucket($(this).attr('data-id'));
+    });
+    
     current_state = JSON.parse(test_configuration);
     load_state();
 });
@@ -123,11 +128,10 @@ function load_state() {
 
 function generate_heatmap(){
     var heatmap = $("#heatmap");
-
     current_state.buckets.forEach( function(b) {
         var percentage = b.percentage;
-        var id = b.id;
-        heatmap.append("<div class='" + bucket_style(b.id) + "' id='bucket-" + b.id + "' onclick='load_bucket(" + b.id +")'>" + b.id +  "</div")
+        var bucketClass = bucket_style(b.id);
+        heatmap.append("<div data-id='" + b.id + "' class='" + bucketClass + "' id='bucket-" + b.id + "' >" + b.id +  "</div>")
     });
 }
 
