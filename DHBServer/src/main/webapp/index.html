@@ -109,7 +109,7 @@
         
         
             <script type="text/javascript">
-        var webSocket = new WebSocket("ws://localhost:8080/DHBServer/endpoint2");
+        var webSocket = new WebSocket("ws://localhost:8080/DHBServer/test_ep");
 
         var message = "msg";
         webSocket.onopen = function(message){ wsOpen(message);};
@@ -119,6 +119,7 @@
         
         function wsOpen(message){
             console.log("Connected ... \n");
+            webSocket.send("test");
         }
         function wsSendMessage(){
             webSocket.send(message.value);

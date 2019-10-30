@@ -6,7 +6,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.server.ServerEndpoint;
 
 
-@ServerEndpoint("/endpoint2")
+@ServerEndpoint("/test_ep")
 public class WSEndpoint {
 
     @OnOpen
