@@ -2542,3 +2542,199 @@
 30-Oct-2019 20:07:23.107 WARNING [http-nio-8080-exec-46] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
 30-Oct-2019 20:07:23.132 INFO [http-nio-8080-exec-46] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [26] ms
 30-Oct-2019 20:07:23.136 INFO [http-nio-8080-exec-51] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+30-Oct-2019 22:28:08.446 INFO [http-nio-8080-exec-62] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+30-Oct-2019 22:28:08.509 SEVERE [http-nio-8080-exec-62] org.apache.catalina.core.StandardContext.reload Exception starting Context with name [/DHBServer]
+	org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)
+		at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3758)
+		at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1121)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:365)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: java.lang.NoClassDefFoundError: Session
+		at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+		at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+		at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+		at org.apache.tomcat.websocket.pojo.PojoMethodMapping.<init>(PojoMethodMapping.java:86)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:154)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		... 29 more
+	Caused by: java.lang.ClassNotFoundException: Session
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+		... 38 more
+30-Oct-2019 22:28:08.511 INFO [http-nio-8080-exec-62] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+30-Oct-2019 22:28:47.913 INFO [http-nio-8080-exec-61] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+30-Oct-2019 22:28:47.928 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+30-Oct-2019 22:28:47.929 WARNING [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+30-Oct-2019 22:28:47.953 SEVERE [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Error deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:720)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+		at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:631)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:487)
+		at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1642)
+		at jdk.internal.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+		at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+		at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+		at org.apache.catalina.manager.ManagerServlet.check(ManagerServlet.java:1590)
+		at org.apache.catalina.manager.ManagerServlet.deploy(ManagerServlet.java:1019)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:355)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+		... 40 more
+	Caused by: java.lang.NoClassDefFoundError: Session
+		at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+		at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+		at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+		at org.apache.tomcat.websocket.pojo.PojoMethodMapping.<init>(PojoMethodMapping.java:86)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:154)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		... 41 more
+	Caused by: java.lang.ClassNotFoundException: Session
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+		... 50 more
+30-Oct-2019 22:28:47.955 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [27] ms
+30-Oct-2019 22:28:49.619 INFO [http-nio-8080-exec-61] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+30-Oct-2019 22:28:49.631 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+30-Oct-2019 22:28:49.632 WARNING [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+30-Oct-2019 22:28:49.653 SEVERE [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Error deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:720)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+		at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:631)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:487)
+		at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1642)
+		at jdk.internal.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+		at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+		at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+		at org.apache.catalina.manager.ManagerServlet.check(ManagerServlet.java:1590)
+		at org.apache.catalina.manager.ManagerServlet.deploy(ManagerServlet.java:1019)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:355)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+		... 40 more
+	Caused by: java.lang.NoClassDefFoundError: Session
+		at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+		at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+		at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+		at org.apache.tomcat.websocket.pojo.PojoMethodMapping.<init>(PojoMethodMapping.java:86)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:154)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		... 41 more
+	Caused by: java.lang.ClassNotFoundException: Session
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+		... 50 more
+30-Oct-2019 22:28:49.654 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+30-Oct-2019 22:28:53.660 INFO [http-nio-8080-exec-61] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+30-Oct-2019 22:28:53.671 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+30-Oct-2019 22:28:53.671 WARNING [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+30-Oct-2019 22:28:53.711 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [39] ms
+30-Oct-2019 22:28:53.716 INFO [http-nio-8080-exec-65] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+30-Oct-2019 22:29:45.398 INFO [http-nio-8080-exec-79] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+30-Oct-2019 22:29:45.407 INFO [http-nio-8080-exec-74] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+30-Oct-2019 22:29:45.408 WARNING [http-nio-8080-exec-74] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+30-Oct-2019 22:29:45.430 INFO [http-nio-8080-exec-74] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+30-Oct-2019 22:29:45.434 INFO [http-nio-8080-exec-76] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+30-Oct-2019 22:30:08.633 INFO [http-nio-8080-exec-78] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+30-Oct-2019 22:30:08.667 INFO [http-nio-8080-exec-78] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
