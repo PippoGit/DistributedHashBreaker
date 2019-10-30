@@ -1,0 +1,8 @@
+{
+    "id"             : "id",
+    "percentage"     : 0.0,
+    "idWorker"       : "username",
+    "dateAllocation" : "2016-07-24 19:20:13",
+    "lastHeartbeat"  : "2016-07-25 00:00:00",
+    "available"      : false
+}

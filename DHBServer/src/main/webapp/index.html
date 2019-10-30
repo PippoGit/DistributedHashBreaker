@@ -108,37 +108,37 @@
         <script src="js/main.js"></script>
         
         
-            <script type="text/javascript">
-        var webSocket = new WebSocket("ws://localhost:8080/DHBServer/test_ep/bucketid");
+        <script type="text/javascript">
+            var webSocket = new WebSocket("ws://localhost:8080/DHBServer/test_ep/bucketid");
 
-        var message = "msg";
-        webSocket.onopen = function(message){ wsOpen(message);};
-        webSocket.onmessage = function(message){ wsGetMessage(message);};
-        webSocket.onclose = function(message){ wsClose(message);};
-        webSocket.onerror = function(message){ wsError(message);};
-        
-        function wsOpen(message){
-            console.log("Connected ... \n");
-            webSocket.send("test");
-        }
-        function wsSendMessage(){
-            webSocket.send(message.value);
-            console.log("Message sended to the server : " + message.value + "\n");
-            message.value = "";
-        }
-        function wsCloseConnection(){
-            webSocket.close();
-        }
-        function wsGetMessage(message){
-            console.log("Message received from to the server : " + message.data + "\n");
-        }
-        function wsClose(message){
-            console.log("Disconnect ... \n");
-        }
- 
-        function wsError(message){
-            console.log("Error ... \n");
-        }
+            var message = "msg";
+            webSocket.onopen = function(message){ wsOpen(message);};
+            webSocket.onmessage = function(message){ wsGetMessage(message);};
+            webSocket.onclose = function(message){ wsClose(message);};
+            webSocket.onerror = function(message){ wsError(message);};
+
+            function wsOpen(message){
+                console.log("Connected ... \n");
+                webSocket.send("test");
+            }
+            function wsSendMessage(){
+                webSocket.send(message.value);
+                console.log("Message sended to the server : " + message.value + "\n");
+                message.value = "";
+            }
+            function wsCloseConnection(){
+                webSocket.close();
+            }
+            function wsGetMessage(message){
+                console.log("Message received from to the server : " + message.data + "\n");
+            }
+            function wsClose(message){
+                console.log("Disconnect ... \n");
+            }
+
+            function wsError(message){
+                console.log("Error ... \n");
+            }
     </script>
         
     </body>

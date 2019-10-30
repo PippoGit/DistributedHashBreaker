@@ -106,8 +106,14 @@ $(document).ready(function() {
         load_bucket($(this).attr('data-id'));
     });
     
-    current_state = JSON.parse(test_configuration);
-    load_state();
+    var webSocket = new WebSocket("ws://localhost:8080/DHBServer/test_initial_config");
+    webSocket.onopen = function(message) {
+        console.log(message);
+        current_state = JSON.parse(message);
+        load_state();
+    };
+    
+
 });
 
 function load_state() {
