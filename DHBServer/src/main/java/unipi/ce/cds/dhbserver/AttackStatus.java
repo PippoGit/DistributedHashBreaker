@@ -9,9 +9,9 @@ public class AttackStatus {
     
     //Singleton
     private static AttackStatus _instance;
+    private static final int NUM_BUCKETS = 30;
     
-    private String idAttack;
-    private int numBuckets;
+    private String idAttack; // maybe useless?
     
     private double totalPercentage;
     private int numCollisions;
@@ -23,10 +23,9 @@ public class AttackStatus {
     
     Bucket [] buckets;
        
-    public AttackStatus(String idAttack, int numBuckets) {
+    public AttackStatus(String idAttack) {
         this.idAttack = idAttack;
-        this.numBuckets = numBuckets;
-        buckets = new Bucket[numBuckets];
+        buckets = new Bucket[NUM_BUCKETS];
 
         
         // Quick test...
@@ -36,22 +35,17 @@ public class AttackStatus {
         this.numAvailableBuckets = 10;
         this.numWorkingBuckets   = 20;
         this.numCompletedBuckets = 30;
-        randomBuckets();
-    }
-    
-    public void randomBuckets() {
-        for(int i = 0; i < numBuckets; i++) {
+        
+        // GENERATE RANDOM BUCKETS!
+        for(int i = 0; i < NUM_BUCKETS; i++) {
             buckets[i] = new Bucket(""+i, true);
         }
     }
     
     public static AttackStatus getAttackStatus(String idAttack) {
         if(_instance == null) {
-            System.out.println("Costruisco un oggetto status...");
-            _instance = new AttackStatus(idAttack, 20);
+            _instance = new AttackStatus(idAttack);
         }
-        
-        System.out.println("Fornisco lo status...");
         return _instance;
     }
     

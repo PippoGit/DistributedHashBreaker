@@ -7,6 +7,7 @@ package unipi.ce.cds.dhbserver;
 
 import com.google.gson.Gson;
 import java.util.Date;
+import java.util.Random;
 
 public class Bucket {
     private final String id;
@@ -15,6 +16,8 @@ public class Bucket {
     
     private Date dateAllocation;
     private Date lastHeartbeat;
+    private Date dateCompleted;
+    
     private boolean available;
     
     
@@ -22,8 +25,8 @@ public class Bucket {
         this.id = id;
         
         if(randomize) {
-            this.percentage = Math.floor(Math.random()*100);
-            this.idWorker = "Worker #" + (int) Math.floor(Math.random()*100);
+            this.percentage = new Random().nextInt(101);
+            this.idWorker = "Worker #" + new Random().nextInt(101);
             this.available = (Math.random() < 0.05);
             
             this.dateAllocation = new Date();

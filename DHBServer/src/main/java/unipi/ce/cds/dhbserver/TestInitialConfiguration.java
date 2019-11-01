@@ -14,7 +14,6 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/test_initial_config")
 public class TestInitialConfiguration {
-    int N = 20;
     AttackStatus status = AttackStatus.getAttackStatus("001");
     
     @OnMessage
