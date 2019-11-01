@@ -42,4 +42,46 @@ public class Bucket {
         Gson gson = new Gson();
         return gson.toJson(this);
     }
+
+    public double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
+    }
+
+    public Date getDateAllocation() {
+        return dateAllocation;
+    }
+
+    public void setDateAllocation(Date dateAllocation) {
+        this.dateAllocation = dateAllocation;
+    }
+
+    public Date getLastHeartbeat() {
+        return lastHeartbeat;
+    }
+
+    public void setLastHeartbeat(Date lastHeartbeat) {
+        this.lastHeartbeat = lastHeartbeat;
+    }
+
+    public Date getDateCompleted() {
+        return dateCompleted;
+    }
+
+    public void setDateCompleted(Date dateCompleted) {
+        this.dateCompleted = dateCompleted;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    
 }

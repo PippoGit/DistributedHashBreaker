@@ -29,7 +29,7 @@ public class AttackStatus {
 
         
         // Quick test...
-        this.totalPercentage     = 40;
+        this.totalPercentage     = 45;
         this.numCollisions       = 1234;
         this.etc                 = "2h 30m";
         this.numAvailableBuckets = 10;
