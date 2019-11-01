@@ -31,10 +31,10 @@ public class AttackStatus {
         // Quick test...
         this.totalPercentage     = 45;
         this.numCollisions       = 1234;
-        this.etc                 = "2h 30m";
+        this.etc                 = "2h 27m";
         this.numAvailableBuckets = 10;
         this.numWorkingBuckets   = 20;
-        this.numCompletedBuckets = 30;
+        this.numCompletedBuckets = 15;
         
         // GENERATE RANDOM BUCKETS!
         for(int i = 0; i < NUM_BUCKETS; i++) {
