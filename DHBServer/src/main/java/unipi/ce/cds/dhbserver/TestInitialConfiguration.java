@@ -5,37 +5,32 @@
  */
 package unipi.ce.cds.dhbserver;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.google.gson.Gson;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
 import javax.websocket.server.ServerEndpoint;
 
 
 @ServerEndpoint("/test_initial_config")
 public class TestInitialConfiguration {
+    int N = 20;
+    AttackStatus status = AttackStatus.getAttackStatus("001");
     
     @OnMessage
     public String onMessage(String message){
-        System.out.println("Message from the client: " + message);
-        String content;
-        
-        try {
-            content = new String ( Files.readAllBytes( Paths.get("/Users/filipposcotto/Workspace/DistributedHashBreaker/DHBServer/test_config.json") ) );
-        } catch (IOException ex) {
-            Logger.getLogger(TestInitialConfiguration.class.getName()).log(Level.SEVERE, null, ex);
-            content = "{ \"error\": \"An error occured...\"}";
-        }
-        
-        return content;
+        Gson gson = new Gson();
+        return gson.toJson(status);
     }
     
     @OnError
     public void onError(Throwable e){
         e.printStackTrace();
+    }
+
+    @OnOpen
+    public void onOpen() {
+        status = new AttackStatus("001", N);
     }
     
 }
