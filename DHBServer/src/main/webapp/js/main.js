@@ -13,7 +13,7 @@ var bucketAllocationChart,
 $(document).ready(function() {
     build_GUI();    
             
-    var webSocket = new WebSocket("ws://localhost:8080/DHBServer/test_initial_config");
+    var webSocket = new WebSocket(WS_INITIAL_STATUS_ENDPOINT);
     webSocket.onopen = function() {
         webSocket.send("{}");
     };
@@ -65,7 +65,7 @@ function load_bucket(id) {
         return;
     }
        
-    var webSocket = new WebSocket("ws://localhost:8080/DHBServer/bucket");
+    var webSocket = new WebSocket(WS_BUCKET_STATUS_ENDPOINT);
     webSocket.onopen = function() {
         var param = {
             id: id
