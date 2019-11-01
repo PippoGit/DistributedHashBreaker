@@ -16,7 +16,7 @@ import javax.websocket.server.ServerEndpoint;
 
 
 @ServerEndpoint("/bucket")
-public class BucketStatus {
+public class BucketStatusEndPoint {
     AttackStatus status;
     
     @OnMessage

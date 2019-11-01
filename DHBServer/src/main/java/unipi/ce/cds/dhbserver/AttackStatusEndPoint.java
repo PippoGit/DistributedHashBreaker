@@ -12,13 +12,14 @@ import javax.websocket.OnOpen;
 import javax.websocket.server.ServerEndpoint;
 
 
-@ServerEndpoint("/")
+@ServerEndpoint("/attack")
 public class AttackStatusEndPoint {
-    AttackStatus status = AttackStatus.getAttackStatus("001");
+    AttackStatus status;    
     
     @OnMessage
     public String onMessage(String message){
         Gson gson = new Gson();
+        status = AttackStatus.getAttackStatus("001");
         return gson.toJson(status);
     }
     

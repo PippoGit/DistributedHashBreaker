@@ -1,4 +1,4 @@
-/* global WS_BUCKET_STATUS_ENDPOINT, WS_INITIAL_STATUS_ENDPOINT */
+/* global WS_BUCKET_STATUS_ENDPOINT, WS_ATTACK_STATUS_ENDPOINT */
 
 // Status objects
 var current_state  = {},
@@ -20,7 +20,7 @@ var bucketAllocationChart,
 $(document).ready(function() {
     build_GUI();    
             
-    var webSocket = new WebSocket(WS_INITIAL_STATUS_ENDPOINT);
+    var webSocket = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
     webSocket.onopen = function() {
         webSocket.send("{}");
     };
