@@ -960,3 +960,8 @@
 01-Nov-2019 18:38:03.757 INFO [http-nio-8080-exec-68] org.apache.catalina.core.ApplicationContext.log Manager: undeploy: Undeploying web application at '/DHBServer'
 01-Nov-2019 18:38:04.276 INFO [http-nio-8080-exec-62] org.apache.catalina.core.ApplicationContext.log Manager: install: Installing context configuration at 'file:/var/folders/27/bxz5v3hx49bd_bm00kbhw0480000gn/T/context10336569564368807774.xml'
 01-Nov-2019 18:38:04.319 INFO [http-nio-8080-exec-63] org.apache.catalina.core.ApplicationContext.log Manager: start: Starting web application '/DHBServer'
+01-Nov-2019 18:48:18.888 INFO [http-nio-8080-exec-72] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 18:48:18.893 INFO [http-nio-8080-exec-73] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 18:48:18.902 INFO [http-nio-8080-exec-71] org.apache.catalina.core.ApplicationContext.log Manager: undeploy: Undeploying web application at '/DHBServer'
+01-Nov-2019 18:48:19.425 INFO [http-nio-8080-exec-72] org.apache.catalina.core.ApplicationContext.log Manager: install: Installing context configuration at 'file:/var/folders/27/bxz5v3hx49bd_bm00kbhw0480000gn/T/context12830685652926780330.xml'
+01-Nov-2019 18:48:19.511 INFO [http-nio-8080-exec-77] org.apache.catalina.core.ApplicationContext.log Manager: start: Starting web application '/DHBServer'

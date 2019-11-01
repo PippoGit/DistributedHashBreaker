@@ -106,9 +106,9 @@ function update_current_bucket(bucket) {
     bucketProgress.css("width", Math.max(3, current_bucket.percentage) + "%");
     bucketProgress.text(current_bucket.percentage + "%");
 
-    var idWorker = (current_bucket.available)?"Not assigned":current_bucket.idWorker;
+    var idWorker       = (current_bucket.available)?"Not assigned":current_bucket.idWorker;
     var dateAllocation = (current_bucket.available)?"Not assigned":current_bucket.dateAllocation;
-    var lastHeartbeat = (current_bucket.available)?"Not assigned":current_bucket.lastHeartbeat;
+    var lastHeartbeat  = (current_bucket.available)?"Not assigned":current_bucket.lastHeartbeat;
 
     bucketUsernameLabel.text(idWorker);
     bucketAllocationDateLabel.text(dateAllocation);
