@@ -1,13 +1,3 @@
-var test_bucket = `
-{
-    "id"             : "id",
-    "percentage"     : 0.0,
-    "idWorker"       : "username",
-    "dateAllocation" : "2016-07-24 19:20:13",
-    "lastHeartbeat"  : "2016-07-25 00:00:00",
-    "available"      : false
-}`;
-
 // Status objects
 var current_state  = {},
     current_bucket = { id:-1 };

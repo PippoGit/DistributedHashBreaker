@@ -8,7 +8,6 @@ package unipi.ce.cds.dhbserver;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.Gson;
 
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -24,15 +23,10 @@ public class BucketStatus {
     public String onMessage(Session session, String message){
         status = AttackStatus.getAttackStatus("001");
         
-        JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
-        System.out.println(jsonObject.get("id").getAsString()); //John
+        JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();        
+        int id_ = Integer.parseInt(jsonObject.get("id").getAsString());
         
-        String id_ = jsonObject.get("id").getAsString();
-        
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(status));
-        
-        return status.buckets[Integer.parseInt(id_)].JSONStringify();
+        return status.buckets[id_].JSONStringify();
     }
     
     @OnError

@@ -30,7 +30,6 @@ public class TestInitialConfiguration {
 
     @OnOpen
     public void onOpen() {
-        status = new AttackStatus("001", N);
     }
     
 }
