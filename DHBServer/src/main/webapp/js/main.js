@@ -1,13 +1,22 @@
 /* global WS_BUCKET_STATUS_ENDPOINT, WS_ATTACK_STATUS_ENDPOINT */
 
 // Status objects
-var current_state  = {},
-    current_bucket = { id:-1 };
+var current_bucket = { id:-1 };
+    
+var idAttack,
+    totalPercentage,
+    numCollisions,
+    etc,
+    numAvailableBuckets,
+    numWorkingBuckets,
+    numCompletedBuckets,
+    buckets;
+    
 
 // GUI Elements
 var bucketAllocationChart, 
     attackIdLabel,
-    totalPercentage,
+    totalPercentageBar,
     etcLabel,
     numCollisionsLabel,
     bucketIdLabel,
@@ -17,25 +26,47 @@ var bucketAllocationChart,
     bucketLastHeartbeatLabel,
     heatmap;
 
+// Websockets
+var attackStatusWS,
+    bucketStatusWS; // BUCKET STATUS WS IS USELESS!!!!!!
+
 $(document).ready(function() {
     build_GUI();    
             
-    var webSocket = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
-    webSocket.onopen = function() {
-        webSocket.send("{}");
+    attackStatusWS = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
+    attackStatusWS.onopen = function() {
+        attackStatusWS.send("{}");
     };
     
-    webSocket.onmessage = function(event) {
-        current_state = JSON.parse(event.data);
+    attackStatusWS.onmessage = function(event) {
+        var state = JSON.parse(event.data);
+        
+        idAttack            = state.idAttack;
+        totalPercentage     = state.totalPercentage;
+        numCollisions       = state.numCollisions;
+        etc                 = state.etc;
+        
+        numAvailableBuckets = state.numAvailableBuckets;
+        numWorkingBuckets   = state.numWorkingBuckets;
+        numCompletedBuckets = state.numCompletedBuckets;
+        buckets             = state.buckets;
+           
         load_state();
     };
     
-
+    
+    /*
+    bucketStatusWS = new WebSocket(WS_BUCKET_STATUS_ENDPOINT);    
+    bucketStatusWS.onmessage = function(event) {
+        update_current_bucket(JSON.parse(event.data));
+        $("#bucket-inspector").slideDown();
+    };
+    */
 });
 
 function build_GUI() {
     attackIdLabel             = $("#attack-id-label");
-    totalPercentage           = $("#total-percentage");
+    totalPercentageBar        = $("#total-percentage");
     etcLabel                  = $("#etc-label");
     numCollisionsLabel        = $("#num-collisions-label");
     bucketIdLabel             = $("#bucket-id");
@@ -51,18 +82,18 @@ function build_GUI() {
 function load_state() {
     
     // Load main GUI elements 
-    attackIdLabel.text("#" + current_state.idAttack);
-    totalPercentage.text('' + current_state.totalPercentage + "%");
-    totalPercentage.css('width', '' + Math.max(3, current_state.totalPercentage) + "%");
-    etcLabel.text(current_state.etc);
-    numCollisionsLabel.text(current_state.numCollisions);
+    attackIdLabel.text("#" + idAttack);
+    totalPercentageBar.text('' + totalPercentage + "%");
+    totalPercentageBar.css('width', '' + Math.max(3, totalPercentage) + "%");
+    etcLabel.text(etc);
+    numCollisionsLabel.text(numCollisions);
 
     // Init graphs and buckets stuff
-    bucketAllocationChart.init(current_state.numWorkingBuckets, 
-                           current_state.numCompletedBuckets, 
-                           current_state.numAvailableBuckets);
+    bucketAllocationChart.init(numWorkingBuckets, 
+                               numCompletedBuckets, 
+                               numAvailableBuckets);
                            
-    heatmap.init(current_state.buckets);
+    heatmap.init(buckets);
     heatmap.onBucketSelection(function() {
        load_bucket($(this).attr('data-id'));
     });
@@ -78,19 +109,9 @@ function load_bucket(id) {
         current_bucket = {};
         return;
     }
-       
-    var webSocket = new WebSocket(WS_BUCKET_STATUS_ENDPOINT);
-    webSocket.onopen = function() {
-        var param = {
-            id: id
-        };
-        webSocket.send(JSON.stringify(param));
-    };
-    
-    webSocket.onmessage = function(event) {
-        update_current_bucket(JSON.parse(event.data));
-        $("#bucket-inspector").slideDown();
-    };
+    update_current_bucket(buckets[id]);
+    $("#bucket-inspector").slideDown();
+
 }
 
 function update_current_bucket(bucket) {

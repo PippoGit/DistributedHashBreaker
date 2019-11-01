@@ -48,5 +48,69 @@ public class AttackStatus {
         }
         return _instance;
     }
+
+    public String getIdAttack() {
+        return idAttack;
+    }
+
+    public void setIdAttack(String idAttack) {
+        this.idAttack = idAttack;
+    }
+
+    public double getTotalPercentage() {
+        return totalPercentage;
+    }
+
+    public void setTotalPercentage(double totalPercentage) {
+        this.totalPercentage = totalPercentage;
+    }
+
+    public int getNumCollisions() {
+        return numCollisions;
+    }
+
+    public void setNumCollisions(int numCollisions) {
+        this.numCollisions = numCollisions;
+    }
+
+    public String getEtc() {
+        return etc;
+    }
+
+    public void setEtc(String etc) {
+        this.etc = etc;
+    }
+
+    public int getNumAvailableBuckets() {
+        return numAvailableBuckets;
+    }
+
+    public void setNumAvailableBuckets(int numAvailableBuckets) {
+        this.numAvailableBuckets = numAvailableBuckets;
+    }
+
+    public int getNumWorkingBuckets() {
+        return numWorkingBuckets;
+    }
+
+    public void setNumWorkingBuckets(int numWorkingBuckets) {
+        this.numWorkingBuckets = numWorkingBuckets;
+    }
+
+    public int getNumCompletedBuckets() {
+        return numCompletedBuckets;
+    }
+
+    public void setNumCompletedBuckets(int numCompletedBuckets) {
+        this.numCompletedBuckets = numCompletedBuckets;
+    }
+
+    public Bucket[] getBuckets() {
+        return buckets;
+    }
+
+    public void setBuckets(Bucket[] buckets) {
+        this.buckets = buckets;
+    }
     
 }
