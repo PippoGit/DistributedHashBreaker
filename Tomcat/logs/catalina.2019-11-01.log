@@ -1115,3 +1115,55 @@
 01-Nov-2019 15:46:52.441 INFO [http-nio-8080-exec-116] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
 01-Nov-2019 15:46:52.476 INFO [http-nio-8080-exec-116] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
 01-Nov-2019 15:46:52.477 INFO [http-nio-8080-exec-116] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 15:59:42.841 INFO [http-nio-8080-exec-127] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 15:59:42.886 INFO [http-nio-8080-exec-127] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 15:59:42.888 INFO [http-nio-8080-exec-127] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 16:00:20.525 INFO [http-nio-8080-exec-130] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 16:00:20.562 SEVERE [http-nio-8080-exec-130] org.apache.catalina.core.StandardContext.startInternal Error during ServletContainerInitializer processing
+	javax.servlet.ServletException: javax.websocket.DeploymentException: Multiple Endpoints may not be deployed to the same path [/test_initial_config] : existing endpoint was [class unipi.ce.cds.dhbserver.AttackStatusEndPoint] and new endpoint is [class unipi.ce.cds.dhbserver.TestInitialConfiguration]
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:129)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3758)
+		at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1121)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:365)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: javax.websocket.DeploymentException: Multiple Endpoints may not be deployed to the same path [/test_initial_config] : existing endpoint was [class unipi.ce.cds.dhbserver.AttackStatusEndPoint] and new endpoint is [class unipi.ce.cds.dhbserver.TestInitialConfiguration]
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:204)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		... 31 more
+01-Nov-2019 16:00:20.564 SEVERE [http-nio-8080-exec-130] org.apache.catalina.core.StandardContext.startInternal Context [/DHBServer] startup failed due to previous errors
+01-Nov-2019 16:00:20.566 INFO [http-nio-8080-exec-130] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 16:00:41.959 INFO [http-nio-8080-exec-132] org.apache.catalina.util.LifecycleBase.stop The stop() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after stop() had already been called. The second call will be ignored.
+01-Nov-2019 16:00:42.460 INFO [http-nio-8080-exec-132] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 16:00:42.470 INFO [http-nio-8080-exec-124] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 16:00:42.471 WARNING [http-nio-8080-exec-124] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 16:00:42.507 INFO [http-nio-8080-exec-124] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 16:00:42.508 INFO [http-nio-8080-exec-124] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [38] ms
+01-Nov-2019 16:00:42.514 INFO [http-nio-8080-exec-135] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.

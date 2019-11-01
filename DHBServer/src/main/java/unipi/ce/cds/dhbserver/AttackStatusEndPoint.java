@@ -12,8 +12,8 @@ import javax.websocket.OnOpen;
 import javax.websocket.server.ServerEndpoint;
 
 
-@ServerEndpoint("/test_initial_config")
-public class TestInitialConfiguration {
+@ServerEndpoint("/")
+public class AttackStatusEndPoint {
     AttackStatus status = AttackStatus.getAttackStatus("001");
     
     @OnMessage

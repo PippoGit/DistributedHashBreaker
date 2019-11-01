@@ -571,3 +571,52 @@
 01-Nov-2019 15:45:47.566 INFO [http-nio-8080-exec-108] org.apache.catalina.core.ApplicationContext.log Manager: restart: Reloading web application '/DHBServer'
 01-Nov-2019 15:46:52.429 INFO [http-nio-8080-exec-112] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
 01-Nov-2019 15:46:52.441 INFO [http-nio-8080-exec-116] org.apache.catalina.core.ApplicationContext.log Manager: restart: Reloading web application '/DHBServer'
+01-Nov-2019 15:48:25.304 INFO [http-nio-8080-exec-115] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:48:38.167 INFO [http-nio-8080-exec-113] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:49:17.018 INFO [http-nio-8080-exec-109] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:49:46.516 INFO [http-nio-8080-exec-111] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:54:11.338 INFO [http-nio-8080-exec-121] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:55:53.773 INFO [http-nio-8080-exec-129] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:59:42.817 INFO [http-nio-8080-exec-126] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 15:59:42.841 INFO [http-nio-8080-exec-127] org.apache.catalina.core.ApplicationContext.log Manager: restart: Reloading web application '/DHBServer'
+01-Nov-2019 16:00:07.123 INFO [http-nio-8080-exec-123] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 16:00:20.505 INFO [http-nio-8080-exec-126] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 16:00:20.525 INFO [http-nio-8080-exec-130] org.apache.catalina.core.ApplicationContext.log Manager: restart: Reloading web application '/DHBServer'
+01-Nov-2019 16:00:39.759 INFO [http-nio-8080-exec-132] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 16:00:39.770 INFO [http-nio-8080-exec-124] org.apache.catalina.core.ApplicationContext.log Manager: restart: Reloading web application '/DHBServer'
+01-Nov-2019 16:00:39.771 SEVERE [http-nio-8080-exec-124] org.apache.catalina.core.ApplicationContext.log Manager: Error reloading [/DHBServer]
+	java.lang.IllegalStateException: Context with name [/DHBServer] has not yet been started
+		at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3741)
+		at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1121)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:365)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 16:00:41.945 INFO [http-nio-8080-exec-134] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 16:00:41.951 INFO [http-nio-8080-exec-126] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+01-Nov-2019 16:00:41.959 INFO [http-nio-8080-exec-132] org.apache.catalina.core.ApplicationContext.log Manager: undeploy: Undeploying web application at '/DHBServer'
+01-Nov-2019 16:00:42.469 INFO [http-nio-8080-exec-124] org.apache.catalina.core.ApplicationContext.log Manager: install: Installing context configuration at 'file:/var/folders/27/bxz5v3hx49bd_bm00kbhw0480000gn/T/context7842421472461643012.xml'
+01-Nov-2019 16:00:42.514 INFO [http-nio-8080-exec-135] org.apache.catalina.core.ApplicationContext.log Manager: start: Starting web application '/DHBServer'

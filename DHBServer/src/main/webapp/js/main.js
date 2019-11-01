@@ -1,3 +1,5 @@
+/* global WS_BUCKET_STATUS_ENDPOINT, WS_INITIAL_STATUS_ENDPOINT */
+
 // Status objects
 var current_state  = {},
     current_bucket = { id:-1 };
@@ -8,6 +10,11 @@ var bucketAllocationChart,
     totalPercentage,
     etcLabel,
     numCollisionsLabel,
+    bucketIdLabel,
+    bucketProgress,
+    bucketUsernameLabel,
+    bucketAllocationDateLabel,
+    bucketLastHeartbeatLabel,
     heatmap;
 
 $(document).ready(function() {
@@ -27,10 +34,16 @@ $(document).ready(function() {
 });
 
 function build_GUI() {
-    attackIdLabel         = $("#attack-id-label");
-    totalPercentage       = $("#total-percentage");
-    etcLabel              = $("#etc-label");
-    numCollisionsLabel    = $("#num-collisions-label");
+    attackIdLabel             = $("#attack-id-label");
+    totalPercentage           = $("#total-percentage");
+    etcLabel                  = $("#etc-label");
+    numCollisionsLabel        = $("#num-collisions-label");
+    bucketIdLabel             = $("#bucket-id");
+    bucketProgress            = $("#bucket-progress");
+    bucketUsernameLabel       = $("#bucket-username-label");
+    bucketAllocationDateLabel = $("#bucket-allocation-date-label");
+    bucketLastHeartbeatLabel  = $("#bucket-last-heartbeat-label");
+    
     bucketAllocationChart = new BucketAllocationChart('bucket-allocation-chart');
     heatmap               = new BucketsHeatmap('heatmap');
 }
@@ -59,6 +72,7 @@ function load_state() {
 }
 
 function load_bucket(id) {
+    // double selection on a bucket makes bucket section disappear!
     if(current_bucket.id !== undefined && current_bucket.id == id) { 
         $("#bucket-inspector").slideUp();
         current_bucket = {};
@@ -74,21 +88,24 @@ function load_bucket(id) {
     };
     
     webSocket.onmessage = function(event) {
-        current_bucket = JSON.parse(event.data);
-
-        $("#bucket-id").text("Bucket " + current_bucket.id);
-        $("#bucket-progress").css("width", Math.max(3, current_bucket.percentage) + "%");
-        $("#bucket-progress").text(current_bucket.percentage + "%");
-
-        var idWorker = (current_bucket.available)?"Not assigned":current_bucket.idWorker;
-        var dateAllocation = (current_bucket.available)?"Not assigned":current_bucket.dateAllocation;
-        var lastHeartbeat = (current_bucket.available)?"Not assigned":current_bucket.lastHeartbeat;
-
-        $("#bucket-username-label").text(idWorker);
-        $("#bucket-allocation-date-label").text(dateAllocation);
-        $("#bucket-last-heartbeat-label").text(lastHeartbeat);
+        update_current_bucket(JSON.parse(event.data));
         $("#bucket-inspector").slideDown();
     };
+}
+
+function update_current_bucket(bucket) {
+    current_bucket = bucket;
+    bucketIdLabel.text("Bucket " + current_bucket.id);
+    bucketProgress.css("width", Math.max(3, current_bucket.percentage) + "%");
+    bucketProgress.text(current_bucket.percentage + "%");
+
+    var idWorker = (current_bucket.available)?"Not assigned":current_bucket.idWorker;
+    var dateAllocation = (current_bucket.available)?"Not assigned":current_bucket.dateAllocation;
+    var lastHeartbeat = (current_bucket.available)?"Not assigned":current_bucket.lastHeartbeat;
+
+    bucketUsernameLabel.text(idWorker);
+    bucketAllocationDateLabel.text(dateAllocation);
+    bucketLastHeartbeatLabel.text(lastHeartbeat);
 }
 
 function init_graphs() {
