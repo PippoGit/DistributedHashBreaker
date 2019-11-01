@@ -23,7 +23,10 @@ var attackStatusWS;
 $(document).ready(function() {
     current_status = new AttackStatus();
     build_GUI();    
-            
+    
+    // Temporary function to show time-plot (performance)
+    test_chart();
+
     attackStatusWS = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
     attackStatusWS.onopen = function() {
         attackStatusWS.send("{}");
@@ -36,7 +39,7 @@ $(document).ready(function() {
             current_status.updateStatusVariable(k, state[k]);
         });
            
-        load_state();
+        update_GUI();
     };
 });
 
@@ -55,8 +58,7 @@ function build_GUI() {
     heatmap               = new BucketsHeatmap('heatmap');
 }
 
-function load_state() {
-    
+function update_GUI() {
     // Load main GUI elements 
     attackIdLabel.text("#" + current_status.idAttack);
     totalPercentageBar.text('' + current_status.totalPercentage + "%");
@@ -68,14 +70,20 @@ function load_state() {
     bucketAllocationChart.init(current_status.numWorkingBuckets, 
                                current_status.numCompletedBuckets, 
                                current_status.numAvailableBuckets);
-                           
-    heatmap.init(current_status.buckets);
-    heatmap.onBucketSelection(function() {
-       load_bucket($(this).attr('data-id'));
-    });
-            
-    init_graphs();
-
+    
+    // ONLY IF IT'S THE FIRST TIME...
+    if(!heatmap.initialized) {
+        heatmap.init(current_status.buckets);
+        heatmap.onBucketSelection(function() {
+           load_bucket($(this).attr('data-id'));
+        });
+    }
+    else {
+        // Update the buckets
+        current_status.buckets.forEach(function(b) {
+            heatmap.updateBucket(b);
+        });
+    }
 }
 
 function load_bucket(id) {
@@ -105,7 +113,7 @@ function update_current_bucket(bucket) {
     bucketLastHeartbeatLabel.text(lastHeartbeat);
 }
 
-function init_graphs() {
+function test_chart() {
     var config = {
         type: 'line',
         data: {
