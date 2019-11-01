@@ -4539,3 +4539,10 @@
 127.0.0.1 - admin [01/Nov/2019:18:38:04 +0100] "GET /manager/text/start?path=/DHBServer HTTP/1.1" 200 65
 0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:38:04 +0100] "GET /DHBServer HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:38:04 +0100] "GET /DHBServer/attack HTTP/1.1" 101 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /DHBServer/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /DHBServer/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /DHBServer/js/AttackStatus.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /DHBServer/js/main.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /DHBServer/js/BucketAllocationChart.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /DHBServer/attack HTTP/1.1" 101 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2019:18:42:56 +0100] "GET /favicon.ico HTTP/1.1" 200 21630
