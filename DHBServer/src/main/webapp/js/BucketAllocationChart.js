@@ -10,6 +10,8 @@ var BucketAllocationChart = function(ctx){
     this.numWorkingBuckets   = 0;
     this.numCompletedBuckets = 0;
     this.numAvailableBuckets = 0;
+    
+    this.initialized = false;
 };
 
 BucketAllocationChart.prototype.init = function(nw, nc, na) {
@@ -34,6 +36,7 @@ BucketAllocationChart.prototype.init = function(nw, nc, na) {
             responsive: true
         }
     });
+    this.initialized = true;
 };
 
 BucketAllocationChart.prototype.updateNumWorkingBuckets = function(num) {

@@ -132,6 +132,10 @@ section h2 {
     color: white;
     font-weight: bold;
     text-align: center;
+    
+    -webkit-transition: width 1s; /* Safari prior 6.1 */
+    transition: width 1s;
+    
 }
 
 #heatmap {

@@ -67,9 +67,11 @@ function update_GUI() {
     numCollisionsLabel.text(current_status.numCollisions);
 
     // Init graphs and buckets stuff
-    bucketAllocationChart.init(current_status.numWorkingBuckets, 
-                               current_status.numCompletedBuckets, 
-                               current_status.numAvailableBuckets);
+    if(!bucketAllocationChart.initialized) {
+        bucketAllocationChart.init(current_status.numWorkingBuckets, 
+                                   current_status.numCompletedBuckets, 
+                                   current_status.numAvailableBuckets);
+    }
     
     // ONLY IF IT'S THE FIRST TIME...
     if(!heatmap.initialized) {

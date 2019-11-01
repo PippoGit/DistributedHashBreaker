@@ -1943,3 +1943,259 @@
 01-Nov-2019 17:48:39.646 INFO [http-nio-8080-exec-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
 01-Nov-2019 17:48:39.649 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [48] ms
 01-Nov-2019 17:48:39.654 INFO [http-nio-8080-exec-7] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:20:28.147 INFO [http-nio-8080-exec-16] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:20:28.213 INFO [http-nio-8080-exec-16] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:20:28.215 INFO [http-nio-8080-exec-16] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:20:46.279 INFO [http-nio-8080-exec-14] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:20:46.323 INFO [http-nio-8080-exec-14] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:20:46.324 INFO [http-nio-8080-exec-14] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:23:56.319 INFO [http-nio-8080-exec-24] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:23:56.367 INFO [http-nio-8080-exec-24] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:23:56.368 INFO [http-nio-8080-exec-24] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:24:01.893 INFO [http-nio-8080-exec-18] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:24:01.907 INFO [http-nio-8080-exec-11] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:24:01.908 WARNING [http-nio-8080-exec-11] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:24:01.952 INFO [http-nio-8080-exec-11] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:24:01.954 INFO [http-nio-8080-exec-11] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [46] ms
+01-Nov-2019 18:24:01.958 INFO [http-nio-8080-exec-24] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:24:44.335 INFO [http-nio-8080-exec-29] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:24:44.381 INFO [http-nio-8080-exec-29] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:24:44.383 INFO [http-nio-8080-exec-29] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:25:50.430 INFO [http-nio-8080-exec-19] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:25:50.476 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:25:50.477 INFO [http-nio-8080-exec-19] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:26:16.152 INFO [http-nio-8080-exec-33] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:26:16.196 INFO [http-nio-8080-exec-33] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:26:16.198 INFO [http-nio-8080-exec-33] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:28:56.275 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:28:56.286 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:28:56.287 WARNING [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:28:56.340 INFO [http-nio-8080-exec-36] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:28:56.341 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [55] ms
+01-Nov-2019 18:28:56.346 INFO [http-nio-8080-exec-18] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:29:06.286 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+01-Nov-2019 18:29:06.286 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 18:29:06.291 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 18:29:06.299 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 18:29:06.324 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 18:29:06.327 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 18:29:06.328 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 18:29:06.329 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 18:29:12.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 18:29:12.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 18:29:12.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 18:29:12.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 18:29:12.366 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 18:29:12.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 18:29:12.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 18:29:12.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 18:29:12.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 18:29:12.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 18:29:12.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 18:29:12.383 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 18:29:12.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 18:29:12.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 18:29:12.384 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 18:29:12.384 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 18:29:12.709 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 18:29:12.754 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 18:29:12.757 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [718] milliseconds
+01-Nov-2019 18:29:12.809 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 18:29:12.809 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 18:29:12.815 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:29:12.827 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:29:13.211 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:29:13.245 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [429] ms
+01-Nov-2019 18:29:13.246 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 18:29:13.275 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [29] ms
+01-Nov-2019 18:29:13.276 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 18:29:13.314 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [38] ms
+01-Nov-2019 18:29:13.314 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 18:29:13.562 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [248] ms
+01-Nov-2019 18:29:13.562 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 18:29:13.586 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [23] ms
+01-Nov-2019 18:29:13.587 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 18:29:13.609 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [23] ms
+01-Nov-2019 18:29:13.616 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 18:29:13.622 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 18:29:13.628 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [870] milliseconds
+01-Nov-2019 18:29:14.241 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:29:14.258 INFO [http-nio-8080-exec-6] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:29:14.260 WARNING [http-nio-8080-exec-6] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:29:14.309 INFO [http-nio-8080-exec-6] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:29:14.311 INFO [http-nio-8080-exec-6] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [53] ms
+01-Nov-2019 18:29:14.318 INFO [http-nio-8080-exec-10] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:30:25.697 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:30:25.711 INFO [http-nio-8080-exec-17] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:30:25.711 WARNING [http-nio-8080-exec-17] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:30:25.761 INFO [http-nio-8080-exec-17] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:30:25.764 INFO [http-nio-8080-exec-17] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [52] ms
+01-Nov-2019 18:30:25.768 INFO [http-nio-8080-exec-6] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:31:22.991 WARNING [http-nio-8080-exec-9] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-4-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:235)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:31:23.493 INFO [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:31:23.506 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:31:23.508 WARNING [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:31:23.574 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:31:23.577 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [71] ms
+01-Nov-2019 18:31:23.582 INFO [http-nio-8080-exec-20] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:32:02.850 WARNING [http-nio-8080-exec-17] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-7-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:235)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:32:02.850 WARNING [http-nio-8080-exec-17] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-8-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:235)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:32:03.354 INFO [http-nio-8080-exec-17] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:32:03.366 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:32:03.367 WARNING [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:32:03.413 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:32:03.415 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [48] ms
+01-Nov-2019 18:32:03.418 INFO [http-nio-8080-exec-20] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:32:19.793 WARNING [http-nio-8080-exec-17] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-10-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:235)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:32:20.295 INFO [http-nio-8080-exec-17] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:32:20.309 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:32:20.310 WARNING [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:32:20.350 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:32:20.352 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [43] ms
+01-Nov-2019 18:32:20.357 INFO [http-nio-8080-exec-26] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:33:39.110 INFO [http-nio-8080-exec-37] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:33:39.153 INFO [http-nio-8080-exec-37] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:33:39.154 INFO [http-nio-8080-exec-37] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:33:46.686 INFO [http-nio-8080-exec-36] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:33:46.726 INFO [http-nio-8080-exec-36] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:33:46.728 INFO [http-nio-8080-exec-36] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:33:47.924 INFO [http-nio-8080-exec-26] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:33:47.934 INFO [http-nio-8080-exec-30] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:33:47.935 WARNING [http-nio-8080-exec-30] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:33:47.976 INFO [http-nio-8080-exec-30] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:33:47.978 INFO [http-nio-8080-exec-30] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [44] ms
+01-Nov-2019 18:33:47.983 INFO [http-nio-8080-exec-19] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:34:13.551 INFO [http-nio-8080-exec-19] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:34:13.555 WARNING [http-nio-8080-exec-19] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-12-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:34:13.591 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:34:13.592 INFO [http-nio-8080-exec-19] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:34:26.177 WARNING [http-nio-8080-exec-36] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-13-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:34:26.679 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:34:26.693 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:34:26.693 WARNING [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:34:26.744 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:34:26.746 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [52] ms
+01-Nov-2019 18:34:26.750 INFO [http-nio-8080-exec-31] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:35:24.076 INFO [http-nio-8080-exec-36] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:35:24.081 WARNING [http-nio-8080-exec-36] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-14-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:35:24.126 INFO [http-nio-8080-exec-36] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:35:24.127 INFO [http-nio-8080-exec-36] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:35:29.891 INFO [http-nio-8080-exec-37] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:35:29.905 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:35:29.907 WARNING [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:35:29.949 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:35:29.951 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [46] ms
+01-Nov-2019 18:35:29.957 INFO [http-nio-8080-exec-52] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:36:52.895 INFO [http-nio-8080-exec-56] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 18:36:52.900 WARNING [http-nio-8080-exec-56] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-15-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:36:52.947 INFO [http-nio-8080-exec-56] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:36:52.948 INFO [http-nio-8080-exec-56] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 18:37:01.625 INFO [http-nio-8080-exec-54] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:37:01.639 INFO [http-nio-8080-exec-31] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:37:01.639 WARNING [http-nio-8080-exec-31] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:37:01.680 INFO [http-nio-8080-exec-31] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:37:01.681 INFO [http-nio-8080-exec-31] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [42] ms
+01-Nov-2019 18:37:01.686 INFO [http-nio-8080-exec-57] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:37:36.452 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:37:36.462 INFO [http-nio-8080-exec-63] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:37:36.463 WARNING [http-nio-8080-exec-63] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:37:36.505 INFO [http-nio-8080-exec-63] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:37:36.507 INFO [http-nio-8080-exec-63] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [45] ms
+01-Nov-2019 18:37:36.511 INFO [http-nio-8080-exec-61] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 18:38:03.761 WARNING [http-nio-8080-exec-68] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [DHBServer] appears to have started a thread named [pool-19-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@13.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@13.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+ java.base@13.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
+ java.base@13.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@13.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@13.0.1/java.lang.Thread.run(Thread.java:830)
+01-Nov-2019 18:38:04.265 INFO [http-nio-8080-exec-68] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 18:38:04.278 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 18:38:04.278 WARNING [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 18:38:04.314 INFO [http-nio-8080-exec-62] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 18:38:04.315 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [37] ms
+01-Nov-2019 18:38:04.319 INFO [http-nio-8080-exec-63] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
