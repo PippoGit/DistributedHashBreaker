@@ -2,17 +2,8 @@
 
 // Status objects
 var current_bucket = { id:-1 };
+var current_status;
     
-var idAttack,
-    totalPercentage,
-    numCollisions,
-    etc,
-    numAvailableBuckets,
-    numWorkingBuckets,
-    numCompletedBuckets,
-    buckets;
-    
-
 // GUI Elements
 var bucketAllocationChart, 
     attackIdLabel,
@@ -27,10 +18,10 @@ var bucketAllocationChart,
     heatmap;
 
 // Websockets
-var attackStatusWS,
-    bucketStatusWS; // BUCKET STATUS WS IS USELESS!!!!!!
+var attackStatusWS;
 
 $(document).ready(function() {
+    current_status = new AttackStatus();
     build_GUI();    
             
     attackStatusWS = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
@@ -41,27 +32,12 @@ $(document).ready(function() {
     attackStatusWS.onmessage = function(event) {
         var state = JSON.parse(event.data);
         
-        idAttack            = state.idAttack;
-        totalPercentage     = state.totalPercentage;
-        numCollisions       = state.numCollisions;
-        etc                 = state.etc;
-        
-        numAvailableBuckets = state.numAvailableBuckets;
-        numWorkingBuckets   = state.numWorkingBuckets;
-        numCompletedBuckets = state.numCompletedBuckets;
-        buckets             = state.buckets;
+        Object.keys(state).forEach(function(k){
+            current_status.updateStatusVariable(k, state[k]);
+        });
            
         load_state();
     };
-    
-    
-    /*
-    bucketStatusWS = new WebSocket(WS_BUCKET_STATUS_ENDPOINT);    
-    bucketStatusWS.onmessage = function(event) {
-        update_current_bucket(JSON.parse(event.data));
-        $("#bucket-inspector").slideDown();
-    };
-    */
 });
 
 function build_GUI() {
@@ -82,18 +58,18 @@ function build_GUI() {
 function load_state() {
     
     // Load main GUI elements 
-    attackIdLabel.text("#" + idAttack);
-    totalPercentageBar.text('' + totalPercentage + "%");
-    totalPercentageBar.css('width', '' + Math.max(3, totalPercentage) + "%");
-    etcLabel.text(etc);
-    numCollisionsLabel.text(numCollisions);
+    attackIdLabel.text("#" + current_status.idAttack);
+    totalPercentageBar.text('' + current_status.totalPercentage + "%");
+    totalPercentageBar.css('width', '' + Math.max(3, current_status.totalPercentage) + "%");
+    etcLabel.text(current_status.etc);
+    numCollisionsLabel.text(current_status.numCollisions);
 
     // Init graphs and buckets stuff
-    bucketAllocationChart.init(numWorkingBuckets, 
-                               numCompletedBuckets, 
-                               numAvailableBuckets);
+    bucketAllocationChart.init(current_status.numWorkingBuckets, 
+                               current_status.numCompletedBuckets, 
+                               current_status.numAvailableBuckets);
                            
-    heatmap.init(buckets);
+    heatmap.init(current_status.buckets);
     heatmap.onBucketSelection(function() {
        load_bucket($(this).attr('data-id'));
     });
@@ -109,7 +85,7 @@ function load_bucket(id) {
         current_bucket = {};
         return;
     }
-    update_current_bucket(buckets[id]);
+    update_current_bucket(current_status.buckets[id]);
     $("#bucket-inspector").slideDown();
 
 }
