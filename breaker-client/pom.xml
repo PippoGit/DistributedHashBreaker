@@ -3,6 +3,7 @@
   <groupId>it.unipi.ing.cds</groupId>
   <artifactId>breaker-client</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <name>${artifactId}</name>
   <dependencies>
     <dependency>
         <groupId>org.knowm.xchart</groupId>
