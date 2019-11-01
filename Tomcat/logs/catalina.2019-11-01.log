@@ -1,0 +1,786 @@
+01-Nov-2019 10:52:12.673 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 10:52:12.676 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 10:52:12.677 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 10:52:12.678 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 10:52:12.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 10:52:12.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 10:52:12.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 10:52:12.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 10:52:12.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 10:52:12.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 10:52:12.732 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 10:52:13.144 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 10:52:13.177 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 10:52:13.179 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [855] milliseconds
+01-Nov-2019 10:52:13.273 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 10:52:13.273 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 10:52:13.289 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 10:52:13.310 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 10:52:13.667 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [378] ms
+01-Nov-2019 10:52:13.668 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 10:52:13.717 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [49] ms
+01-Nov-2019 10:52:13.718 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 10:52:13.798 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [81] ms
+01-Nov-2019 10:52:13.799 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 10:52:14.144 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [344] ms
+01-Nov-2019 10:52:14.144 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 10:52:14.170 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [26] ms
+01-Nov-2019 10:52:14.170 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 10:52:14.193 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [23] ms
+01-Nov-2019 10:52:14.200 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 10:52:14.221 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 10:52:14.232 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1,052] milliseconds
+01-Nov-2019 10:52:16.388 INFO [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 10:52:16.416 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 10:52:16.417 WARNING [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 10:52:16.444 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [28] ms
+01-Nov-2019 10:52:16.451 INFO [http-nio-8080-exec-4] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 10:53:15.266 INFO [http-nio-8080-exec-5] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 10:53:15.277 INFO [http-nio-8080-exec-12] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 10:53:15.278 WARNING [http-nio-8080-exec-12] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 10:53:15.307 INFO [http-nio-8080-exec-12] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [30] ms
+01-Nov-2019 10:53:15.314 INFO [http-nio-8080-exec-11] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 10:54:31.144 INFO [http-nio-8080-exec-17] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 10:54:31.154 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 10:54:31.155 WARNING [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 10:54:31.178 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [24] ms
+01-Nov-2019 10:54:31.184 INFO [http-nio-8080-exec-11] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 11:09:31.715 INFO [http-nio-8080-exec-28] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 11:09:31.725 INFO [http-nio-8080-exec-32] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 11:09:31.727 WARNING [http-nio-8080-exec-32] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 11:09:31.751 INFO [http-nio-8080-exec-32] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [26] ms
+01-Nov-2019 11:09:31.756 INFO [http-nio-8080-exec-29] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 11:12:52.863 INFO [http-nio-8080-exec-33] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 11:12:52.889 INFO [http-nio-8080-exec-33] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 11:12:54.354 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 11:12:54.369 INFO [http-nio-8080-exec-35] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 11:12:54.370 WARNING [http-nio-8080-exec-35] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 11:12:54.401 INFO [http-nio-8080-exec-35] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [31] ms
+01-Nov-2019 11:12:54.411 INFO [http-nio-8080-exec-38] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 11:13:12.155 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 11:13:12.165 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 11:13:12.165 WARNING [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 11:13:12.206 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [40] ms
+01-Nov-2019 11:13:12.212 INFO [http-nio-8080-exec-42] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 11:13:13.180 INFO [http-nio-8080-exec-24] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 11:13:13.190 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 11:13:13.190 WARNING [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 11:13:13.209 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [18] ms
+01-Nov-2019 11:13:13.214 INFO [http-nio-8080-exec-42] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 11:14:13.547 INFO [http-nio-8080-exec-41] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 11:14:13.556 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 11:14:13.557 WARNING [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 11:14:13.577 INFO [http-nio-8080-exec-36] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [21] ms
+01-Nov-2019 11:14:13.582 INFO [http-nio-8080-exec-38] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 11:37:48.526 INFO [http-nio-8080-exec-53] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 11:37:48.536 INFO [http-nio-8080-exec-52] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 11:37:48.537 WARNING [http-nio-8080-exec-52] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 11:37:48.563 INFO [http-nio-8080-exec-52] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [27] ms
+01-Nov-2019 11:37:48.568 INFO [http-nio-8080-exec-59] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:07:53.230 INFO [http-nio-8080-exec-63] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:07:53.240 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:07:53.241 WARNING [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:07:53.266 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [25] ms
+01-Nov-2019 12:07:53.270 INFO [http-nio-8080-exec-66] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:08:26.822 INFO [http-nio-8080-exec-76] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:08:26.832 INFO [http-nio-8080-exec-72] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:08:26.832 WARNING [http-nio-8080-exec-72] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:08:26.855 INFO [http-nio-8080-exec-72] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+01-Nov-2019 12:08:26.860 INFO [http-nio-8080-exec-71] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:08:54.791 INFO [http-nio-8080-exec-78] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:08:54.801 INFO [http-nio-8080-exec-77] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:08:54.801 WARNING [http-nio-8080-exec-77] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:08:54.822 INFO [http-nio-8080-exec-77] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [20] ms
+01-Nov-2019 12:08:54.826 INFO [http-nio-8080-exec-81] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:09:09.398 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+01-Nov-2019 12:09:09.399 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:09.402 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:09.409 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 12:09:09.423 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:09.425 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:09.426 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:09.427 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:23.951 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 12:09:23.954 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 12:09:23.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 12:09:23.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 12:09:23.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 12:09:23.956 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 12:09:23.956 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 12:09:23.956 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 12:09:23.956 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 12:09:23.956 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:23.956 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:23.973 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 12:09:23.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 12:09:23.975 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 12:09:23.975 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:23.975 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:23.975 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 12:09:23.975 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 12:09:24.208 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:24.234 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:24.236 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [543] milliseconds
+01-Nov-2019 12:09:24.274 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 12:09:24.274 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 12:09:24.281 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:09:24.293 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:09:24.544 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [263] ms
+01-Nov-2019 12:09:24.544 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 12:09:24.568 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [23] ms
+01-Nov-2019 12:09:24.568 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 12:09:24.613 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [45] ms
+01-Nov-2019 12:09:24.614 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 12:09:24.856 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [241] ms
+01-Nov-2019 12:09:24.856 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 12:09:24.873 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [17] ms
+01-Nov-2019 12:09:24.873 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 12:09:24.893 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [20] ms
+01-Nov-2019 12:09:24.898 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:24.905 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:24.908 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [672] milliseconds
+01-Nov-2019 12:09:25.535 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:09:25.554 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:09:25.555 WARNING [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:09:25.583 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [29] ms
+01-Nov-2019 12:09:25.588 INFO [http-nio-8080-exec-10] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:09:52.259 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+01-Nov-2019 12:09:52.259 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:52.262 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:52.269 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 12:09:52.297 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:52.299 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:52.301 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:52.302 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:55.831 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 12:09:55.834 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 12:09:55.834 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:55.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:55.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 12:09:55.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 12:09:55.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 12:09:55.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 12:09:55.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 12:09:55.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 12:09:55.854 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 12:09:56.071 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:56.105 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:56.107 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [450] milliseconds
+01-Nov-2019 12:09:56.138 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 12:09:56.139 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 12:09:56.145 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:09:56.157 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:09:56.372 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [228] ms
+01-Nov-2019 12:09:56.373 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 12:09:56.392 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [19] ms
+01-Nov-2019 12:09:56.392 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 12:09:56.429 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [37] ms
+01-Nov-2019 12:09:56.430 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 12:09:56.625 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [196] ms
+01-Nov-2019 12:09:56.625 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 12:09:56.640 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [15] ms
+01-Nov-2019 12:09:56.640 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 12:09:56.660 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [20] ms
+01-Nov-2019 12:09:56.666 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:09:56.673 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:09:56.679 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [571] milliseconds
+01-Nov-2019 12:09:57.295 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:09:57.310 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:09:57.311 WARNING [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:09:57.337 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [28] ms
+01-Nov-2019 12:09:57.342 INFO [http-nio-8080-exec-2] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:10:13.935 INFO [http-nio-8080-exec-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:10:13.944 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:10:13.945 WARNING [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:10:13.971 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [27] ms
+01-Nov-2019 12:10:13.977 INFO [http-nio-8080-exec-11] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:10:19.229 INFO [http-nio-8080-exec-12] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:10:30.280 INFO [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:10:30.281 WARNING [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:10:30.303 INFO [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+01-Nov-2019 12:10:30.308 INFO [http-nio-8080-exec-12] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:11:14.004 INFO [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:11:14.013 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:11:14.014 WARNING [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:11:14.033 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [20] ms
+01-Nov-2019 12:11:14.038 INFO [http-nio-8080-exec-11] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:15:04.138 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+01-Nov-2019 12:15:04.139 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:04.141 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:04.149 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 12:15:04.165 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:04.166 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:04.167 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:04.168 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:07.523 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 12:15:07.540 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 12:15:07.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:07.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:07.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 12:15:07.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 12:15:07.569 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:07.569 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:07.569 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 12:15:07.569 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 12:15:07.961 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:07.989 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:07.991 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [839] milliseconds
+01-Nov-2019 12:15:08.031 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 12:15:08.031 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 12:15:08.037 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:15:08.050 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:15:08.373 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [335] ms
+01-Nov-2019 12:15:08.373 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 12:15:08.400 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [27] ms
+01-Nov-2019 12:15:08.401 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 12:15:08.454 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [53] ms
+01-Nov-2019 12:15:08.455 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 12:15:08.745 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [291] ms
+01-Nov-2019 12:15:08.747 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 12:15:08.771 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [24] ms
+01-Nov-2019 12:15:08.772 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 12:15:08.795 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [23] ms
+01-Nov-2019 12:15:08.800 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:08.811 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:08.817 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [825] milliseconds
+01-Nov-2019 12:15:10.809 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:15:10.822 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:15:10.824 WARNING [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:15:10.850 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [27] ms
+01-Nov-2019 12:15:10.855 INFO [http-nio-8080-exec-1] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:15:21.458 INFO [Thread-4] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:21.462 INFO [Thread-4] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:21.465 INFO [Thread-4] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 12:15:21.505 INFO [Thread-4] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:21.508 INFO [Thread-4] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:21.510 INFO [Thread-4] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:21.511 INFO [Thread-4] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:59.351 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 12:15:59.355 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 12:15:59.355 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 12:15:59.355 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:59.356 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:59.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 12:15:59.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 12:15:59.372 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 12:15:59.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:59.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:15:59.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 12:15:59.374 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 12:15:59.706 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:15:59.735 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:15:59.737 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [594] milliseconds
+01-Nov-2019 12:15:59.787 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 12:15:59.787 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 12:15:59.795 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:15:59.808 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:16:00.073 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [277] ms
+01-Nov-2019 12:16:00.074 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 12:16:00.096 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [23] ms
+01-Nov-2019 12:16:00.096 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 12:16:00.140 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [43] ms
+01-Nov-2019 12:16:00.140 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 12:16:00.386 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [246] ms
+01-Nov-2019 12:16:00.386 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 12:16:00.404 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [18] ms
+01-Nov-2019 12:16:00.404 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 12:16:00.428 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [22] ms
+01-Nov-2019 12:16:00.435 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:16:00.443 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:16:00.446 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [709] milliseconds
+01-Nov-2019 12:16:01.067 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:16:01.081 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:16:01.082 WARNING [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:16:01.111 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [30] ms
+01-Nov-2019 12:16:01.116 INFO [http-nio-8080-exec-8] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:16:41.753 INFO [http-nio-8080-exec-16] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:16:41.763 INFO [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:16:41.764 WARNING [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:16:41.792 INFO [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [29] ms
+01-Nov-2019 12:16:41.798 INFO [http-nio-8080-exec-15] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:17:14.047 INFO [http-nio-8080-exec-18] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:17:14.057 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:17:14.058 WARNING [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:17:14.080 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+01-Nov-2019 12:17:14.085 INFO [http-nio-8080-exec-22] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:18:42.811 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+01-Nov-2019 12:18:42.811 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:18:42.814 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:18:42.821 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 12:18:42.839 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:18:42.841 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:18:42.842 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:18:42.843 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:19:31.875 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 12:19:31.879 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:19:31.880 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:19:31.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:19:31.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:19:31.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 12:19:31.898 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 12:19:32.136 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:19:32.176 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:19:32.178 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [478] milliseconds
+01-Nov-2019 12:19:32.214 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 12:19:32.214 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 12:19:32.224 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:19:32.237 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:19:32.488 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [263] ms
+01-Nov-2019 12:19:32.488 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 12:19:32.511 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [23] ms
+01-Nov-2019 12:19:32.512 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 12:19:32.554 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [41] ms
+01-Nov-2019 12:19:32.554 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 12:19:32.778 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [224] ms
+01-Nov-2019 12:19:32.778 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 12:19:32.800 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [22] ms
+01-Nov-2019 12:19:32.800 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 12:19:32.825 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [25] ms
+01-Nov-2019 12:19:32.830 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:19:32.840 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:19:32.844 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [665] milliseconds
+01-Nov-2019 12:19:33.468 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:19:33.482 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:19:33.483 WARNING [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:19:33.512 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [29] ms
+01-Nov-2019 12:19:33.517 INFO [http-nio-8080-exec-1] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:21:19.373 INFO [http-nio-8080-exec-16] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:21:19.383 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:21:19.383 WARNING [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:21:19.409 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [26] ms
+01-Nov-2019 12:21:19.414 INFO [http-nio-8080-exec-13] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:21:33.655 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+01-Nov-2019 12:21:33.655 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:21:33.658 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:21:33.665 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2019 12:21:33.683 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:21:33.684 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:21:33.686 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:21:33.687 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:22:06.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+01-Nov-2019 12:22:06.911 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+01-Nov-2019 12:22:06.911 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+01-Nov-2019 12:22:06.911 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2019 12:22:06.911 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+01-Nov-2019 12:22:06.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+01-Nov-2019 12:22:06.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+01-Nov-2019 12:22:06.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+01-Nov-2019 12:22:06.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-Nov-2019 12:22:06.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:22:06.912 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+01-Nov-2019 12:22:06.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+01-Nov-2019 12:22:06.942 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2019 12:22:07.439 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:22:07.487 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:22:07.502 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1,047] milliseconds
+01-Nov-2019 12:22:07.571 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2019 12:22:07.571 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+01-Nov-2019 12:22:07.590 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:22:07.613 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:22:07.958 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [368] ms
+01-Nov-2019 12:22:07.959 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+01-Nov-2019 12:22:07.983 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [24] ms
+01-Nov-2019 12:22:07.984 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+01-Nov-2019 12:22:08.039 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [55] ms
+01-Nov-2019 12:22:08.040 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+01-Nov-2019 12:22:08.298 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [258] ms
+01-Nov-2019 12:22:08.299 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+01-Nov-2019 12:22:08.341 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [41] ms
+01-Nov-2019 12:22:08.341 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+01-Nov-2019 12:22:08.368 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [26] ms
+01-Nov-2019 12:22:08.372 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-Nov-2019 12:22:08.382 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+01-Nov-2019 12:22:08.385 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [881] milliseconds
+01-Nov-2019 12:22:10.928 INFO [http-nio-8080-exec-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:22:10.952 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:22:10.953 WARNING [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:22:10.979 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [27] ms
+01-Nov-2019 12:22:10.985 INFO [http-nio-8080-exec-8] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:23:18.302 INFO [http-nio-8080-exec-8] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:23:18.312 INFO [http-nio-8080-exec-16] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:23:18.313 WARNING [http-nio-8080-exec-16] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:23:18.339 INFO [http-nio-8080-exec-16] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [27] ms
+01-Nov-2019 12:23:18.346 INFO [http-nio-8080-exec-12] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:55:54.848 INFO [http-nio-8080-exec-22] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:55:54.859 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:55:54.860 WARNING [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:55:54.883 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [24] ms
+01-Nov-2019 12:55:54.890 INFO [http-nio-8080-exec-28] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 12:57:30.126 INFO [http-nio-8080-exec-20] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 12:57:30.136 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 12:57:30.136 WARNING [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 12:57:30.158 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [22] ms
+01-Nov-2019 12:57:30.169 INFO [http-nio-8080-exec-34] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:05:17.208 INFO [http-nio-8080-exec-38] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:05:17.244 INFO [http-nio-8080-exec-38] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:05:18.178 INFO [http-nio-8080-exec-43] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:05:18.198 INFO [http-nio-8080-exec-43] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:12:23.003 INFO [http-nio-8080-exec-48] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:12:23.025 INFO [http-nio-8080-exec-48] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:17:33.531 INFO [http-nio-8080-exec-53] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:17:33.541 INFO [http-nio-8080-exec-56] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:17:33.542 WARNING [http-nio-8080-exec-56] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:17:33.563 INFO [http-nio-8080-exec-56] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [22] ms
+01-Nov-2019 13:17:33.568 INFO [http-nio-8080-exec-55] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:19:35.224 INFO [http-nio-8080-exec-66] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:19:35.234 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:19:35.235 WARNING [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:19:35.258 INFO [http-nio-8080-exec-62] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+01-Nov-2019 13:19:35.262 INFO [http-nio-8080-exec-61] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:21:31.610 INFO [http-nio-8080-exec-74] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:21:31.649 INFO [http-nio-8080-exec-74] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:21:43.184 INFO [http-nio-8080-exec-78] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:21:43.201 SEVERE [http-nio-8080-exec-78] org.apache.catalina.core.StandardContext.reload Exception starting Context with name [/DHBServer]
+	org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)
+		at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3758)
+		at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1121)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:365)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: java.lang.NoClassDefFoundError: Session
+		at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+		at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+		at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+		at org.apache.tomcat.websocket.pojo.PojoMethodMapping.<init>(PojoMethodMapping.java:86)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:154)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		... 29 more
+	Caused by: java.lang.ClassNotFoundException: Session
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+		... 38 more
+01-Nov-2019 13:21:43.203 INFO [http-nio-8080-exec-78] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:22:21.800 INFO [http-nio-8080-exec-73] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:22:21.811 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:22:21.812 WARNING [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:22:21.829 SEVERE [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Error deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:720)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+		at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:631)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:487)
+		at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1642)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+		at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+		at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+		at org.apache.catalina.manager.ManagerServlet.check(ManagerServlet.java:1590)
+		at org.apache.catalina.manager.ManagerServlet.deploy(ManagerServlet.java:1019)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:355)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+		... 41 more
+	Caused by: java.lang.NoClassDefFoundError: Session
+		at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+		at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+		at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+		at org.apache.tomcat.websocket.pojo.PojoMethodMapping.<init>(PojoMethodMapping.java:86)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:154)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		... 42 more
+	Caused by: java.lang.ClassNotFoundException: Session
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+		... 51 more
+01-Nov-2019 13:22:21.830 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [19] ms
+01-Nov-2019 13:22:25.435 INFO [http-nio-8080-exec-73] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:22:25.445 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:22:25.446 WARNING [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:22:25.461 SEVERE [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Error deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+	java.lang.IllegalStateException: Error starting child
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:720)
+		at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+		at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+		at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:631)
+		at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:487)
+		at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1642)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+		at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+		at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+		at org.apache.catalina.manager.ManagerServlet.check(ManagerServlet.java:1590)
+		at org.apache.catalina.manager.ManagerServlet.deploy(ManagerServlet.java:1019)
+		at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:355)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:643)
+		at org.apache.catalina.valves.RequestFilterValve.process(RequestFilterValve.java:348)
+		at org.apache.catalina.valves.RemoteAddrValve.invoke(RemoteAddrValve.java:53)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+	Caused by: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]]
+		at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)
+		at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+		... 41 more
+	Caused by: java.lang.NoClassDefFoundError: Session
+		at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+		at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+		at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+		at org.apache.tomcat.websocket.pojo.PojoMethodMapping.<init>(PojoMethodMapping.java:86)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:154)
+		at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:278)
+		at org.apache.tomcat.websocket.server.WsSci.onStartup(WsSci.java:126)
+		at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135)
+		at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+		... 42 more
+	Caused by: java.lang.ClassNotFoundException: Session
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+		... 51 more
+01-Nov-2019 13:22:25.463 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [17] ms
+01-Nov-2019 13:22:30.043 INFO [http-nio-8080-exec-73] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:22:30.062 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:22:30.062 WARNING [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:22:30.084 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+01-Nov-2019 13:22:30.090 INFO [http-nio-8080-exec-70] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:23:02.058 INFO [http-nio-8080-exec-71] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:23:02.069 INFO [http-nio-8080-exec-83] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:23:02.070 WARNING [http-nio-8080-exec-83] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:23:02.092 INFO [http-nio-8080-exec-83] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [23] ms
+01-Nov-2019 13:23:02.097 INFO [http-nio-8080-exec-84] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:23:29.539 INFO [http-nio-8080-exec-83] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:23:29.560 INFO [http-nio-8080-exec-83] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:27:35.809 INFO [http-nio-8080-exec-97] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:27:35.832 INFO [http-nio-8080-exec-97] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:29:03.324 INFO [http-nio-8080-exec-98] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:29:03.346 INFO [http-nio-8080-exec-98] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:31:55.034 INFO [http-nio-8080-exec-86] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:31:55.055 INFO [http-nio-8080-exec-86] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:36:40.982 INFO [http-nio-8080-exec-112] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:36:41.001 INFO [http-nio-8080-exec-112] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:36:45.498 INFO [http-nio-8080-exec-111] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:36:45.511 INFO [http-nio-8080-exec-104] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:36:45.511 WARNING [http-nio-8080-exec-104] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:36:45.533 INFO [http-nio-8080-exec-104] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [21] ms
+01-Nov-2019 13:36:45.538 INFO [http-nio-8080-exec-106] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:37:00.184 INFO [http-nio-8080-exec-106] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:43:23.695 INFO [http-nio-8080-exec-126] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:43:23.696 WARNING [http-nio-8080-exec-126] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:43:23.760 INFO [http-nio-8080-exec-126] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:43:23.764 INFO [http-nio-8080-exec-126] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [68] ms
+01-Nov-2019 13:43:23.770 INFO [http-nio-8080-exec-121] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:43:42.056 INFO [http-nio-8080-exec-126] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:43:42.100 INFO [http-nio-8080-exec-126] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:43:42.102 INFO [http-nio-8080-exec-126] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:43:47.470 INFO [http-nio-8080-exec-125] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:43:47.483 INFO [http-nio-8080-exec-127] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:43:47.483 WARNING [http-nio-8080-exec-127] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:43:47.523 INFO [http-nio-8080-exec-127] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:43:47.526 INFO [http-nio-8080-exec-127] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [44] ms
+01-Nov-2019 13:43:47.532 INFO [http-nio-8080-exec-117] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:46:06.143 INFO [http-nio-8080-exec-131] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:46:06.194 INFO [http-nio-8080-exec-131] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:46:06.195 INFO [http-nio-8080-exec-131] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:46:16.809 INFO [http-nio-8080-exec-138] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:46:16.819 INFO [http-nio-8080-exec-141] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:46:16.819 WARNING [http-nio-8080-exec-141] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:46:16.861 INFO [http-nio-8080-exec-141] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:46:16.862 INFO [http-nio-8080-exec-141] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [43] ms
+01-Nov-2019 13:46:16.867 INFO [http-nio-8080-exec-130] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:46:27.596 INFO [http-nio-8080-exec-145] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:46:27.641 INFO [http-nio-8080-exec-145] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:46:27.643 INFO [http-nio-8080-exec-145] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:47:28.596 INFO [http-nio-8080-exec-147] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:47:28.655 INFO [http-nio-8080-exec-147] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:47:28.657 INFO [http-nio-8080-exec-147] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:47:31.373 INFO [http-nio-8080-exec-156] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:47:31.386 INFO [http-nio-8080-exec-151] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:47:31.387 WARNING [http-nio-8080-exec-151] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:47:31.426 INFO [http-nio-8080-exec-151] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:47:31.427 INFO [http-nio-8080-exec-151] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [41] ms
+01-Nov-2019 13:47:31.431 INFO [http-nio-8080-exec-153] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:47:57.713 INFO [http-nio-8080-exec-167] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:47:57.774 INFO [http-nio-8080-exec-167] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:47:57.775 INFO [http-nio-8080-exec-167] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:47:59.843 INFO [http-nio-8080-exec-164] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:47:59.883 INFO [http-nio-8080-exec-164] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:47:59.884 INFO [http-nio-8080-exec-164] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed
+01-Nov-2019 13:48:01.970 INFO [http-nio-8080-exec-163] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+01-Nov-2019 13:48:01.983 INFO [http-nio-8080-exec-160] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+01-Nov-2019 13:48:01.984 WARNING [http-nio-8080-exec-160] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+01-Nov-2019 13:48:02.025 INFO [http-nio-8080-exec-160] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:48:02.026 INFO [http-nio-8080-exec-160] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [43] ms
+01-Nov-2019 13:48:02.030 INFO [http-nio-8080-exec-165] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+01-Nov-2019 13:48:35.394 INFO [http-nio-8080-exec-175] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] has started
+01-Nov-2019 13:48:35.442 INFO [http-nio-8080-exec-175] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2019 13:48:35.444 INFO [http-nio-8080-exec-175] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/DHBServer] is completed

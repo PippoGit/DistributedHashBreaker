@@ -6,33 +6,31 @@
 package unipi.ce.cds.dhbserver;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
 import javax.websocket.server.ServerEndpoint;
-import sun.security.util.IOUtils;
-
 
 
 @ServerEndpoint("/test_initial_config")
 public class TestInitialConfiguration {
-
-    @OnOpen
-    public String onOpen() throws IOException{
-        String content = new String ( Files.readAllBytes( Paths.get("/Users/filipposcotto/Workspace/DistributedHashBreaker/DHBServer/test_config.json") ) );
-        System.out.println(content);
-        return content;
-    }
-
+    
     @OnMessage
     public String onMessage(String message){
         System.out.println("Message from the client: " + message);
-        String echoMsg = "Echo from the server : " + message;
-        return echoMsg;
+        String content;
+        
+        try {
+            content = new String ( Files.readAllBytes( Paths.get("/Users/filipposcotto/Workspace/DistributedHashBreaker/DHBServer/test_config.json") ) );
+        } catch (IOException ex) {
+            Logger.getLogger(TestInitialConfiguration.class.getName()).log(Level.SEVERE, null, ex);
+            content = "{ \"error\": \"An error occured...\"}";
+        }
+        
+        return content;
     }
     
     @OnError
