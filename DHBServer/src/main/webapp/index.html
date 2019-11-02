@@ -105,41 +105,11 @@
         <!-- INCLUDE SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script> 
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0/dist/Chart.min.js"></script>
+        <script src="js/BucketAllocationChart.js"></script>
+        <script src="js/BucketsHeatmap.js"></script>
+        <script src="js/Parameters.js"></script>
+        <script src="js/AttackStatus.js"></script>
+        
         <script src="js/main.js"></script>
-        
-        
-        <script type="text/javascript">
-            var webSocket = new WebSocket("ws://localhost:8080/DHBServer/test_ep/bucketid");
-
-            var message = "msg";
-            webSocket.onopen = function(message){ wsOpen(message);};
-            webSocket.onmessage = function(message){ wsGetMessage(message);};
-            webSocket.onclose = function(message){ wsClose(message);};
-            webSocket.onerror = function(message){ wsError(message);};
-
-            function wsOpen(message){
-                console.log("Connected ... \n");
-                webSocket.send("test");
-            }
-            function wsSendMessage(){
-                webSocket.send(message.value);
-                console.log("Message sended to the server : " + message.value + "\n");
-                message.value = "";
-            }
-            function wsCloseConnection(){
-                webSocket.close();
-            }
-            function wsGetMessage(message){
-                console.log("Message received from to the server : " + message.data + "\n");
-            }
-            function wsClose(message){
-                console.log("Disconnect ... \n");
-            }
-
-            function wsError(message){
-                console.log("Error ... \n");
-            }
-    </script>
-        
     </body>
 </html>
