@@ -41,20 +41,22 @@ public class Statistics {
 		this.clientGUI = clientGUI;
 	}
 	public void update(int id, ArrayList<byte[]> partialCollisions, long inspected) {
-		
+		// Per thread Statistics
 		PerThreadStatistics tmp = stats.get(id);
 		for(byte[] pc : partialCollisions)
 			tmp.collisions.add(pc);
 		tmp.inspected = inspected;
-	}
-	public void globalUpdate() {
 		
-		for(int i = 0; i < num; i++) {
-			PerThreadStatistics t = stats.get(i);
-			collisions.addAll(t.collisions);
-			inspected += t.inspected;
-			this.executionTime = System.currentTimeMillis() - start;
-		}
+		// Global Statistics
+		collisions.addAll(partialCollisions);
+		this.inspected += inspected;
+		executionTime = System.currentTimeMillis() - start;
+		
+		clientGUI.updatePerThreadStatistics(id, tmp.collisions.size(), inspected);
+	}
+	
+	public void updateGlobal() {
+		clientGUI.updateGlobalStatistics(collisions.size(), inspected);
 	}
 	
 	public ArrayList<byte[]> getCollisions() {

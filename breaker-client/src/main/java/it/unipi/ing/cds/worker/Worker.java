@@ -35,11 +35,14 @@ public class Worker extends Thread{
         mutex = new Semaphore(1);
         this.clientGUI = clientGUI;
         stats = new Statistics(NUMBER_OF_THREADS, clientGUI);
+       
         
     }
     
     public void run() {
     	try {
+    		clientGUI.initPies(NUMBER_OF_THREADS);
+    		clientGUI.initGlobal();
 	    	clientGUI.updateTextLogln(target);
 	    	clientGUI.updateTextLogln("Target length: " + target.length);
 	        
@@ -55,7 +58,7 @@ public class Worker extends Thread{
 	        StatisticsThread statThread = new StatisticsThread(mutex, stats, threads);
 	        statThread.setPriority(Thread.MAX_PRIORITY);
 	        statThread.start();
-	    	
+	        
 	        for (AnalyzerThread thread : threads) 
 	            thread.start();
 	        
@@ -66,7 +69,6 @@ public class Worker extends Thread{
 	        statThread.join();
 	        
 	        // SHOW GLOBAL STATISTICS
-	        stats.globalUpdate();
 	        ArrayList<byte[]> collisions = stats.getCollisions();
 	        clientGUI.updateTextLogln("Global Statistics: Collisions = " + collisions.size() + " Inspected = " + stats.getInspected() + " Execution Time = " + stats.getExecutionTime());
 	        byte[] tmp = null;

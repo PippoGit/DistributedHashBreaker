@@ -12,6 +12,6 @@ public class Parameters {
     public static final int NUM_OF_BUCKETS = (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
     
     public static final String ALGORITHM = "SHA-256";
-    public static final long SLEEP_TIME = 3000;
+    public static final long SLEEP_TIME = 500;
 
 }

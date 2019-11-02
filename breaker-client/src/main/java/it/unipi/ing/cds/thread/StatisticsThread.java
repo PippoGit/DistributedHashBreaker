@@ -30,12 +30,25 @@ public class StatisticsThread extends Thread {
 				mutex.acquire();
 				for(AnalyzerThread t : threads)
 					t.update();
+				stats.updateGlobal();
 				stats.showStatistics();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} finally {
 				 mutex.release();
 			}
+		}
+		// ONE LAST TIME BEFORE THE THREAD TERMINATE
+		try {
+			mutex.acquire();
+			for(AnalyzerThread t : threads)
+				t.update();
+			stats.updateGlobal();
+			stats.showStatistics();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			 mutex.release();
 		}
 	}
 }
