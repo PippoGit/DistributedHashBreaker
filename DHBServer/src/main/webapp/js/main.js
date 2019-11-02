@@ -54,7 +54,7 @@ function build_GUI() {
     bucketAllocationDateLabel = $("#bucket-allocation-date-label");
     bucketLastHeartbeatLabel  = $("#bucket-last-heartbeat-label");
     
-    bucketAllocationChart = new BucketAllocationChart('bucket-allocation-chart');
+    bucketAllocationChart = new BucketAllocationChart('bucket-allocation-chart');    
     heatmap               = new BucketsHeatmap('heatmap');
 }
 
@@ -66,12 +66,10 @@ function update_GUI() {
     etcLabel.text(current_status.etc);
     numCollisionsLabel.text(current_status.numCollisions);
 
-    // Init graphs and buckets stuff
-    if(!bucketAllocationChart.initialized) {
-        bucketAllocationChart.init(current_status.numWorkingBuckets, 
-                                   current_status.numCompletedBuckets, 
-                                   current_status.numAvailableBuckets);
-    }
+    // Update graphs
+    bucketAllocationChart.updateData(current_status.numWorkingBuckets,
+                                     current_status.numCompletedBuckets,
+                                     current_status.numAvailableBuckets);
     
     // ONLY IF IT'S THE FIRST TIME...
     if(!heatmap.initialized) {
@@ -81,7 +79,7 @@ function update_GUI() {
         });
     }
     else {
-        // Update the buckets
+        // Update the buckets heatmap
         current_status.buckets.forEach(function(b) {
             heatmap.updateBucket(b);
         });

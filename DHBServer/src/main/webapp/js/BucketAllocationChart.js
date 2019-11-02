@@ -11,19 +11,26 @@ var BucketAllocationChart = function(ctx){
     this.numCompletedBuckets = 0;
     this.numAvailableBuckets = 0;
     
-    this.initialized = false;
+    this.init();
 };
 
-BucketAllocationChart.prototype.init = function(nw, nc, na) {
-    this.numWorkingBuckets   = nw;
-    this.numCompletedBuckets = nc;
-    this.numAvailableBuckets = na;
+BucketAllocationChart.prototype.updateData = function(nw, nc, na) {
+    this.numWorkingBuckets   = (nw === undefined)?this.numWorkingBuckets  :nw;
+    this.numCompletedBuckets = (nc === undefined)?this.numCompletedBuckets:nc;
+    this.numAvailableBuckets = (na === undefined)?this.numAvailableBuckets:na;
 
+    this._chart.data.datasets[0].data = [this.numWorkingBuckets,
+                                         this.numCompletedBuckets,
+                                         this.numAvailableBuckets];
+    this._chart.update();
+};
+
+BucketAllocationChart.prototype.init = function() {
     this._chart = new Chart(this._ctx, {
         type: 'doughnut',
         data: {
             datasets: [{
-                data: [nw, nc, na],
+                data : [0, 0, 0],
                 backgroundColor: ["#fff48f", "#3cba9f", "#e2eaef"]
             }],
             labels: ['Working', 'Completed', 'Available']
@@ -36,7 +43,6 @@ BucketAllocationChart.prototype.init = function(nw, nc, na) {
             responsive: true
         }
     });
-    this.initialized = true;
 };
 
 BucketAllocationChart.prototype.updateNumWorkingBuckets = function(num) {
