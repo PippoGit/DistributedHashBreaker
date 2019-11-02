@@ -137,3 +137,11 @@
 0:0:0:0:0:0:0:1 - - [02/Nov/2019:15:03:35 +0100] "GET /DHBServer HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [02/Nov/2019:15:03:35 +0100] "GET /DHBServer/js/BucketAllocationChart.js HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [02/Nov/2019:15:03:37 +0100] "GET /DHBServer/attack HTTP/1.1" 101 -
+127.0.0.1 - - [02/Nov/2019:15:06:34 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [02/Nov/2019:15:06:34 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [02/Nov/2019:15:06:34 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [02/Nov/2019:15:06:34 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [02/Nov/2019:15:06:34 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [02/Nov/2019:15:06:34 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [02/Nov/2019:15:06:35 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [02/Nov/2019:15:06:35 +0100] "GET /manager/text/ HTTP/1.1" 200 38

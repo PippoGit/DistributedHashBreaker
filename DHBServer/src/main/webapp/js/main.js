@@ -122,30 +122,14 @@ function test_chart() {
                 label: 'My First dataset',
                 backgroundColor:"#ec407a",
                 borderColor:"#ec407a",
-                data: [
-                    15,
-                    115,
-                    15,
-                    315,
-                    145,
-                    155,
-                    144
-                ],
+                data: [15, 115, 15, 315, 145, 155, 144],
                 fill: false
             }, {
                 label: 'My Second dataset',
                 fill: false,
                 backgroundColor: "#536de6",
                 borderColor: "#536de6",
-                data: [
-                    123,
-                    133,
-                    144,
-                    122,
-                    151,
-                    125,
-                    145
-                ]
+                data: [123, 133, 144, 122, 155, 125, 145]
             }]
         },
         options: {

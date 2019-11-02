@@ -33,7 +33,6 @@ public class AttackStatusEndPoint {
         Runnable task = new Runnable() {
             @Override
             public void run() {
-                // your code here
                 status.setTotalPercentage(status.getTotalPercentage()+10);
                 if(status.getTotalPercentage() >= 100) {
                     status.setTotalPercentage(100);
