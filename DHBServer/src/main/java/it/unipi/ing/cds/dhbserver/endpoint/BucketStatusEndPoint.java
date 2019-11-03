@@ -6,8 +6,8 @@ ONE ENDPOINT IS ENOUGH!
 
 
 */
-package unipi.ce.cds.dhbserver;
-
+package it.unipi.ing.cds.dhbserver.endpoint;
+import it.unipi.ing.cds.dhbserver.resource.AttackStatus;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -25,11 +25,9 @@ public class BucketStatusEndPoint {
     @OnMessage
     public String onMessage(Session session, String message){
         status = AttackStatus.getAttackStatus("001");
-        
         JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();        
         int id_ = Integer.parseInt(jsonObject.get("id").getAsString());
-        
-        return status.buckets[id_].JSONStringify();
+        return status.getBuckets()[id_].JSONStringify();
     }
     
     @OnError

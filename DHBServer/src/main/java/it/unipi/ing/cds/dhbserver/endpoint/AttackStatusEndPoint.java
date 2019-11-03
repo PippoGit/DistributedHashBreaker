@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package unipi.ce.cds.dhbserver;
+package it.unipi.ing.cds.dhbserver.endpoint;
+import it.unipi.ing.cds.dhbserver.resource.AttackStatus;
 
 import com.google.gson.Gson;
 import java.io.IOException;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;

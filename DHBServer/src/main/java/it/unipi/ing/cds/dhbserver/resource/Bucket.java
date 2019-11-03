@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.,
  */
-package unipi.ce.cds.dhbserver;
+package it.unipi.ing.cds.dhbserver.resource;
 
 import com.google.gson.Gson;
 import java.util.Date;
