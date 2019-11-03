@@ -29,7 +29,7 @@ public class Statistics {
 	private long inspected;
 	private long start;
 	
-	public Statistics(int num, ClientGUI clientGUI) {
+	public Statistics(int num) {
 		this.num = num;
 		stats = new HashMap<Integer,PerThreadStatistics>(num);
 		for(int i = 0; i < num; i++)
@@ -38,7 +38,7 @@ public class Statistics {
 		executionTime = 0;
 		inspected = 0;
 		start = System.currentTimeMillis();
-		this.clientGUI = clientGUI;
+		clientGUI = ClientGUI.getInstance();
 	}
 	public void update(int id, ArrayList<byte[]> partialCollisions, long inspected) {
 		// Per thread Statistics
@@ -82,5 +82,8 @@ public class Statistics {
 		for(int i = 0 ; i < num; i++)
 			clientGUI.updateTextLog("Inspected plaintexts: " + stats.get(i).inspected + "\t");
 		clientGUI.updateTextLog("\n");
+	}
+	public void updateClock(int secs) {
+		clientGUI.updateClock(secs);
 	}
 }

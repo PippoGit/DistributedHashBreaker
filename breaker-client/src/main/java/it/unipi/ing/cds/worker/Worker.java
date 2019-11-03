@@ -8,6 +8,7 @@ import java.util.concurrent.Semaphore;
 import it.unipi.ing.cds.gui.ClientGUI;
 import it.unipi.ing.cds.parameters.Parameters;
 import it.unipi.ing.cds.thread.AnalyzerThread;
+import it.unipi.ing.cds.thread.TThread;
 import it.unipi.ing.cds.thread.StatisticsThread;
 import it.unipi.ing.cds.util.Hash;
 import it.unipi.ing.cds.util.Request;
@@ -24,7 +25,7 @@ public class Worker extends Thread{
 	private Statistics stats;
 	private ClientGUI clientGUI;
 	
-    public Worker(ClientGUI clientGUI) {
+    public Worker() {
     	req = new Request();
     	hasher = new Hash();
     	target = req.getTarget();
@@ -33,10 +34,8 @@ public class Worker extends Thread{
         while(2*NUMBER_OF_THREADS <= cores)
         	NUMBER_OF_THREADS*=2;
         mutex = new Semaphore(1);
-        this.clientGUI = clientGUI;
-        stats = new Statistics(NUMBER_OF_THREADS, clientGUI);
-       
-        
+        clientGUI = ClientGUI.getInstance();
+        stats = new Statistics(NUMBER_OF_THREADS);
     }
     
     public void run() {
@@ -51,13 +50,15 @@ public class Worker extends Thread{
 	        List<AnalyzerThread> threads;
 	        
 	    	clientGUI.updateTextLogln("Start Analying bucket Nr. " + bucketNr);
-	    	Worker.sleep(1000);
 	    	
 	    	start = bucketNr*((long)Math.pow(2, Parameters.BUCKET_BITS));
 	    	threads = createAnalyzerThreads(start);
 	        StatisticsThread statThread = new StatisticsThread(mutex, stats, threads);
 	        statThread.setPriority(Thread.MAX_PRIORITY);
 	        statThread.start();
+	        
+	        TThread tThread = new TThread(stats);
+	        tThread.start();
 	        
 	        for (AnalyzerThread thread : threads) 
 	            thread.start();
@@ -67,6 +68,9 @@ public class Worker extends Thread{
 
 	        statThread.stopWorking();
 	        statThread.join();
+	        
+	        tThread.stopWorking();
+	        tThread.join();
 	        
 	        // SHOW GLOBAL STATISTICS
 	        ArrayList<byte[]> collisions = stats.getCollisions();
@@ -90,7 +94,7 @@ public class Worker extends Thread{
         clientGUI.updateTextLogln("Number of cores: " + cores + "\t Number of threads: " + NUMBER_OF_THREADS);
         long plaintextsPerThread = Parameters.BUCKET_SIZE / NUMBER_OF_THREADS;
         for (int i = 0; i < NUMBER_OF_THREADS; i++) {
-            AnalyzerThread thread = new AnalyzerThread(plaintextsPerThread, i, start, target, mutex, stats, clientGUI);
+            AnalyzerThread thread = new AnalyzerThread(plaintextsPerThread, i, start, target, mutex, stats);
             analyzerThreads.add(thread);
         }
         return analyzerThreads;

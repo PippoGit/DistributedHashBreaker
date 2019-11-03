@@ -21,7 +21,7 @@ public class AnalyzerThread extends Thread {
 	
 	private ArrayList<byte[]> collisions;
 
-    public AnalyzerThread(long plaintextsPerThread, int subBucket, long start, byte[] target, Semaphore mutex, Statistics stats, ClientGUI clientGUI) {
+    public AnalyzerThread(long plaintextsPerThread, int subBucket, long start, byte[] target, Semaphore mutex, Statistics stats) {
         this.subBucket = subBucket;
         this.target = target;
         lb = start + subBucket*plaintextsPerThread;
@@ -31,7 +31,7 @@ public class AnalyzerThread extends Thread {
         hasher = new Hash();
         collisions = new ArrayList<byte[]>();
         this.stats = stats;
-        this.clientGUI = clientGUI;
+        clientGUI = ClientGUI.getInstance();
     }
 
     public void run() {

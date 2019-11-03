@@ -31,7 +31,7 @@ public class StatisticsThread extends Thread {
 				for(AnalyzerThread t : threads)
 					t.update();
 				stats.updateGlobal();
-				stats.showStatistics();
+				//stats.showStatistics();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} finally {
@@ -44,7 +44,7 @@ public class StatisticsThread extends Thread {
 			for(AnalyzerThread t : threads)
 				t.update();
 			stats.updateGlobal();
-			stats.showStatistics();
+			//stats.showStatistics();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {

@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import org.knowm.xchart.PieChart;
-import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XChartPanel;
 
 import it.unipi.ing.cds.parameters.Parameters;
@@ -17,6 +16,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
+import java.util.concurrent.Semaphore;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTextArea;
@@ -25,9 +25,11 @@ import java.awt.GridLayout;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout.SequentialGroup;
-import java.util.List;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class ClientGUI extends JFrame {
 
@@ -43,83 +45,118 @@ public class ClientGUI extends JFrame {
 	private PieChart globalPie;
 	private int nThreads;
 	private long lastListSize = 0;
+	private Semaphore mutex;
+	private JLabel execTime;
 
-	public ClientGUI() {
+	private static ClientGUI instance = null;
+	private JTabbedPane tabbedPane;
+	private JTextField textField;
+	
+	public static ClientGUI getInstance() {
+		if(instance == null)
+			instance = new ClientGUI();
+		return instance;
+	}
+	
+	private ClientGUI() {
+		
+		mutex = new Semaphore(1);
+		
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 400, 100);
+		setBounds(100, 100, 486, 272);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		startBtn = new JButton("START");
+		startBtn.setHorizontalTextPosition(SwingConstants.CENTER);
 		startBtn.setFont(new Font("Consolas", Font.PLAIN, 12));
 		startBtn.setBackground(SystemColor.textHighlight);
 		startBtn.setForeground(SystemColor.inactiveCaptionBorder);
 		startBtn.setFocusPainted(false);
 		
+		statPanel = new JPanel();
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		execTime = new JLabel("Execution Time");
+		execTime.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGap(24)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(33)
+					.addComponent(startBtn, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(26)
+					.addComponent(execTime)
+					.addGap(68))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(statPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+						.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
+					.addGap(25))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+								.addComponent(startBtn, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+							.addGap(18))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(execTime)
+							.addGap(18)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(statPanel, GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE))
+		);
+		
+		scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		tabbedPane.addTab("Log", scrollPane);
+		
 		textLog = new JTextArea();
+		scrollPane.setViewportView(textLog);
 		textLog.setEditable(false);
 		textLog.setVisible(false);
 		textLog.setBounds(10, 72, 417, 393);
 		textLog.setLineWrap(true);
 		textLog.setWrapStyleWord(true);
 		
-		statPanel = new JPanel();
-		
-		scrollPane = new JScrollPane(textLog, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		
 		globalStatPanel = new JPanel();
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(164)
-					.addComponent(startBtn, GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-					.addGap(174))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(statPanel, GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
-					.addContainerGap())
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(5)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 208, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(globalStatPanel, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(startBtn, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(globalStatPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-					.addGap(18)
-					.addComponent(statPanel, GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		
-		statPanel.setVisible(false);
+		tabbedPane.addTab("Global Stats", globalStatPanel);
 		globalStatPanel.setVisible(false);
-		contentPane.setLayout(gl_contentPane);
 		scrollPane.setVisible(false);
+		
+		tabbedPane.setVisible(false);
+		statPanel.setVisible(false);
+		contentPane.setLayout(gl_contentPane);
 		
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				setSize(453, 432);
+				tabbedPane.setSelectedIndex(0);
 				startBtn.setEnabled(false);
 				textLog.setVisible(true);
 				scrollPane.setVisible(true);
+				tabbedPane.setVisible(true);
 				
 				contentPane.revalidate();
 				
 				// START THE JOB
-				new Worker(ClientGUI.this).start();
+				new Worker().start();
+				startBtn.setEnabled(true);
 				
 			}
 		});
@@ -169,34 +206,70 @@ public class ClientGUI extends JFrame {
 		globalPie.updatePieSeries("Remaining", (double)(Parameters.BUCKET_SIZE - inspected + lastListSize));
 		globalPie.updatePieSeries("Inspected", (double)(inspected - lastListSize));
 		globalPie.setTitle("Global Stats " + "- " + numberOfCollisions + " collisions found");
-		globalStatPanel.repaint();
+		globalStatPanel.setVisible(false);
+		globalStatPanel.setVisible(true);
 		lastListSize = inspected;
 	}
 	
-	public synchronized void updateTextLog(String str) {
-		textLog.append(str);
+	public void updateClock(int secs) {
+		int hours = secs / 3600;
+		int minutes = (secs % 3600) / 60;
+		int seconds = secs % 60;
+		execTime.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
 	}
-	public synchronized void updateTextLog(byte[] b) {
-	    char[] hexChars = new char[b.length * 2];
-	    for (int j = 0; j < b.length; j++) {
-	        int v = b[j] & 0xFF;
-	        hexChars[j * 2] = HEX_ARRAY[v >>> 4];
-	        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
-	    }
-	   textLog.append(new String(hexChars));
+	
+	public void updateTextLog(String str) {
+		try {
+			mutex.acquire();
+			textLog.append(str);
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			mutex.release();
+		}
 	}
-	public synchronized void updateTextLogln(String str) {
-		textLog.append(str);
-		textLog.append("\n");
+	public void updateTextLog(byte[] b) {
+		try {
+			mutex.acquire();
+		    char[] hexChars = new char[b.length * 2];
+		    for (int j = 0; j < b.length; j++) {
+		        int v = b[j] & 0xFF;
+		        hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+		        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+		    }
+		    textLog.append(new String(hexChars));
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			mutex.release();
+		}
 	}
-	public synchronized void updateTextLogln(byte[] b) {
-	    char[] hexChars = new char[b.length * 2];
-	    for (int j = 0; j < b.length; j++) {
-	        int v = b[j] & 0xFF;
-	        hexChars[j * 2] = HEX_ARRAY[v >>> 4];
-	        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
-	    }
-	   textLog.append(new String(hexChars));
-	   textLog.append("\n");
+	public void updateTextLogln(String str) {
+		try {
+			mutex.acquire();
+			textLog.append(str);
+			textLog.append("\n");
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			mutex.release();
+		}
+	}
+	public void updateTextLogln(byte[] b) {
+		try {
+			mutex.acquire();
+		    char[] hexChars = new char[b.length * 2];
+		    for (int j = 0; j < b.length; j++) {
+		        int v = b[j] & 0xFF;
+		        hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+		        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+		    }
+		   textLog.append(new String(hexChars));
+		   textLog.append("\n");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			mutex.release();
+		}
 	}
 }
