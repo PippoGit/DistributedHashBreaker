@@ -84,6 +84,9 @@ function update_GUI() {
             heatmap.updateBucket(b);
         });
     }
+    
+    // It might be necessary to update current bucket
+    update_current_bucket();
 }
 
 function load_bucket(id) {
@@ -93,13 +96,14 @@ function load_bucket(id) {
         current_bucket = {};
         return;
     }
-    update_current_bucket(current_status.buckets[id]);
+    
+    current_bucket = current_status.buckets[id];
+    update_current_bucket();
     $("#bucket-inspector").slideDown();
-
 }
 
-function update_current_bucket(bucket) {
-    current_bucket = bucket;
+function update_current_bucket() {
+    if(current_bucket === {}) return;
     bucketIdLabel.text("Bucket " + current_bucket.id);
     bucketProgress.css("width", Math.max(3, current_bucket.percentage) + "%");
     bucketProgress.text(current_bucket.percentage + "%");

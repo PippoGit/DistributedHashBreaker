@@ -10,7 +10,6 @@ var BucketAllocationChart = function(ctx){
     this.numWorkingBuckets   = 0;
     this.numCompletedBuckets = 0;
     this.numAvailableBuckets = 0;
-    
     this.init();
 };
 
