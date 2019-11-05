@@ -24,11 +24,10 @@ public class Worker extends Thread{
 	private Semaphore mutex;
 	private Statistics stats;
 	private ClientGUI clientGUI;
+	private String nickname;
 	
-    public Worker() {
-    	req = new Request();
+    public Worker(String nickname) {
     	hasher = new Hash();
-    	target = req.getTarget();
         NUMBER_OF_THREADS = 1;
         cores = Runtime.getRuntime().availableProcessors();
         while(2*NUMBER_OF_THREADS <= cores)
@@ -36,15 +35,19 @@ public class Worker extends Thread{
         mutex = new Semaphore(1);
         clientGUI = ClientGUI.getInstance();
         stats = new Statistics(NUMBER_OF_THREADS);
+        this.nickname = nickname;
     }
     
     public void run() {
     	try {
+	    	req = new Request(nickname);
+	    	target = req.getTarget();
+	    	clientGUI.updateTextLogln(nickname + " joined");
     		clientGUI.initPies(NUMBER_OF_THREADS);
     		clientGUI.initGlobal();
 	    	clientGUI.updateTextLogln(target);
 	    	clientGUI.updateTextLogln("Target length: " + target.length);
-	        
+	    	
 	    	int bucketNr = req.getBucketNr();
 	        long start;
 	        List<AnalyzerThread> threads;

@@ -9,9 +9,12 @@ import it.unipi.ing.cds.parameters.Parameters;
 public class Request {
 	
 	private Hash hasher;
+	private String nickname;
 	
-	public Request() {
+	public Request(String nickname) {
 		hasher = new Hash();
+		this.nickname = nickname;
+		System.out.println(this.nickname + " joined");
 	}
 	
 	public int getBucketNr() {

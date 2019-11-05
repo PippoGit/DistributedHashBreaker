@@ -16,6 +16,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.concurrent.Semaphore;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -64,6 +68,7 @@ public class ClientGUI extends JFrame {
 		
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Distribuited Hash-Breaker");
 		setBounds(100, 100, 486, 272);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
@@ -81,7 +86,21 @@ public class ClientGUI extends JFrame {
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		
-		textField = new JTextField();
+		textField = new JTextField("Insert Nickname here");
+		textField.addFocusListener(new FocusListener() {
+
+			public void focusGained(FocusEvent e) {
+				textField.setText(new String(""));
+				
+			}
+
+			public void focusLost(FocusEvent e) {
+				if(textField.getText().equals(new String("")) || textField.getText().equals(new String("Insert Nickname here"))) {
+					textField.setText(new String("Insert Nickname here"));
+				}
+			}
+			
+		});
 		textField.setColumns(10);
 		
 		execTime = new JLabel("Execution Time");
@@ -145,6 +164,10 @@ public class ClientGUI extends JFrame {
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				if(textField.getText().equals(new String("")) || textField.getText().equals(new String("Insert Nickname here"))) {
+					textField.setText("Insert Nickname here");
+					return;
+				}
 				setSize(453, 432);
 				tabbedPane.setSelectedIndex(0);
 				startBtn.setEnabled(false);
@@ -155,7 +178,8 @@ public class ClientGUI extends JFrame {
 				contentPane.revalidate();
 				
 				// START THE JOB
-				new Worker().start();
+				System.out.println(textField.getText());
+				new Worker(textField.getText()).start();
 				startBtn.setEnabled(true);
 				
 			}
