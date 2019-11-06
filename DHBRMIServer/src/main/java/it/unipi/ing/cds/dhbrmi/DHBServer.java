@@ -74,10 +74,8 @@ public class DHBServer {
         // only if a security manager has been set.
         if (System.getSecurityManager() == null) {
             // java.lang.SecurityManager 
-            System.setProperty("java.security.policy","file:src/security.policy");
+            System.setProperty("java.security.policy","file:src/security.policy"); // I think this is required for macos (?)
             System.setSecurityManager(new SecurityManager());
-            System.out.println("policy : "+System.getProperty("java.security.policy"));
-
         }
         
         startRegistry(MYREGISTRY_PORT);
