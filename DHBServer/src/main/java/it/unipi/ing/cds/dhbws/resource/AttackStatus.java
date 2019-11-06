@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.unipi.ing.cds.dhbserver.resource;
+package it.unipi.ing.cds.dhbws.resource;
 
 public class AttackStatus {
     

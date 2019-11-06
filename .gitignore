@@ -7,3 +7,5 @@ Tomcat/logs/catalina.2019-11-01.log
 .DS_Store
 Tomcat/logs/manager.2019-11-03.log
 Tomcat/logs/localhost_access_log.2019-11-03.txt
+/DHBRMIServer/target/
+/DHBRemoteInterface/target/

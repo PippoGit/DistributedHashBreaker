@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.unipi.ing.cds.dhbserver.endpoint;
-import it.unipi.ing.cds.dhbserver.resource.AttackStatus;
+package it.unipi.ing.cds.dhbws.endpoint;
+import it.unipi.ing.cds.dhbws.resource.AttackStatus;
 
 import com.google.gson.Gson;
 import java.io.IOException;

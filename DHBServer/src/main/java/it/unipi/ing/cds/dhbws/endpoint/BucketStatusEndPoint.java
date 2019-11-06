@@ -6,8 +6,8 @@ ONE ENDPOINT IS ENOUGH!
 
 
 */
-package it.unipi.ing.cds.dhbserver.endpoint;
-import it.unipi.ing.cds.dhbserver.resource.AttackStatus;
+package it.unipi.ing.cds.dhbws.endpoint;
+import it.unipi.ing.cds.dhbws.resource.AttackStatus;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
