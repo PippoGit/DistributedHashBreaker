@@ -7,12 +7,7 @@ package it.unipi.ing.cds.dhbws.endpoint;
 import it.unipi.ing.cds.dhbws.resource.AttackStatus;
 
 import com.google.gson.Gson;
-import it.unipi.ing.cds.dhbrmi.iface.DHBRemoteInterface;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,11 +33,10 @@ public class AttackStatusEndPoint {
     
     private void broadcast() throws IOException {
         final Gson gson = new Gson();
-
+        
         for(Session s: sessions) {
             s.getBasicRemote().sendText(gson.toJson(status));
         }
-            
     }
     
     @OnMessage
@@ -87,31 +81,6 @@ public class AttackStatusEndPoint {
         };
         scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
         ///////////////////////////////////////////////////
-    
-    
-        // TEST
-        String DHBRMIURL = "//" + "127.0.0.1" + ":" + "1099" + "/DHBServer";
-
-        System.out.println("Testing RMI...");
-        DHBRemoteInterface server;
-        try {
-            server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
-            String diom = (server.getStatistics("001"));
-            for(Session s: sessions) {
-                        s.getBasicRemote().sendText(diom);
-                    }
-        } catch (NotBoundException | MalformedURLException | RemoteException ex) {
-            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ////
-        
-
-            
-            
-        ////
-    
     
     }
     

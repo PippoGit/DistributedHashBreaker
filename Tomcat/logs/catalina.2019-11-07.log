@@ -1,0 +1,14 @@
+07-Nov-2019 00:01:20.957 INFO [http-nio-8080-exec-172] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+07-Nov-2019 00:01:20.971 INFO [http-nio-8080-exec-165] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+07-Nov-2019 00:01:20.973 WARNING [http-nio-8080-exec-165] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+07-Nov-2019 00:01:21.037 INFO [http-nio-8080-exec-165] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Nov-2019 00:01:21.039 INFO [http-nio-8080-exec-165] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [68] ms
+07-Nov-2019 00:01:21.043 INFO [http-nio-8080-exec-169] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+07-Nov-2019 00:01:29.275 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+07-Nov-2019 00:01:29.276 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+07-Nov-2019 00:01:29.278 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+07-Nov-2019 00:01:29.284 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+07-Nov-2019 00:01:29.303 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+07-Nov-2019 00:01:29.305 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+07-Nov-2019 00:01:29.306 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+07-Nov-2019 00:01:29.308 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
