@@ -29,7 +29,8 @@ $(document).ready(function() {
 
     attackStatusWS = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
     attackStatusWS.onopen = function() {
-        attackStatusWS.send("{}");
+        // attackStatusWS.send("{}");
+        console.log("Subscribed to ws");
     };
     
     attackStatusWS.onmessage = function(event) {

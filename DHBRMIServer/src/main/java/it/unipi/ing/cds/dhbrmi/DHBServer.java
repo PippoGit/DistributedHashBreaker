@@ -33,11 +33,9 @@ public class DHBServer {
         try {
             //a servant object is created
             DHBRemoteInterface c = new DHBRemoteObj();
-//            //next: binding to the rmiregistry
+            //next: binding to the rmiregistry
             Naming.rebind("//"+MYREGISTRY_HOST+":"+Integer.toString(MYREGISTRY_PORT)+"/"+DHBServer.servantName, c);
-            //Naming.rebind("//"+MYREGISTRY_HOST+":"+Integer.toString(REGISTRY_PORT)+"/"+"Mickey", c);
 
-            
             //alternative way, which is mandatory in case CalcRemoteObject 
             //would not extend UnicastRemoteObject, as it actually does.
 //            try {
@@ -68,7 +66,6 @@ public class DHBServer {
 
     
     public static void main(String[] args) throws Exception {
-        
         // Remember:
         // RMI's class loader will download classes from remote locations 
         // only if a security manager has been set.
@@ -82,8 +79,5 @@ public class DHBServer {
                        
         //the server is set up
         DHBServer dhbServer = new DHBServer();
-        // QUESTION: Why the server keeps running, 
-        // even if it reaches this "terminal" point?
-        
     }
 }

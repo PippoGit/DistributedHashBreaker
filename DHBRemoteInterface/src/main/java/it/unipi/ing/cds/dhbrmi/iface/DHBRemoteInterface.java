@@ -11,5 +11,5 @@ import java.rmi.RemoteException;
 public interface DHBRemoteInterface extends Remote {
     public double getBucket(String userId)       throws RemoteException;
     public void   putStatistics(String test)     throws RemoteException;
-    public void   getStatistics(String idAttack) throws RemoteException;
+    public String getStatistics(String idAttack) throws RemoteException;
 }
