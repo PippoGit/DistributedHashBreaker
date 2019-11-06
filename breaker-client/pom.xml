@@ -10,5 +10,10 @@
         <artifactId>xchart</artifactId>
         <version>3.6.0</version>
     </dependency>
+    <dependency>
+      <groupId>unipi.ce.cds</groupId>
+      <artifactId>DHBRemoteInterface</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

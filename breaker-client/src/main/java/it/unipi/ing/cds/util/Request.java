@@ -6,10 +6,20 @@ import java.util.logging.Logger;
 
 import it.unipi.ing.cds.parameters.Parameters;
 
+import it.unipi.ing.cds.dhbrmi.iface.DHBRemoteInterface;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
+
 public class Request {
 	
 	private Hash hasher;
 	private String nickname;
+        
+         private static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
+         private static final String MYREGISTRY_HOST = "127.0.0.1";
 	
 	public Request(String nickname) {
 		hasher = new Hash();
@@ -18,6 +28,29 @@ public class Request {
 	}
 	
 	public int getBucketNr() {
+            
+            // TEST
+            String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
+            
+            try { 
+                
+                System.out.println("Testing RMI...");
+                DHBRemoteInterface server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
+                double bucket = server.getBucket(nickname);
+                System.out.println("Received " + bucket);
+                
+            } catch (NotBoundException ex) {
+                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (RemoteException ex) {
+                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            ////
+            
+            
 		return (int) Math.floor(Math.random()*Parameters.NUM_OF_BUCKETS);
 	}
 	
