@@ -8,9 +8,6 @@ import it.unipi.ing.cds.dhbws.resource.AttackStatus;
 
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -29,15 +26,6 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/attack")
 public class AttackStatusEndPoint {
     final private AttackStatus status = AttackStatus.getAttackStatus("001");
-    List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
-    
-    private void broadcast() throws IOException {
-        final Gson gson = new Gson();
-        
-        for(Session s: sessions) {
-            s.getBasicRemote().sendText(gson.toJson(status));
-        }
-    }
     
     @OnMessage
     public String onMessage(final Session session, String message){
@@ -59,27 +47,27 @@ public class AttackStatusEndPoint {
         } catch (IOException ex) {
             Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
         }
-        sessions.add(session);
+        status.getSessions().add(session);
         
         
         // THIS IS JUST A TEST FOR REAL TIME UPDATES!!!!!!!
-        final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
-                status.setTotalPercentage(status.getTotalPercentage()+10);
-                if(status.getTotalPercentage() >= 100) {
-                    status.setTotalPercentage(100);
-                    scheduler.shutdown();
-                }
-                try {
-                    broadcast();
-                } catch (IOException ex) {
-                    Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        };
-        scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
+        //final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+        //Runnable task = new Runnable() {
+        //    @Override
+        //    public void run() {
+        //        status.setTotalPercentage(status.getTotalPercentage()+10);
+        //        if(status.getTotalPercentage() >= 100) {
+        //            status.setTotalPercentage(100);
+        //            scheduler.shutdown();
+        //        }
+        //        try {
+        //            broadcast();
+        //        } catch (IOException ex) {
+        //            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
+        //        }
+        //    }
+        //};
+        //scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
         ///////////////////////////////////////////////////
     
     }
@@ -87,7 +75,7 @@ public class AttackStatusEndPoint {
     @OnClose
     public void onClose(Session session) {
         System.out.println("Connection closed.");
-        sessions.remove(session);
+        status.getSessions().remove(session);
     }
     
 }

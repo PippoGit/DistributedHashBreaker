@@ -5,13 +5,14 @@
  */
 package it.unipi.ing.cds.dhbws.resource;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.websocket.Session;
 
 public class AttackStatus {
     //Callback stuff???
-    private static List<Session> _sessions = null; // TO BE ACTUALLY DEFINED!
-    
+    private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
     
     //Singleton
     private static AttackStatus _instance;
@@ -117,6 +118,10 @@ public class AttackStatus {
 
     public void setBuckets(Bucket[] buckets) {
         this.buckets = buckets;
+    }
+    
+    public List<Session> getSessions() {
+        return sessions;
     }
     
 }
