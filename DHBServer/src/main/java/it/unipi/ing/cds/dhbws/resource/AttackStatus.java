@@ -5,7 +5,13 @@
  */
 package it.unipi.ing.cds.dhbws.resource;
 
+import java.util.List;
+import javax.websocket.Session;
+
 public class AttackStatus {
+    //Callback stuff???
+    private static List<Session> _sessions = null; // TO BE ACTUALLY DEFINED!
+    
     
     //Singleton
     private static AttackStatus _instance;
