@@ -9,9 +9,11 @@ import it.unipi.ing.cds.dhbws.resource.AttackStatus;
 import com.google.gson.Gson;
 import java.io.IOException;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+// Timeout stuff...
+//import java.util.concurrent.Executors;
+//import java.util.concurrent.ScheduledExecutorService;
+//import java.util.concurrent.TimeUnit;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.OnClose;
@@ -48,7 +50,6 @@ public class AttackStatusEndPoint {
             Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
         }
         status.getSessions().add(session);
-        
         
         /* ********************** TEST FOR REAL TIME UPDATES *********************
         final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
