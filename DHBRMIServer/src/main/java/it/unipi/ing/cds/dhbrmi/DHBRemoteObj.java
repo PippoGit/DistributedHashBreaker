@@ -20,7 +20,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     // Resources for the RMI Server
     double [] buckets;
     
-    // Stuff to send data to Tomcat
+    // Stuff to send data to Tomcat 
     private final static String NOTIFY_ENDPOINT = "ws://localhost:8080/DHBServer/notify";
     private DHBWebSocketClient wsTomcat;
     

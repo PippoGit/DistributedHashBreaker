@@ -24,7 +24,6 @@ public class Notify {
     
     private void broadcast() throws IOException {
         final Gson gson = new Gson();
-        
         for(Session s: status.getSessions()) {
             s.getBasicRemote().sendText(gson.toJson(status));
         }

@@ -135,3 +135,15 @@
 0:0:0:0:0:0:0:1 - - [07/Nov/2019:14:16:44 +0100] "GET /DHBServer/ HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [07/Nov/2019:14:16:45 +0100] "GET /DHBServer/attack HTTP/1.1" 101 -
 0:0:0:0:0:0:0:1 - - [07/Nov/2019:14:16:45 +0100] "GET /favicon.ico HTTP/1.1" 200 21630
+127.0.0.1 - - [07/Nov/2019:14:59:48 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [07/Nov/2019:14:59:48 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [07/Nov/2019:14:59:48 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [07/Nov/2019:14:59:48 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [07/Nov/2019:14:59:48 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [07/Nov/2019:14:59:48 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [07/Nov/2019:14:59:49 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [07/Nov/2019:14:59:49 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [07/Nov/2019:14:59:50 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [07/Nov/2019:14:59:50 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [07/Nov/2019:14:59:51 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [07/Nov/2019:14:59:51 +0100] "GET /manager/text/ HTTP/1.1" 200 38
