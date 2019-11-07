@@ -50,25 +50,25 @@ public class AttackStatusEndPoint {
         status.getSessions().add(session);
         
         
-        // THIS IS JUST A TEST FOR REAL TIME UPDATES!!!!!!!
-        //final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-        //Runnable task = new Runnable() {
-        //    @Override
-        //    public void run() {
-        //        status.setTotalPercentage(status.getTotalPercentage()+10);
-        //        if(status.getTotalPercentage() >= 100) {
-        //            status.setTotalPercentage(100);
-        //            scheduler.shutdown();
-        //        }
-        //        try {
-        //            broadcast();
-        //        } catch (IOException ex) {
-        //            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
-        //        }
-        //    }
-        //};
-        //scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
-        ///////////////////////////////////////////////////
+        /* ********************** TEST FOR REAL TIME UPDATES *********************
+        final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+        Runnable task = new Runnable() {
+            @Override
+            public void run() {
+                status.setTotalPercentage(status.getTotalPercentage()+10);
+                if(status.getTotalPercentage() >= 100) {
+                    status.setTotalPercentage(100);
+                    scheduler.shutdown();
+                }
+                try {
+                    broadcast();
+                } catch (IOException ex) {
+                    Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
+        ********************** TEST FOR REAL TIME UPDATES ********************* */
     
     }
     
