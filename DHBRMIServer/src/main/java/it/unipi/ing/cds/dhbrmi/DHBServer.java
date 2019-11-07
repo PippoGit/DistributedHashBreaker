@@ -13,7 +13,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class DHBServer {
-    
     //the default port for rmiregistry is 1099;
     //instead, by default connections to remote objects are on random ports
     //(otherwise specified in the export command)
