@@ -10,6 +10,8 @@ import it.unipi.ing.cds.dhbws.resource.AttackStatusRes;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
@@ -41,6 +43,16 @@ public class Notify {
             Logger.getLogger(Notify.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "200";
+    }
+    
+    @OnError
+    public void onError(Throwable e){
+        e.printStackTrace();        
+    }
+    
+    @OnClose
+    public void onClose(Session session) {
+        System.out.println("Connection closed.");
     }
     
 }

@@ -45,15 +45,13 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     public DHBRemoteObj() throws RemoteException {
         super();
-        // initState();
+        idAttack = "0";
         
         try {
             // Connect to Tomcat...
             System.out.println("Connecting to Tomcat WebServer...");
             wsTomcat = new DHBWebSocketClient(NOTIFY_ENDPOINT);
-            
-            // Send current status only if attack is planned
-            // wsTomcat.sendText(getCurrentStateJSON());
+            System.out.println("Connected!");
         } catch (DeploymentException | IOException ex) {
             Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,7 +60,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     private void initState() {
         buckets = new double[NUM_BUCKETS];
-        this.idAttack            = "001";
+        //this.idAttack            = "001";
         this.totalPercentage     = 45;
         this.numCollisions       = 1234;
         this.etc                 = "2h 27m";
@@ -86,12 +84,15 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
         JsonArray jbuckets = new JsonArray();
         for(int i=0; i<NUM_BUCKETS; i++) {
             JsonObject bucket = new JsonObject();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        
+            // JUST A TEST HERE!
             bucket.addProperty("percentage", new Random().nextInt(101));
             bucket.addProperty("idWorker", "" + new Random().nextInt(101));
             bucket.addProperty("available", (Math.random() < 0.05));
-            bucket.addProperty("dateAllocation", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
-            bucket.addProperty("lastHeartbeat", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
-            bucket.addProperty("dateCompleted", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
+            bucket.addProperty("dateAllocation", dateFormat.format(new Date()));
+            bucket.addProperty("lastHeartbeat", dateFormat.format(new Date()));
+            bucket.addProperty("dateCompleted", dateFormat.format(new Date()));
             jbuckets.add(bucket);
         }
         state.add("buckets", jbuckets);
@@ -109,6 +110,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     @Override
     public double getBucket(String userId) throws RemoteException {
         System.out.println("New request from " + userId);
+        this.numAvailableBuckets -= 1;
+        this.numWorkingBuckets   += 1;
         
         // JUST A TEST HERE!
         this.etc = userId;
@@ -124,13 +127,13 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
 
     @Override
     public String getStatistics(String idAttack) throws RemoteException {
-        return "Test";
+        throw new UnsupportedOperationException("Not supported yet.");
     }    
 
     @Override
     public String planAttack(String hash) throws RemoteException {
         buckets = new double[NUM_BUCKETS];
-        this.idAttack            = "";
+        this.idAttack            = String.format("%03d", (Integer.parseInt(idAttack)+1));
         this.totalPercentage     = 0;
         this.numCollisions       = 0;
         this.etc                 = "tbd";

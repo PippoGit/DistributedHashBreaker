@@ -58,9 +58,10 @@ public class BucketRes {
         this.available = jsonObject.get("available").getAsBoolean();
         
         try {
-            this.dateAllocation = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").parse(jsonObject.get("dateAllocation").getAsString());
-            this.lastHeartbeat  = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").parse(jsonObject.get("lastHeartbeat").getAsString());
-            this.dateCompleted  = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").parse(jsonObject.get("dateCompleted").getAsString());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            this.dateAllocation = dateFormat.parse(jsonObject.get("dateAllocation").getAsString());
+            this.lastHeartbeat  = dateFormat.parse(jsonObject.get("lastHeartbeat").getAsString());
+            this.dateCompleted  = dateFormat.parse(jsonObject.get("dateCompleted").getAsString());
         } catch (ParseException ex) {
             Logger.getLogger(BucketRes.class.getName()).log(Level.SEVERE, null, ex);
         }
