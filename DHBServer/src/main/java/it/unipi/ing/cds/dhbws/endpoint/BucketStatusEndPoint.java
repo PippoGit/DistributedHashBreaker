@@ -7,7 +7,7 @@ ONE ENDPOINT IS ENOUGH!
 
 */
 package it.unipi.ing.cds.dhbws.endpoint;
-import it.unipi.ing.cds.dhbws.resource.AttackStatus;
+import it.unipi.ing.cds.dhbws.resource.AttackStatusRes;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -20,11 +20,11 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/bucket")
 public class BucketStatusEndPoint {
-    AttackStatus status;
+    AttackStatusRes status;
     
     @OnMessage
     public String onMessage(Session session, String message){
-        status = AttackStatus.getAttackStatus("001");
+        status = AttackStatusRes.getAttackStatus("001");
         JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();        
         int id_ = Integer.parseInt(jsonObject.get("id").getAsString());
         return status.getBuckets()[id_].JSONStringify();

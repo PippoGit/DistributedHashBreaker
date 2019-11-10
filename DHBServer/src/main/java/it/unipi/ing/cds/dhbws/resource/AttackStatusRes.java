@@ -5,17 +5,21 @@
  */
 package it.unipi.ing.cds.dhbws.resource;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.websocket.Session;
 
-public class AttackStatus {
+public class AttackStatusRes {
     //Callback stuff???
     private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
     
     //Singleton
-    private static AttackStatus _instance;
+    private static AttackStatusRes _instance;
     private static final int NUM_BUCKETS = 30;
     
     private String idAttack; // maybe useless?
@@ -28,30 +32,29 @@ public class AttackStatus {
     private int numWorkingBuckets;
     private int numCompletedBuckets;
     
-    Bucket [] buckets;
+    BucketRes [] buckets;
        
-    public AttackStatus(String idAttack) {
+    public AttackStatusRes(String idAttack) {
         this.idAttack = idAttack;
-        buckets = new Bucket[NUM_BUCKETS];
+        buckets = new BucketRes[NUM_BUCKETS];
 
-        
         // Quick test...
-        this.totalPercentage     = 45;
-        this.numCollisions       = 1234;
-        this.etc                 = "2h 27m";
-        this.numAvailableBuckets = 10;
-        this.numWorkingBuckets   = 20;
-        this.numCompletedBuckets = 15;
+        this.totalPercentage     = 0;
+        this.numCollisions       = 0;
+        this.etc                 = "tbd";
+        this.numAvailableBuckets = 0;
+        this.numWorkingBuckets   = 0;
+        this.numCompletedBuckets = 0;
         
-        // GENERATE RANDOM BUCKETS!
+        // GENERATE BUCKETS!
         for(int i = 0; i < NUM_BUCKETS; i++) {
-            buckets[i] = new Bucket(""+i, true);
+            buckets[i] = new BucketRes(""+i);
         }
     }
     
-    public static AttackStatus getAttackStatus(String idAttack) {
+    public static AttackStatusRes getAttackStatus(String idAttack) {
         if(_instance == null) {
-            _instance = new AttackStatus(idAttack);
+            _instance = new AttackStatusRes(idAttack);
         }
         return _instance;
     }
@@ -112,16 +115,33 @@ public class AttackStatus {
         this.numCompletedBuckets = numCompletedBuckets;
     }
 
-    public Bucket[] getBuckets() {
+    public BucketRes[] getBuckets() {
         return buckets;
     }
 
-    public void setBuckets(Bucket[] buckets) {
+    public void setBuckets(BucketRes[] buckets) {
         this.buckets = buckets;
     }
     
     public List<Session> getSessions() {
         return sessions;
+    }
+    
+    public void setFromJson(String json) {
+        JsonElement jsonElement = new JsonParser().parse(json);
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        
+        this.etc = jsonObject.get("etc").getAsString();
+        this.numAvailableBuckets = jsonObject.get("numAvailableBuckets").getAsInt();
+        this.numCollisions = jsonObject.get("numCollisions").getAsInt();
+        this.numCompletedBuckets = jsonObject.get("numCompletedBuckets").getAsInt();
+        this.numWorkingBuckets = jsonObject.get("numWorkingBuckets").getAsInt();
+        this.totalPercentage = jsonObject.get("totalPercentage").getAsDouble();
+        
+        JsonArray jsonBuckets = jsonObject.getAsJsonArray("buckets");
+        for(int i=0; i<NUM_BUCKETS; i++) {
+            buckets[i].setFromJsonObject(jsonBuckets.get(i).getAsJsonObject());
+        }
     }
     
 }

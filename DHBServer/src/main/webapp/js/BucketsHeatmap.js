@@ -36,5 +36,5 @@ BucketsHeatmap.prototype.getBucketStyle = function(bucket) {
 };
 
 BucketsHeatmap.prototype.updateBucket = function(bucket) {
-    $("#bucket-"+bucket.id).className = this.getBucketStyle(bucket.id);
+    $("#bucket-"+bucket.id).attr('class', this.getBucketStyle(bucket));
 };

@@ -15,9 +15,25 @@ import java.util.logging.Logger;
 
 import javax.websocket.DeploymentException;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterface {
     
     // Resources for the RMI Server
+    private static final int NUM_BUCKETS = 30;
+    private double totalPercentage;
+    private int numCollisions;
+    private String etc;
+    
+    private int numAvailableBuckets;
+    private int numWorkingBuckets;
+    private int numCompletedBuckets;
+    
     double [] buckets;
     
     // Stuff to send data to Tomcat 
@@ -26,16 +42,52 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     public DHBRemoteObj() throws RemoteException {
         super();
-        buckets = new double[10];
+        initState();
         
         try {
             // Connect to Tomcat...
             System.out.println("Connecting to Tomcat WebServer...");
             wsTomcat = new DHBWebSocketClient(NOTIFY_ENDPOINT);
+            wsTomcat.sendText(getCurrentStateJSON());
         } catch (DeploymentException | IOException ex) {
             Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    
+    private void initState() {
+        buckets = new double[NUM_BUCKETS];
+        this.totalPercentage     = 45;
+        this.numCollisions       = 1234;
+        this.etc                 = "2h 27m";
+        this.numAvailableBuckets = 10;
+        this.numWorkingBuckets   = 20;
+        this.numCompletedBuckets = 15;
+    }
+    
+    private String getCurrentStateJSON() {
+        JsonObject state = new JsonObject();
+        Gson gson = new Gson();
+        state.addProperty("totalPercentage",     totalPercentage);
+        state.addProperty("numCollisions",       numCollisions);
+        state.addProperty("etc",                 etc);
+        state.addProperty("numAvailableBuckets", numAvailableBuckets);
+        state.addProperty("numWorkingBuckets",   numWorkingBuckets);
+        state.addProperty("numCompletedBuckets", numCompletedBuckets);
+            
+        JsonArray buckets = new JsonArray();
+        for(int i=0; i<NUM_BUCKETS; i++) {
+            JsonObject bucket = new JsonObject();
+            bucket.addProperty("percentage", new Random().nextInt(101));
+            bucket.addProperty("idWorker", "" + new Random().nextInt(101));
+            bucket.addProperty("available", (Math.random() < 0.05));
+            bucket.addProperty("dateAllocation", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
+            bucket.addProperty("lastHeartbeat", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
+            bucket.addProperty("dateCompleted", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
+            buckets.add(bucket);
+        }
+        state.add("buckets", buckets);
+        return gson.toJson(state);
     }
     
     private void notifyChanges(String msg) {

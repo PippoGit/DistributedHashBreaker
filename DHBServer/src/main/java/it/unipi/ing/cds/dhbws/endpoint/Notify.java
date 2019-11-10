@@ -6,7 +6,7 @@
 package it.unipi.ing.cds.dhbws.endpoint;
 
 import com.google.gson.Gson;
-import it.unipi.ing.cds.dhbws.resource.AttackStatus;
+import it.unipi.ing.cds.dhbws.resource.AttackStatusRes;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +20,7 @@ import javax.websocket.server.ServerEndpoint;
  */
 @ServerEndpoint("/notify")
 public class Notify {
-    final private AttackStatus status = AttackStatus.getAttackStatus("001");
+    final private AttackStatusRes status = AttackStatusRes.getAttackStatus("001");
     
     private void broadcast() throws IOException {
         final Gson gson = new Gson();
@@ -34,7 +34,7 @@ public class Notify {
         System.out.println("New notification!");
         try {
             // Update Status
-            status.setEtc(message);
+            status.setFromJson(message);
             // Broadcast to dashboardsss
             broadcast();
         } catch (IOException ex) {

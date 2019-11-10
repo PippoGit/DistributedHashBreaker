@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package it.unipi.ing.cds.dhbws.endpoint;
-import it.unipi.ing.cds.dhbws.resource.AttackStatus;
+import it.unipi.ing.cds.dhbws.resource.AttackStatusRes;
 
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/attack")
 public class AttackStatusEndPoint {
-    final private AttackStatus status = AttackStatus.getAttackStatus("001");
+    final private AttackStatusRes status = AttackStatusRes.getAttackStatus("001");
     
     @OnMessage
     public String onMessage(final Session session, String message){
