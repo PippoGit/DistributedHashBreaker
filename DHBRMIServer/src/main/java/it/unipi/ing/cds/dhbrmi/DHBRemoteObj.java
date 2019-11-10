@@ -26,6 +26,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     // Resources for the RMI Server
     private static final int NUM_BUCKETS = 30;
+    private String hashToBreak;
+    
+    private String idAttack;
     private double totalPercentage;
     private int numCollisions;
     private String etc;
@@ -42,13 +45,15 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     public DHBRemoteObj() throws RemoteException {
         super();
-        initState();
+        // initState();
         
         try {
             // Connect to Tomcat...
             System.out.println("Connecting to Tomcat WebServer...");
             wsTomcat = new DHBWebSocketClient(NOTIFY_ENDPOINT);
-            wsTomcat.sendText(getCurrentStateJSON());
+            
+            // Send current status only if attack is planned
+            // wsTomcat.sendText(getCurrentStateJSON());
         } catch (DeploymentException | IOException ex) {
             Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -57,6 +62,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     private void initState() {
         buckets = new double[NUM_BUCKETS];
+        this.idAttack            = "001";
         this.totalPercentage     = 45;
         this.numCollisions       = 1234;
         this.etc                 = "2h 27m";
@@ -65,9 +71,11 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
         this.numCompletedBuckets = 15;
     }
     
+    
     private String getCurrentStateJSON() {
         JsonObject state = new JsonObject();
         Gson gson = new Gson();
+        state.addProperty("idAttack",            idAttack);
         state.addProperty("totalPercentage",     totalPercentage);
         state.addProperty("numCollisions",       numCollisions);
         state.addProperty("etc",                 etc);
@@ -75,7 +83,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
         state.addProperty("numWorkingBuckets",   numWorkingBuckets);
         state.addProperty("numCompletedBuckets", numCompletedBuckets);
             
-        JsonArray buckets = new JsonArray();
+        JsonArray jbuckets = new JsonArray();
         for(int i=0; i<NUM_BUCKETS; i++) {
             JsonObject bucket = new JsonObject();
             bucket.addProperty("percentage", new Random().nextInt(101));
@@ -84,9 +92,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
             bucket.addProperty("dateAllocation", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
             bucket.addProperty("lastHeartbeat", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
             bucket.addProperty("dateCompleted", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
-            buckets.add(bucket);
+            jbuckets.add(bucket);
         }
-        state.add("buckets", buckets);
+        state.add("buckets", jbuckets);
         return gson.toJson(state);
     }
     
@@ -101,7 +109,11 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     @Override
     public double getBucket(String userId) throws RemoteException {
         System.out.println("New request from " + userId);
-        notifyChanges(userId); // just a test to try real-time updates
+        
+        // JUST A TEST HERE!
+        this.etc = userId;
+        this.totalPercentage = 99;
+        notifyChanges(getCurrentStateJSON());
         return 42;
     }
 
@@ -114,4 +126,22 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     public String getStatistics(String idAttack) throws RemoteException {
         return "Test";
     }    
+
+    @Override
+    public String planAttack(String hash) throws RemoteException {
+        buckets = new double[NUM_BUCKETS];
+        this.idAttack            = "";
+        this.totalPercentage     = 0;
+        this.numCollisions       = 0;
+        this.etc                 = "tbd";
+        this.numAvailableBuckets = NUM_BUCKETS;
+        this.numWorkingBuckets   = 0;
+        this.numCompletedBuckets = 0;
+        this.hashToBreak         = hash;
+        
+        // just a test...
+        initState();
+        notifyChanges(getCurrentStateJSON());
+        return this.idAttack;
+    }
 }

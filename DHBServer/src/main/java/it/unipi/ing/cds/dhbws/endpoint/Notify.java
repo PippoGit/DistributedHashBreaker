@@ -20,7 +20,7 @@ import javax.websocket.server.ServerEndpoint;
  */
 @ServerEndpoint("/notify")
 public class Notify {
-    final private AttackStatusRes status = AttackStatusRes.getAttackStatus("001");
+    final private AttackStatusRes status = AttackStatusRes.getAttackStatus();
     
     private void broadcast() throws IOException {
         final Gson gson = new Gson();

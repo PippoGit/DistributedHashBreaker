@@ -1,8 +1,9 @@
-/* global WS_BUCKET_STATUS_ENDPOINT, WS_ATTACK_STATUS_ENDPOINT */
+/* global WS_BUCKET_STATUS_ENDPOINT, WS_ATTACK_STATUS_ENDPOINT, WS_PLAN_ATTACK_ENDPOINT */
 
 // Status objects
 var current_bucket = { id:-1 };
 var current_status;
+var plan_mode = true;
     
 // GUI Elements
 var bucketAllocationChart, 
@@ -36,6 +37,13 @@ $(document).ready(function() {
     attackStatusWS.onmessage = function(event) {
         var state = JSON.parse(event.data);
         
+        if(state.error != undefined) {
+            // ERROR => ATTACK NOT PLANNED
+            set_plan_mode();
+            return;
+        }
+        
+        if(plan_mode) set_dashboard_mode();
         Object.keys(state).forEach(function(k){
             current_status.updateStatusVariable(k, state[k]);
         });
@@ -43,6 +51,28 @@ $(document).ready(function() {
         update_GUI();
     };
 });
+
+function test_plan_attack() {
+    var planAttackWS = new WebSocket(WS_PLAN_ATTACK_ENDPOINT);
+
+    planAttackWS.onopen = function() {
+        // attackStatusWS.send("{}");
+        console.log("Planning a new attack...");
+    };    
+}
+
+function set_plan_mode() {
+    plan_mode = true;
+    $("#dashboard").hide();
+    $("#plan").show();
+    
+}
+
+function set_dashboard_mode() {
+    plan_mode = false;
+    $("#plan").hide();
+    $("#dashboard").show();
+}
 
 function build_GUI() {
     attackIdLabel             = $("#attack-id-label");

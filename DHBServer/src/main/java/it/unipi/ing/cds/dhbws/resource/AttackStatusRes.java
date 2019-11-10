@@ -23,6 +23,7 @@ public class AttackStatusRes {
     private static final int NUM_BUCKETS = 30;
     
     private String idAttack; // maybe useless?
+    private boolean planned;
     
     private double totalPercentage;
     private int numCollisions;
@@ -34,17 +35,18 @@ public class AttackStatusRes {
     
     BucketRes [] buckets;
        
-    public AttackStatusRes(String idAttack) {
-        this.idAttack = idAttack;
+    public AttackStatusRes() {
         buckets = new BucketRes[NUM_BUCKETS];
 
         // Quick test...
+        this.idAttack            = "";
         this.totalPercentage     = 0;
         this.numCollisions       = 0;
         this.etc                 = "tbd";
         this.numAvailableBuckets = 0;
         this.numWorkingBuckets   = 0;
         this.numCompletedBuckets = 0;
+        this.planned             = false;
         
         // GENERATE BUCKETS!
         for(int i = 0; i < NUM_BUCKETS; i++) {
@@ -52,9 +54,9 @@ public class AttackStatusRes {
         }
     }
     
-    public static AttackStatusRes getAttackStatus(String idAttack) {
+    public static AttackStatusRes getAttackStatus() {
         if(_instance == null) {
-            _instance = new AttackStatusRes(idAttack);
+            _instance = new AttackStatusRes();
         }
         return _instance;
     }
@@ -129,8 +131,11 @@ public class AttackStatusRes {
     
     public void setFromJson(String json) {
         JsonElement jsonElement = new JsonParser().parse(json);
-        JsonObject jsonObject = jsonElement.getAsJsonObject();
         
+        System.out.println(json);
+        
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        this.idAttack = jsonObject.get("idAttack").getAsString();
         this.etc = jsonObject.get("etc").getAsString();
         this.numAvailableBuckets = jsonObject.get("numAvailableBuckets").getAsInt();
         this.numCollisions = jsonObject.get("numCollisions").getAsInt();
@@ -142,6 +147,11 @@ public class AttackStatusRes {
         for(int i=0; i<NUM_BUCKETS; i++) {
             buckets[i].setFromJsonObject(jsonBuckets.get(i).getAsJsonObject());
         }
+        this.planned = true;
+    }
+    
+    public boolean isPlanned() {
+        return planned;
     }
     
 }

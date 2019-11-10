@@ -24,7 +24,7 @@ public class BucketStatusEndPoint {
     
     @OnMessage
     public String onMessage(Session session, String message){
-        status = AttackStatusRes.getAttackStatus("001");
+        status = AttackStatusRes.getAttackStatus();
         JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();        
         int id_ = Integer.parseInt(jsonObject.get("id").getAsString());
         return status.getBuckets()[id_].JSONStringify();

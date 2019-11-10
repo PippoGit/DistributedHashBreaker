@@ -49,9 +49,7 @@ public class Request {
             
             
             ////
-            
-            
-		return (int) Math.floor(Math.random()*Parameters.NUM_OF_BUCKETS);
+            return (int) Math.floor(Math.random()*Parameters.NUM_OF_BUCKETS);
 	}
 	
 	public byte[] getTarget() {

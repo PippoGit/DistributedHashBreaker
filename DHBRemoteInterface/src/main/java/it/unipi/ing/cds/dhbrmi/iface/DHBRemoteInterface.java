@@ -12,4 +12,6 @@ public interface DHBRemoteInterface extends Remote {
     public double getBucket(String userId)       throws RemoteException;
     public void   putStatistics(String test)     throws RemoteException;
     public String getStatistics(String idAttack) throws RemoteException;
+    public String planAttack(String hash)        throws RemoteException;
+    
 }

@@ -27,12 +27,28 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/attack")
 public class AttackStatusEndPoint {
-    final private AttackStatusRes status = AttackStatusRes.getAttackStatus("001");
+    final private AttackStatusRes status = AttackStatusRes.getAttackStatus();
+    String currentAttack;
+    
+    
+    private void sendStatus(Session session) {
+        try {
+            final Gson gson = new Gson();
+            if(status.isPlanned()) {
+                session.getBasicRemote().sendText(gson.toJson(status));
+            }
+            else {
+                session.getBasicRemote().sendText("{\"error\": \"No attack is planned.\"}");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     @OnMessage
     public String onMessage(final Session session, String message){
-        final Gson gson = new Gson();      
-        return gson.toJson(status);
+        // I don't know if i actually need this method here...
+        return "200";
     }
     
     @OnError
@@ -43,34 +59,8 @@ public class AttackStatusEndPoint {
     @OnOpen
     public void onOpen(Session session) {
         System.out.println("New Connection to the Dashboard!");
-        try {
-            final Gson gson = new Gson();
-            session.getBasicRemote().sendText(gson.toJson(status));
-        } catch (IOException ex) {
-            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        status.getSessions().add(session);
-        
-        /* ********************** TEST FOR REAL TIME UPDATES *********************
-        final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
-                status.setTotalPercentage(status.getTotalPercentage()+10);
-                if(status.getTotalPercentage() >= 100) {
-                    status.setTotalPercentage(100);
-                    scheduler.shutdown();
-                }
-                try {
-                    broadcast();
-                } catch (IOException ex) {
-                    Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        };
-        scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
-        ********************** TEST FOR REAL TIME UPDATES ********************* */
-    
+        sendStatus(session);
+        status.getSessions().add(session);   
     }
     
     @OnClose

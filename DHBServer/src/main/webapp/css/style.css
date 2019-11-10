@@ -226,3 +226,11 @@ section {
     outline: none;
     padding: 4px 8px;
 }
+
+#plan {
+    display: none;
+}
+
+#dashboard {
+    display: none;
+}
