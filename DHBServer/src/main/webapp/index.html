@@ -37,7 +37,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title"> Plan new attack </h4>
-                                <button onclick="test_plan_attack()">PLAN!</button>
+                                <form  id="plan-form" class="pure-form pure-form-stacked">
+                                    <fieldset>
+                                        <legend>Preferences</legend>
+                                        <label for="hash-input-form">String of the hash:</label>
+                                        <input required id="hash-input-form" type="text" placeholder="Hash to break"></input>
+                                    </fieldset>
+                                    <submit class="pure-button pure-button-primary"> <i class="fab fa-telegram-plane"></i> Plan Attack </submit>
+                               </form>
                             </div>
                         </div>
                     </div>
@@ -126,6 +133,6 @@
         <script src="js/BucketsHeatmap.js?v=3"></script>
         <script src="js/Parameters.js?v=2"></script>
         <script src="js/AttackStatus.js?v?1"></script>
-        <script src="js/main.js?v=7"></script>
+        <script src="js/main.js?v=10"></script>
     </body>
 </html>

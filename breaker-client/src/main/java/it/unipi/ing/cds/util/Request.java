@@ -39,22 +39,33 @@ public class Request {
                 double bucket = server.getBucket(nickname);
                 System.out.println("Received " + bucket);
                 
-            } catch (NotBoundException ex) {
-                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (RemoteException ex) {
+            } catch (NotBoundException | MalformedURLException | RemoteException ex) {
                 Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            
             ////
             return (int) Math.floor(Math.random()*Parameters.NUM_OF_BUCKETS);
 	}
 	
 	public byte[] getTarget() {
     	try {
-    		return hasher.getHash("Prova");
+            
+            // TEST
+            String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
+            String hash = "Prova";
+            
+            try { 
+                
+                System.out.println("Testing RMI...");
+                DHBRemoteInterface server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
+                hash = server.getHash();
+                System.out.println("The hash to break is: " + hash);
+                
+            } catch (NotBoundException | MalformedURLException | RemoteException ex) {
+                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ////
+            
+    		return hasher.getHash(hash);
     	} catch(NoSuchAlgorithmException nsae) {
     		Logger.getLogger(Parameters.ALGORITHM).log(Level.SEVERE, null, nsae);
     		return null;

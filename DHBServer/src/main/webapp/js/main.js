@@ -27,7 +27,14 @@ $(document).ready(function() {
     
     // Temporary function to show time-plot (performance)
     test_chart();
-
+    
+    // Set events and stuff
+    $("#plan-form").on("submit", function(e) {
+       test_plan_attack();
+       e.preventDefault();
+    });
+    
+    // Websockets and stuff
     attackStatusWS = new WebSocket(WS_ATTACK_STATUS_ENDPOINT);
     attackStatusWS.onopen = function() {
         // attackStatusWS.send("{}");
@@ -58,7 +65,10 @@ function test_plan_attack() {
     planAttackWS.onopen = function() {
         // attackStatusWS.send("{}");
         console.log("Planning a new attack...");
-    };    
+        planAttackWS.send(JSON.stringify({hash: $("#hash-input-form").val()}));
+    };
+    
+    return false;
 }
 
 function set_plan_mode() {

@@ -144,4 +144,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
         notifyChanges(getCurrentStateJSON());
         return this.idAttack;
     }
+
+    @Override
+    public String getHash() throws RemoteException {
+        return this.hashToBreak;
+    }
 }
