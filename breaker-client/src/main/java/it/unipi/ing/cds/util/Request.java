@@ -18,9 +18,11 @@ public class Request {
 	private Hash hasher;
 	private String nickname;
         
-         private static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
-         private static final String MYREGISTRY_HOST = "127.0.0.1";
-	
+        // TEST
+        private static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
+        private static final String MYREGISTRY_HOST = "127.0.0.1";
+	////
+        
 	public Request(String nickname) {
 		hasher = new Hash();
 		this.nickname = nickname;
@@ -28,12 +30,9 @@ public class Request {
 	}
 	
 	public int getBucketNr() {
-            
             // TEST
-            String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
-            
+            String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";            
             try { 
-                
                 System.out.println("Testing RMI...");
                 DHBRemoteInterface server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
                 double bucket = server.getBucket(nickname);
@@ -43,33 +42,32 @@ public class Request {
                 Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
             }
             ////
+            
             return (int) Math.floor(Math.random()*Parameters.NUM_OF_BUCKETS);
 	}
 	
 	public byte[] getTarget() {
-    	try {
-            
-            // TEST
-            String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
-            String hash = "Prova";
-            
-            try { 
+            try {
+                // TEST
+                String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
+                String hash = "Prova";
+
+                try {
+                    System.out.println("Testing RMI...");
+                    DHBRemoteInterface server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
+                    hash = server.getHash();
+                    System.out.println("The hash to break is: " + hash);
+
+                } catch (NotBoundException | MalformedURLException | RemoteException ex) {
+                    Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                ////
                 
-                System.out.println("Testing RMI...");
-                DHBRemoteInterface server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
-                hash = server.getHash();
-                System.out.println("The hash to break is: " + hash);
-                
-            } catch (NotBoundException | MalformedURLException | RemoteException ex) {
-                Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+                return hasher.getHash(hash);
+            } catch(NoSuchAlgorithmException nsae) {
+                Logger.getLogger(Parameters.ALGORITHM).log(Level.SEVERE, null, nsae);
+                return null;
             }
-            ////
-            
-    		return hasher.getHash(hash);
-    	} catch(NoSuchAlgorithmException nsae) {
-    		Logger.getLogger(Parameters.ALGORITHM).log(Level.SEVERE, null, nsae);
-    		return null;
-    	}
 	}
 	
 }
