@@ -48,3 +48,11 @@
 0:0:0:0:0:0:0:1 - - [11/Nov/2019:14:08:21 +0100] "GET /DHBServer/js/main.js?v=11 HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [11/Nov/2019:14:08:21 +0100] "GET /DHBServer/attack HTTP/1.1" 101 -
 0:0:0:0:0:0:0:1 - - [11/Nov/2019:14:08:21 +0100] "GET /favicon.ico HTTP/1.1" 200 21630
+127.0.0.1 - - [11/Nov/2019:14:39:47 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [11/Nov/2019:14:39:47 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [11/Nov/2019:14:39:47 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [11/Nov/2019:14:39:47 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [11/Nov/2019:14:39:47 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [11/Nov/2019:14:39:47 +0100] "GET /manager/text/ HTTP/1.1" 200 38
+127.0.0.1 - - [11/Nov/2019:14:39:48 +0100] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - admin [11/Nov/2019:14:39:48 +0100] "GET /manager/text/ HTTP/1.1" 200 38

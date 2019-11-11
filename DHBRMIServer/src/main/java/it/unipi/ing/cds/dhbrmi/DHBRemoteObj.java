@@ -37,7 +37,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     private int numWorkingBuckets;
     private int numCompletedBuckets;
     
+    // Critica
     double [] buckets;
+    //
     
     // Stuff to send data to Tomcat 
     private final static String NOTIFY_ENDPOINT = "ws://localhost:8080/DHBServer/notify";
@@ -60,7 +62,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteInterf
     
     private void initState() {
         buckets = new double[NUM_BUCKETS];
-        //this.idAttack            = "001";
+        //this.idAttack          = "001";
         this.totalPercentage     = 45;
         this.numCollisions       = 1234;
         this.etc                 = "2h 27m";
