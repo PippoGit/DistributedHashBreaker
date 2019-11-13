@@ -226,3 +226,16 @@ section {
     outline: none;
     padding: 4px 8px;
 }
+
+#plan {
+    display: none;
+}
+
+#dashboard {
+    display: none;
+}
+
+.button-indigo {
+    background-color: #536de6 !important;
+    border-radius: 5px !important;
+}

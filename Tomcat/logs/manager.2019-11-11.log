@@ -1,0 +1,7 @@
+11-Nov-2019 13:49:41.134 INFORMAZIONI [http-nio-8080-exec-6] org.apache.catalina.core.ApplicationContext.log Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+11-Nov-2019 13:49:41.135 INFORMAZIONI [http-nio-8080-exec-6] org.apache.catalina.core.ApplicationContext.log Manager: init: Global resources are available
+11-Nov-2019 13:49:41.217 INFORMAZIONI [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+11-Nov-2019 13:49:41.281 INFORMAZIONI [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+11-Nov-2019 13:49:41.458 INFORMAZIONI [http-nio-8080-exec-6] org.apache.catalina.core.ApplicationContext.log Manager: undeploy: Undeploying web application at '/DHBServer'
+11-Nov-2019 13:49:42.036 INFORMAZIONI [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log Manager: install: Installing context configuration at 'file:/var/folders/04/rsyzwdtj5wj28lz2x_c2rsm80000gp/T/context14398694333214062648.xml'
+11-Nov-2019 13:49:42.592 INFORMAZIONI [http-nio-8080-exec-5] org.apache.catalina.core.ApplicationContext.log Manager: start: Starting web application '/DHBServer'
