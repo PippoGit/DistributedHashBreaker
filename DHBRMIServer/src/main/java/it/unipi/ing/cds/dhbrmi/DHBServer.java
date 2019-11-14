@@ -5,12 +5,12 @@
  */
 package it.unipi.ing.cds.dhbrmi;
 
-import it.unipi.ing.cds.dhbrmi.iface.DHBRemoteInterface;
-
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
+import it.unipi.ing.cds.dhbrmi.server.iface.DHBRemoteServerInterface;
 
 public class DHBServer {
     //the default port for rmiregistry is 1099;
@@ -31,7 +31,8 @@ public class DHBServer {
         DHBServer.servantName = servantName;
         try {
             //a servant object is created
-            DHBRemoteInterface c = new DHBRemoteObj();
+            DHBRemoteServerInterface c = new DHBRemoteObj();
+            ((DHBRemoteObj)c).initState(); // RIMUOVERREEEEEE
             //next: binding to the rmiregistry
             Naming.rebind("//"+MYREGISTRY_HOST+":"+Integer.toString(MYREGISTRY_PORT)+"/"+DHBServer.servantName, c);
 

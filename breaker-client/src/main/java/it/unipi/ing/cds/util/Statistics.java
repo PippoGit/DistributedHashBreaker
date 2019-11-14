@@ -2,6 +2,7 @@ package it.unipi.ing.cds.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import it.unipi.ing.cds.gui.ClientGUI;
 
@@ -25,8 +26,10 @@ public class Statistics {
 	
 	// GLOBAL STATISTICS
 	private ArrayList<byte[]> collisions;
+	private ArrayList<byte[]> partialCollisions;	// Used to send updates to the server
 	private long executionTime;
 	private long inspected;
+	private long partialInspected;
 	private long start;
 	
 	public Statistics(int num) {
@@ -35,8 +38,10 @@ public class Statistics {
 		for(int i = 0; i < num; i++)
 			stats.put(i, new PerThreadStatistics(i));
 		collisions = new ArrayList<byte[]>();
+		partialCollisions = new ArrayList<byte[]>();
 		executionTime = 0;
 		inspected = 0;
+		partialInspected = 0;
 		start = System.currentTimeMillis();
 		clientGUI = ClientGUI.getInstance();
 	}
@@ -49,10 +54,24 @@ public class Statistics {
 		
 		// Global Statistics
 		collisions.addAll(partialCollisions);
-		this.inspected += inspected;
+		
+		this.partialCollisions.addAll(partialCollisions);
+		
+		this.partialInspected = 0;
+		for(Entry<Integer, PerThreadStatistics> item:stats.entrySet())
+			this.partialInspected += item.getValue().inspected;
+		this.inspected += tmp.inspected;
+		
 		executionTime = System.currentTimeMillis() - start;
 		
 		clientGUI.updatePerThreadStatistics(id, tmp.collisions.size(), inspected);
+	}
+	
+	public ArrayList<byte[]> getPartialCollisions(){
+		return partialCollisions;
+	}
+	public void clearPartialCollisions() {
+		partialCollisions.clear();
 	}
 	
 	public void updateGlobal() {
@@ -69,6 +88,9 @@ public class Statistics {
 
 	public long getInspected() {
 		return inspected;
+	}
+	public long getPartialInspected() {
+		return partialInspected;
 	}
 	public void showStatistics() {
 		for(int i = 0 ; i < num; i++)

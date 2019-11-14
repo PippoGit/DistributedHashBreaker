@@ -89,7 +89,6 @@ public class ClientGUI extends JFrame {
 
 			public void focusGained(FocusEvent e) {
 				textField.setText(new String(""));
-				
 			}
 
 			public void focusLost(FocusEvent e) {
@@ -178,7 +177,7 @@ public class ClientGUI extends JFrame {
 				// START THE JOB
 				System.out.println(textField.getText());
 				new Worker(textField.getText()).start();
-				startBtn.setEnabled(true);
+				startBtn.setEnabled(false);
 				
 			}
 		});
@@ -293,5 +292,8 @@ public class ClientGUI extends JFrame {
 		} finally {
 			mutex.release();
 		}
+	}
+	public void enableButton() {
+		startBtn.setEnabled(true);
 	}
 }

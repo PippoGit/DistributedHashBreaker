@@ -1,15 +1,22 @@
 package it.unipi.ing.cds.worker;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
+import it.unipi.ing.cds.dhbrmi.DHBRemoteObj;
+import it.unipi.ing.cds.dhbrmi.client.iface.DHBRemoteClientInterface;
 import it.unipi.ing.cds.gui.ClientGUI;
 import it.unipi.ing.cds.parameters.Parameters;
 import it.unipi.ing.cds.thread.AnalyzerThread;
 import it.unipi.ing.cds.thread.TThread;
 import it.unipi.ing.cds.thread.StatisticsThread;
+import it.unipi.ing.cds.util.AvailablePortFinder;
 import it.unipi.ing.cds.util.Hash;
 import it.unipi.ing.cds.util.Request;
 import it.unipi.ing.cds.util.Statistics;
@@ -17,7 +24,6 @@ import it.unipi.ing.cds.util.Statistics;
 public class Worker extends Thread{
 
 	private Request req;
-	private Hash hasher;
 	private byte[] target;
 	private int cores;
 	private int NUMBER_OF_THREADS;
@@ -25,9 +31,12 @@ public class Worker extends Thread{
 	private Statistics stats;
 	private ClientGUI clientGUI;
 	private String nickname;
+	private int hostPort;
+	private List<AnalyzerThread> threads;
+	private StatisticsThread statThread;
+	private TThread tThread;
 	
     public Worker(String nickname) {
-    	hasher = new Hash();
         NUMBER_OF_THREADS = 1;
         cores = Runtime.getRuntime().availableProcessors();
         while(2*NUMBER_OF_THREADS <= cores)
@@ -36,31 +45,44 @@ public class Worker extends Thread{
         clientGUI = ClientGUI.getInstance();
         stats = new Statistics(NUMBER_OF_THREADS);
         this.nickname = nickname;
+        hostPort = AvailablePortFinder.getNextAvailable();
     }
     
     public void run() {
+    	setPriority(Thread.MAX_PRIORITY);
     	try {
-	    	req = new Request(nickname);
+    		// ( CLIENT INTERFACE INITIALIZATION (
+    		System.out.println("[CLIENT] Registering " + nickname + " (" + Parameters.MYREGISTRY_HOST + "/" + hostPort + ")");
+            LocateRegistry.createRegistry(hostPort);
+            System.out.println("Registry created - port "+Integer.toString(hostPort));
+    		DHBRemoteClientInterface clientInterface = new DHBRemoteObj(this);
+    		Naming.rebind("//"+Parameters.MYREGISTRY_HOST+":"+Integer.toString(hostPort)+"/"+nickname, clientInterface);
+			// )
+	    	req = Request.getInstance(nickname);
+	    	
+	    	req.getId(nickname, Parameters.MYREGISTRY_HOST, hostPort);
+	    	
+	    	int bucketNr = req.getBucketNr();
+	    	
 	    	target = req.getTarget();
 	    	clientGUI.updateTextLogln(nickname + " joined");
     		clientGUI.initPies(NUMBER_OF_THREADS);
     		clientGUI.initGlobal();
 	    	clientGUI.updateTextLogln(target);
 	    	clientGUI.updateTextLogln("Target length: " + target.length);
-	    	
-	    	int bucketNr = req.getBucketNr();
-	        long start;
-	        List<AnalyzerThread> threads;
+	        
+	    	long start;
 	        
 	    	clientGUI.updateTextLogln("Start Analying bucket Nr. " + bucketNr);
 	    	
 	    	start = bucketNr*((long)Math.pow(2, Parameters.BUCKET_BITS));
 	    	threads = createAnalyzerThreads(start);
-	        StatisticsThread statThread = new StatisticsThread(mutex, stats, threads);
-	        statThread.setPriority(Thread.MAX_PRIORITY);
+	        statThread = new StatisticsThread(mutex, stats, threads);
+	        statThread.setPriority(Thread.NORM_PRIORITY);
 	        statThread.start();
 	        
-	        TThread tThread = new TThread(stats);
+	        tThread = new TThread(stats);
+	        tThread.setPriority(Thread.MIN_PRIORITY);
 	        tThread.start();
 	        
 	        for (AnalyzerThread thread : threads) 
@@ -70,10 +92,9 @@ public class Worker extends Thread{
 				thread.join();
 
 	        statThread.stopWorking();
-	        statThread.join();
-	        
 	        tThread.stopWorking();
 	        tThread.join();
+	        statThread.join();
 	        
 	        // SHOW GLOBAL STATISTICS
 	        ArrayList<byte[]> collisions = stats.getCollisions();
@@ -82,24 +103,33 @@ public class Worker extends Thread{
 	        for (byte[] c : collisions) {
 	    		clientGUI.updateTextLogln(c);
 				try {
-					tmp = hasher.getHash(c);
+					tmp = Hash.getHash(c);
 				} catch (NoSuchAlgorithmException e) {
 					e.printStackTrace();
 				}
 	    		clientGUI.updateTextLogln(tmp);
 	    	}
-    	} catch(InterruptedException e) {
+    	} catch(InterruptedException | MalformedURLException | RemoteException e) {
     		e.printStackTrace();
     	}
+    	clientGUI.enableButton();
+    	System.gc();
     }
     private List<AnalyzerThread> createAnalyzerThreads(long start) {
         List<AnalyzerThread> analyzerThreads = new ArrayList<AnalyzerThread>();
         clientGUI.updateTextLogln("Number of cores: " + cores + "\t Number of threads: " + NUMBER_OF_THREADS);
         long plaintextsPerThread = Parameters.BUCKET_SIZE / NUMBER_OF_THREADS;
         for (int i = 0; i < NUMBER_OF_THREADS; i++) {
-            AnalyzerThread thread = new AnalyzerThread(plaintextsPerThread, i, start, target, mutex, stats);
+            AnalyzerThread thread = new AnalyzerThread(plaintextsPerThread, i, start, target, stats);
+            thread.setPriority(Thread.MIN_PRIORITY);
             analyzerThreads.add(thread);
         }
         return analyzerThreads;
+    }
+    public void terminateAll() {
+        for (AnalyzerThread thread : threads) 
+            thread.stopRunning();
+        statThread.stopWorking();
+        tThread.stopWorking();
     }
 }

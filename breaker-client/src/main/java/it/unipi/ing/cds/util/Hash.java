@@ -9,7 +9,7 @@ import it.unipi.ing.cds.parameters.Parameters;
 
 public class Hash {
 	
-    public byte[] getHash(byte[] plaintext) throws NoSuchAlgorithmException {
+    public static byte[] getHash(byte[] plaintext) throws NoSuchAlgorithmException {
     	try {
     		MessageDigest md = MessageDigest.getInstance(Parameters.ALGORITHM);
     		md.update(plaintext);
@@ -21,7 +21,7 @@ public class Hash {
     	}
     }
     
-    public byte[] getHash(String plaintext) throws NoSuchAlgorithmException {
+    public static byte[] getHash(String plaintext) throws NoSuchAlgorithmException {
     	try {
     		MessageDigest md = MessageDigest.getInstance(Parameters.ALGORITHM);
     		md.update(plaintext.getBytes());

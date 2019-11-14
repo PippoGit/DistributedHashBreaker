@@ -1,7 +1,5 @@
 package it.unipi.ing.cds.parameters;
 
-import java.rmi.registry.Registry;
-
 public class Parameters {
 
     public static final int SHRINKED = 32 / 8;
@@ -15,11 +13,5 @@ public class Parameters {
     
     public static final String ALGORITHM = "SHA-256";
     public static final long SLEEP_TIME = 500;
-    public static final int CYCLES = 3; // Define the number of sleeps before sending updates to the server
-    
-    // SERVER
-    public static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
-    public static final String MYREGISTRY_HOST = "127.0.0.1";
-    public static final String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";  
 
 }

@@ -5,7 +5,6 @@ import it.unipi.ing.cds.util.Statistics;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
 
 public class AnalyzerThread extends Thread {
 
@@ -14,21 +13,19 @@ public class AnalyzerThread extends Thread {
 	private long ub;
 	private long iterator;
 	private byte[] target;
-	private Semaphore mutex;
-	private Hash hasher;
 	private Statistics stats;
 	private ClientGUI clientGUI;
+	private boolean running;
 	
 	private ArrayList<byte[]> collisions;
 
-    public AnalyzerThread(long plaintextsPerThread, int subBucket, long start, byte[] target, Semaphore mutex, Statistics stats) {
-        this.subBucket = subBucket;
+    public AnalyzerThread(long plaintextsPerThread, int subBucket, long start, byte[] target, Statistics stats) {
+    	this.subBucket = subBucket;
         this.target = target;
+        running = true;
         lb = start + subBucket*plaintextsPerThread;
         ub = start + (subBucket+1)*plaintextsPerThread;
         iterator = lb;
-        this.mutex = mutex;
-        hasher = new Hash();
         collisions = new ArrayList<byte[]>();
         this.stats = stats;
         clientGUI = ClientGUI.getInstance();
@@ -38,10 +35,10 @@ public class AnalyzerThread extends Thread {
         try {
         	clientGUI.updateTextLogln("Thread " + subBucket + ". Plaintexts: " + lb + "-" + ub);
         	int i;
-	        while(iterator < ub) {
+	        while(iterator < ub && running) {
 	        
 	        	byte[] bytes = ByteBuffer.allocate(Long.BYTES).putLong(iterator).array();
-	        	byte[] hash = hasher.getHash(bytes);
+	        	byte[] hash = Hash.getHash(bytes);
 	        	
 	        	//Compare
 	        	for(i = 29; i < target.length; i++) {	// I want to compare only the last 3 bytes
@@ -49,12 +46,7 @@ public class AnalyzerThread extends Thread {
 	        			break;
 	        	}
 	    		if(i == target.length) {
-	    	        try {
-	    	        	mutex.acquire();  // block until condition holds
-	    	        	collisions.add(bytes);
-	    	        } finally {
-	    	        	mutex.release();
-	    	        }
+    	        	collisions.add(bytes);
 	    		}
 	    		iterator++;
 	        }
@@ -64,8 +56,17 @@ public class AnalyzerThread extends Thread {
             e.printStackTrace();
         }
     }
+    public int getID() { // NOTICE "getId" overrides java.lang.Thread metohod. "getID" is mine
+    	return subBucket;
+    }
+    public long getInspected() {
+    	return iterator-lb;
+    }
     public void update() {
     	stats.update(subBucket, collisions, iterator-lb);
     	collisions.clear();
+    }
+    public void stopRunning() {
+    	running = false;
     }
 }
