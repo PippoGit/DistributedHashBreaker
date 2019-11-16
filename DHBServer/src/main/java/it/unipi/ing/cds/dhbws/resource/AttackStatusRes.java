@@ -11,6 +11,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import javax.websocket.Session;
 
@@ -20,7 +21,13 @@ public class AttackStatusRes {
     
     //Singleton
     private static AttackStatusRes _instance;
-    private static final int NUM_BUCKETS = 30;
+    
+    private static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
+    private static final int BUCKET_BITS = 8*BUCKET_BYTES;
+    private static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
+    
+    private static final int MOST_SIGNIFICANT_BYTES = 1;
+    private static final int NUM_OF_BUCKETS = (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
     
     private String idAttack; // maybe useless?
     private boolean planned;
@@ -36,20 +43,20 @@ public class AttackStatusRes {
     BucketRes [] buckets;
        
     public AttackStatusRes() {
-        buckets = new BucketRes[NUM_BUCKETS];
+        buckets = new BucketRes[NUM_OF_BUCKETS];
 
         // Quick test...
         this.idAttack            = "";
         this.totalPercentage     = 0;
         this.numCollisions       = 0;
         this.etc                 = "tbd";
-        this.numAvailableBuckets = 0;
+        this.numAvailableBuckets = NUM_OF_BUCKETS;
         this.numWorkingBuckets   = 0;
         this.numCompletedBuckets = 0;
         this.planned             = false;
         
         // GENERATE BUCKETS!
-        for(int i = 0; i < NUM_BUCKETS; i++) {
+        for(int i = 0; i < NUM_OF_BUCKETS; i++) {
             buckets[i] = new BucketRes(""+i);
         }
     }
@@ -128,30 +135,42 @@ public class AttackStatusRes {
     public List<Session> getSessions() {
         return sessions;
     }
-    
-    public void setFromJson(String json) {
-        JsonElement jsonElement = new JsonParser().parse(json);
-        
-        System.out.println(json);
-        
-        JsonObject jsonObject = jsonElement.getAsJsonObject();
-        this.idAttack = jsonObject.get("idAttack").getAsString();
-        this.etc = jsonObject.get("etc").getAsString();
-        this.numAvailableBuckets = jsonObject.get("numAvailableBuckets").getAsInt();
-        this.numCollisions = jsonObject.get("numCollisions").getAsInt();
-        this.numCompletedBuckets = jsonObject.get("numCompletedBuckets").getAsInt();
-        this.numWorkingBuckets = jsonObject.get("numWorkingBuckets").getAsInt();
-        this.totalPercentage = jsonObject.get("totalPercentage").getAsDouble();
-        
-        JsonArray jsonBuckets = jsonObject.getAsJsonArray("buckets");
-        for(int i=0; i<NUM_BUCKETS; i++) {
-            buckets[i].setFromJsonObject(jsonBuckets.get(i).getAsJsonObject());
-        }
-        this.planned = true;
-    }
-    
+       
     public boolean isPlanned() {
         return planned;
     }
+
+    public void setPlanned(boolean planned) {
+        this.planned = planned;
+    }
     
+    public void allocBucket(int bucketId, String worker) {
+        buckets[bucketId].setAvailable(false);
+        buckets[bucketId].setDateAllocation(new Date(System.currentTimeMillis()));
+        buckets[bucketId].setIdWorker(worker);
+        this.numAvailableBuckets--;
+        this.numWorkingBuckets++;
+    }
+    
+    public void revokeBucket(int bucketId) {
+        buckets[bucketId].setAvailable(true);
+
+        this.numAvailableBuckets++;
+        this.numWorkingBuckets--;
+    }
+    
+    public void completedBucket(int bucketId) {
+        buckets[bucketId].setDateCompleted(new Date(System.currentTimeMillis()));
+        this.numCompletedBuckets++;
+        this.numWorkingBuckets--;
+    }
+    
+    public void beatBucket(int bucketId) {
+        buckets[bucketId].setLastHeartbeat(new Date(System.currentTimeMillis()));
+    }
+    
+    
+    public void progressBucket(int bucketId, double percentage) {
+        buckets[bucketId].setPercentage(percentage);
+    }
 }

@@ -16,4 +16,18 @@ public class Parameters {
     
     public static final long GUARD_TIME = 3000;
 
+    
+    // WEBSOCKET STUFF
+    public final static String NOTIFY_ENDPOINT = "ws://localhost:8080/DHBServer/notify";
+
+    
+    // ACTIONS FOR WEBSOCKET
+    public static final String NACT_BUCKET_COMPLETED = "BUCKET_COMPLETED";
+    public static final String NACT_BUCKET_ALLOC     = "BUCKET_ALLOC";
+    public static final String NACT_BUCKET_HEARTBEAT = "BUCKET_HEARTBEAT";
+    public static final String NACT_PLAN_ATTACK      = "PLAN_ATTACK";
+    public static final String NACT_BUCKET_REVOKE    = "BUCKET_REVOKE";
+    public static final String NACT_BUCKET_STATS     = "BUCKET_STATS";
+
+
 }

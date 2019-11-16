@@ -1,0 +1,444 @@
+17-Nov-2019 00:06:53.608 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+17-Nov-2019 00:06:53.609 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:06:53.620 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:06:53.627 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2019 00:06:53.660 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:06:53.662 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:06:53.663 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:06:53.664 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:07:34.299 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+17-Nov-2019 00:07:34.302 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:07:34.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:07:34.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2019 00:07:34.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:07:34.325 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+17-Nov-2019 00:07:34.326 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+17-Nov-2019 00:07:34.566 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:07:34.604 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:07:34.607 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [494] milliseconds
+17-Nov-2019 00:07:34.647 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2019 00:07:34.647 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+17-Nov-2019 00:07:34.653 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:07:34.665 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:07:34.952 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:07:34.987 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [333] ms
+17-Nov-2019 00:07:34.988 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+17-Nov-2019 00:07:35.011 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [23] ms
+17-Nov-2019 00:07:35.013 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+17-Nov-2019 00:07:35.051 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [38] ms
+17-Nov-2019 00:07:35.052 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+17-Nov-2019 00:07:35.292 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [240] ms
+17-Nov-2019 00:07:35.293 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+17-Nov-2019 00:07:35.310 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [16] ms
+17-Nov-2019 00:07:35.310 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+17-Nov-2019 00:07:35.331 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [21] ms
+17-Nov-2019 00:07:35.337 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:07:35.345 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:07:35.351 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [743] milliseconds
+17-Nov-2019 00:07:35.977 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+17-Nov-2019 00:07:35.991 INFO [http-nio-8080-exec-2] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:07:35.992 WARNING [http-nio-8080-exec-2] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:07:36.048 INFO [http-nio-8080-exec-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:07:36.050 INFO [http-nio-8080-exec-2] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [59] ms
+17-Nov-2019 00:07:36.055 INFO [http-nio-8080-exec-6] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+17-Nov-2019 00:09:58.999 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+17-Nov-2019 00:09:59.000 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:09:59.001 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:09:59.007 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2019 00:09:59.032 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:09:59.034 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:09:59.036 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:09:59.036 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:14:16.070 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+17-Nov-2019 00:14:16.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+17-Nov-2019 00:14:16.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+17-Nov-2019 00:14:16.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+17-Nov-2019 00:14:16.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+17-Nov-2019 00:14:16.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+17-Nov-2019 00:14:16.093 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+17-Nov-2019 00:14:16.094 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+17-Nov-2019 00:14:16.094 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2019 00:14:16.094 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:14:16.094 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:14:16.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2019 00:14:16.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2019 00:14:16.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2019 00:14:16.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+17-Nov-2019 00:14:16.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2019 00:14:16.113 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+17-Nov-2019 00:14:16.114 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+17-Nov-2019 00:14:16.350 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:14:16.380 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:14:16.382 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [602] milliseconds
+17-Nov-2019 00:14:16.422 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2019 00:14:16.422 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+17-Nov-2019 00:14:16.428 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:14:16.441 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:14:16.713 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:14:16.745 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [317] ms
+17-Nov-2019 00:14:16.747 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+17-Nov-2019 00:14:16.771 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [24] ms
+17-Nov-2019 00:14:16.773 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+17-Nov-2019 00:14:16.817 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [44] ms
+17-Nov-2019 00:14:16.817 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+17-Nov-2019 00:14:17.048 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [231] ms
+17-Nov-2019 00:14:17.048 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+17-Nov-2019 00:14:17.065 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [17] ms
+17-Nov-2019 00:14:17.066 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+17-Nov-2019 00:14:17.091 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [24] ms
+17-Nov-2019 00:14:17.095 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:14:17.104 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:14:17.109 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [726] milliseconds
+17-Nov-2019 00:14:17.725 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+17-Nov-2019 00:14:17.739 INFO [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:14:17.740 WARNING [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:14:17.796 INFO [http-nio-8080-exec-9] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:14:17.798 INFO [http-nio-8080-exec-9] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [59] ms
+17-Nov-2019 00:14:17.805 INFO [http-nio-8080-exec-2] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+17-Nov-2019 00:31:30.153 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+17-Nov-2019 00:31:30.155 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:31:30.161 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:31:30.167 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2019 00:31:30.192 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:31:30.194 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:31:30.196 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:31:30.200 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:31:39.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+17-Nov-2019 00:31:39.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2019 00:31:39.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:31:39.828 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:31:39.842 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Nov-2019 00:31:39.843 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Nov-2019 00:31:39.844 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Nov-2019 00:31:39.844 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Nov-2019 00:31:39.844 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:31:39.844 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:31:39.844 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+17-Nov-2019 00:31:39.844 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+17-Nov-2019 00:31:40.111 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:31:40.138 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:31:40.140 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [547] milliseconds
+17-Nov-2019 00:31:40.188 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2019 00:31:40.189 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+17-Nov-2019 00:31:40.196 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:31:40.212 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:31:40.521 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:31:40.568 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [372] ms
+17-Nov-2019 00:31:40.570 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+17-Nov-2019 00:31:40.596 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [27] ms
+17-Nov-2019 00:31:40.597 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+17-Nov-2019 00:31:40.636 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [38] ms
+17-Nov-2019 00:31:40.636 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+17-Nov-2019 00:31:40.886 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [250] ms
+17-Nov-2019 00:31:40.886 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+17-Nov-2019 00:31:40.904 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [18] ms
+17-Nov-2019 00:31:40.904 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+17-Nov-2019 00:31:40.929 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [25] ms
+17-Nov-2019 00:31:40.935 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:31:40.942 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:31:40.945 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [805] milliseconds
+17-Nov-2019 00:31:41.577 INFO [http-nio-8080-exec-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+17-Nov-2019 00:31:41.593 INFO [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:31:41.594 WARNING [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:31:41.650 INFO [http-nio-8080-exec-10] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:31:41.652 INFO [http-nio-8080-exec-10] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [60] ms
+17-Nov-2019 00:31:41.657 INFO [http-nio-8080-exec-4] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+17-Nov-2019 00:33:55.238 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+17-Nov-2019 00:33:55.239 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:33:55.241 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:33:55.247 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2019 00:33:55.269 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:33:55.271 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:33:55.272 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:33:55.273 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:34:09.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+17-Nov-2019 00:34:09.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+17-Nov-2019 00:34:09.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:34:09.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:34:09.336 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2019 00:34:09.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2019 00:34:09.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2019 00:34:09.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+17-Nov-2019 00:34:09.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2019 00:34:09.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+17-Nov-2019 00:34:09.341 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Nov-2019 00:34:09.341 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Nov-2019 00:34:09.341 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Nov-2019 00:34:09.342 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Nov-2019 00:34:09.342 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:34:09.342 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:34:09.342 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+17-Nov-2019 00:34:09.342 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+17-Nov-2019 00:34:09.666 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:34:09.698 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:34:09.701 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [648] milliseconds
+17-Nov-2019 00:34:09.746 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2019 00:34:09.746 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+17-Nov-2019 00:34:09.754 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:34:09.768 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:34:10.099 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:34:10.138 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [385] ms
+17-Nov-2019 00:34:10.141 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+17-Nov-2019 00:34:10.163 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [22] ms
+17-Nov-2019 00:34:10.165 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+17-Nov-2019 00:34:10.202 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [37] ms
+17-Nov-2019 00:34:10.202 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+17-Nov-2019 00:34:10.486 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [284] ms
+17-Nov-2019 00:34:10.486 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+17-Nov-2019 00:34:10.506 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [20] ms
+17-Nov-2019 00:34:10.508 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+17-Nov-2019 00:34:10.532 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [24] ms
+17-Nov-2019 00:34:10.536 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:34:10.551 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:34:10.553 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [851] milliseconds
+17-Nov-2019 00:34:11.197 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+17-Nov-2019 00:34:11.217 INFO [http-nio-8080-exec-5] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:34:11.218 WARNING [http-nio-8080-exec-5] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:34:11.271 INFO [http-nio-8080-exec-5] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:34:11.273 INFO [http-nio-8080-exec-5] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [56] ms
+17-Nov-2019 00:34:11.282 INFO [http-nio-8080-exec-9] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+17-Nov-2019 00:34:54.382 SEVERE [http-nio-8080-exec-6] org.apache.tomcat.websocket.pojo.PojoEndpointBase.onError No error handling configured for [it.unipi.ing.cds.dhbws.endpoint.PlanEndpoint] and the following error occurred
+	java.lang.NullPointerException
+		at it.unipi.ing.cds.worker.Worker.terminateAll(Worker.java:130)
+		at it.unipi.ing.cds.dhbrmi.DHBRemoteObj.revoke(DHBRemoteObj.java:25)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+		at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+		at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+		at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+		at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+		at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+		at java.rmi/sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:303)
+		at java.rmi/sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:279)
+		at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:161)
+		at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:209)
+		at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:161)
+		at com.sun.proxy.$Proxy2.revoke(Unknown Source)
+		at it.unipi.ing.cds.dhbrmi.DHBRemoteObj.revoke(DHBRemoteObj.java:234)
+		at it.unipi.ing.cds.dhbrmi.DHBRemoteObj.cancelAttack(DHBRemoteObj.java:253)
+		at it.unipi.ing.cds.dhbrmi.DHBRemoteObj.initState(DHBRemoteObj.java:90)
+		at it.unipi.ing.cds.dhbrmi.DHBRemoteObj.planAttack(DHBRemoteObj.java:267)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+		at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+		at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+		at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+		at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+		at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+		at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+		at java.rmi/sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:303)
+		at java.rmi/sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:279)
+		at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:161)
+		at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:209)
+		at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:161)
+		at com.sun.proxy.$Proxy9.planAttack(Unknown Source)
+		at it.unipi.ing.cds.dhbws.endpoint.PlanEndpoint.onMessage(PlanEndpoint.java:40)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.tomcat.websocket.pojo.PojoMessageHandlerWholeBase.onMessage(PojoMessageHandlerWholeBase.java:80)
+		at org.apache.tomcat.websocket.WsFrameBase.sendMessageText(WsFrameBase.java:395)
+		at org.apache.tomcat.websocket.server.WsFrameServer.sendMessageText(WsFrameServer.java:119)
+		at org.apache.tomcat.websocket.WsFrameBase.processDataText(WsFrameBase.java:495)
+		at org.apache.tomcat.websocket.WsFrameBase.processData(WsFrameBase.java:294)
+		at org.apache.tomcat.websocket.WsFrameBase.processInputBuffer(WsFrameBase.java:133)
+		at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:82)
+		at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:171)
+		at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:151)
+		at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:148)
+		at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:54)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:53)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:830)
+17-Nov-2019 00:36:04.944 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+17-Nov-2019 00:36:04.945 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:36:04.947 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:36:04.953 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2019 00:36:04.991 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:36:04.993 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:36:04.994 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:36:04.995 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:36:32.809 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+17-Nov-2019 00:36:32.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+17-Nov-2019 00:36:32.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+17-Nov-2019 00:36:32.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+17-Nov-2019 00:36:32.813 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+17-Nov-2019 00:36:32.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+17-Nov-2019 00:36:32.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+17-Nov-2019 00:36:32.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+17-Nov-2019 00:36:32.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2019 00:36:32.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:36:32.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:36:32.829 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2019 00:36:32.829 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2019 00:36:32.829 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2019 00:36:32.829 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+17-Nov-2019 00:36:32.829 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2019 00:36:32.829 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+17-Nov-2019 00:36:32.830 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+17-Nov-2019 00:36:33.117 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:36:33.145 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:36:33.147 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [587] milliseconds
+17-Nov-2019 00:36:33.182 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2019 00:36:33.182 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+17-Nov-2019 00:36:33.189 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:36:33.223 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:36:33.517 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:36:33.550 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [361] ms
+17-Nov-2019 00:36:33.551 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+17-Nov-2019 00:36:33.569 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [19] ms
+17-Nov-2019 00:36:33.572 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+17-Nov-2019 00:36:33.607 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [36] ms
+17-Nov-2019 00:36:33.607 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+17-Nov-2019 00:36:33.861 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [254] ms
+17-Nov-2019 00:36:33.862 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+17-Nov-2019 00:36:33.880 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [18] ms
+17-Nov-2019 00:36:33.881 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+17-Nov-2019 00:36:33.900 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [19] ms
+17-Nov-2019 00:36:33.905 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:36:33.915 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:36:33.918 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [769] milliseconds
+17-Nov-2019 00:36:34.546 INFO [http-nio-8080-exec-3] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+17-Nov-2019 00:36:34.560 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:36:34.561 WARNING [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:36:34.618 INFO [http-nio-8080-exec-4] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:36:34.621 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [60] ms
+17-Nov-2019 00:36:34.625 INFO [http-nio-8080-exec-8] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.
+17-Nov-2019 00:40:25.635 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+17-Nov-2019 00:40:25.635 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:40:25.637 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:40:25.643 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+17-Nov-2019 00:40:25.665 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:40:25.666 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:40:25.667 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:40:25.669 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:40:31.981 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.27
+17-Nov-2019 00:40:31.984 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 09:57:22 UTC
+17-Nov-2019 00:40:31.984 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.27.0
+17-Nov-2019 00:40:31.984 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+17-Nov-2019 00:40:31.984 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.15
+17-Nov-2019 00:40:31.985 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+17-Nov-2019 00:40:31.985 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+17-Nov-2019 00:40:31.985 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           13.0.1+9
+17-Nov-2019 00:40:31.985 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+17-Nov-2019 00:40:31.985 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:40:31.985 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:40:32.001 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+17-Nov-2019 00:40:32.001 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/logging.properties
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|iMac-di-Filippo.home-life.hub
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+17-Nov-2019 00:40:32.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:40:32.003 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat
+17-Nov-2019 00:40:32.003 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/temp
+17-Nov-2019 00:40:32.003 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/filipposcotto/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+17-Nov-2019 00:40:32.279 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:40:32.320 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:40:32.322 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [541] milliseconds
+17-Nov-2019 00:40:32.358 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+17-Nov-2019 00:40:32.359 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.27]
+17-Nov-2019 00:40:32.365 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:40:32.378 WARNING [main] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:40:32.655 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:40:32.688 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [323] ms
+17-Nov-2019 00:40:32.689 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs]
+17-Nov-2019 00:40:32.716 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/docs] has finished in [26] ms
+17-Nov-2019 00:40:32.718 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager]
+17-Nov-2019 00:40:32.765 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/manager] has finished in [48] ms
+17-Nov-2019 00:40:32.765 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples]
+17-Nov-2019 00:40:32.999 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/examples] has finished in [234] ms
+17-Nov-2019 00:40:32.999 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT]
+17-Nov-2019 00:40:33.016 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/ROOT] has finished in [17] ms
+17-Nov-2019 00:40:33.016 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager]
+17-Nov-2019 00:40:33.039 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/webapps/host-manager] has finished in [23] ms
+17-Nov-2019 00:40:33.045 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+17-Nov-2019 00:40:33.053 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+17-Nov-2019 00:40:33.057 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [734] milliseconds
+17-Nov-2019 00:40:33.691 INFO [http-nio-8080-exec-4] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/DHBServer]
+17-Nov-2019 00:40:33.705 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml]
+17-Nov-2019 00:40:33.706 WARNING [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/DHBServer] in deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has been ignored
+17-Nov-2019 00:40:33.763 INFO [http-nio-8080-exec-7] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Nov-2019 00:40:33.766 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/Users/filipposcotto/Workspace/DistributedHashBreaker/Tomcat/conf/Catalina/localhost/DHBServer.xml] has finished in [61] ms
+17-Nov-2019 00:40:33.771 INFO [http-nio-8080-exec-3] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/DHBServer]] after start() had already been called. The second call will be ignored.

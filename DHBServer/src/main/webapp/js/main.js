@@ -142,7 +142,10 @@ function load_bucket(id) {
 }
 
 function update_current_bucket() {
-    if(current_bucket === {}) return;
+    if(current_bucket === {} || current_bucket == undefined || current_bucket.id === -1) return;
+    
+    current_bucket = current_status.buckets[current_bucket.id]; // this thing here makes no sense to me.
+    
     bucketIdLabel.text("Bucket " + current_bucket.id);
     bucketProgress.css("width", Math.max(3, current_bucket.percentage) + "%");
     bucketProgress.text(current_bucket.percentage + "%");

@@ -9,7 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import javax.websocket.server.ServerEndpoint;
-import it.unipi.ing.cds.dhbrmi.iface.DHBRemoteInterface;
+import it.unipi.ing.cds.dhbrmi.server.iface.DHBRemoteServerInterface;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -36,7 +36,7 @@ public class PlanEndpoint {
         System.out.println("the hash was " + hash);
 
         try { 
-            DHBRemoteInterface server = (DHBRemoteInterface) Naming.lookup(DHBRMIURL);
+            DHBRemoteServerInterface server = (DHBRemoteServerInterface) Naming.lookup(DHBRMIURL);
             server.planAttack(hash);
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(PlanEndpoint.class.getName()).log(Level.SEVERE, null, ex);

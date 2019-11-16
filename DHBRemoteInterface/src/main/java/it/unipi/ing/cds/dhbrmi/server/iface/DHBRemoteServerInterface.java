@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public interface DHBRemoteServerInterface extends Remote {
     public int getBucket(String userId) throws RemoteException;
-    public void putStatistics(String test) throws RemoteException;
     public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected, String ID) throws RemoteException;
     public String planAttack(String hash) throws RemoteException;
     public String getHash() throws RemoteException;

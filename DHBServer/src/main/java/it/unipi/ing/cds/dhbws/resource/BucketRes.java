@@ -18,6 +18,7 @@ public class BucketRes {
     private final String id;
     private double percentage;
     private String idWorker;
+    private int numCollisions; // TBD
     
     private Date dateAllocation;
     private Date lastHeartbeat;

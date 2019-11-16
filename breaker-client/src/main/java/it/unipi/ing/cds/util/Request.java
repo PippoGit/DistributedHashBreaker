@@ -22,7 +22,7 @@ public class Request {
 	private static Request istance=null;
 
 	public static Request getInstance(String nickname) {
-		if(istance==null)
+            if(istance==null)
 	    	istance = new Request(nickname);
 	    return istance;
 	}    
@@ -31,13 +31,15 @@ public class Request {
 	    return istance;
 	}  
 	private Request(String nickname) {
-		this.nickname = nickname;
-		try {
-			server = (DHBRemoteServerInterface) Naming.lookup(Parameters.DHBRMIURL);
-		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			e.printStackTrace();
-		}
-		System.out.println(this.nickname + " joined");
+            this.nickname = nickname;
+            
+            try {
+                server = (DHBRemoteServerInterface) Naming.lookup(Parameters.DHBRMIURL);
+            } catch (MalformedURLException | RemoteException | NotBoundException e) {
+                e.printStackTrace();
+            }
+            
+            System.out.println(this.nickname + " joined");
 	}
 	
 	public void prompt(String s) {
@@ -59,21 +61,23 @@ public class Request {
 	    }
 	}
 	
-	public int getBucketNr() throws MalformedURLException {
+    public int getBucketNr() throws MalformedURLException {
         // TEST
-		int bucket = 0;
+        int bucket = 0;
+
         try { 
             System.out.println("Testing RMI...");
             bucket = server.getBucket(ID);
             System.out.println("Received " + bucket);
-            
+
         } catch (RemoteException ex) {
             Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
         }
         ////
         return bucket;
-	}
-	public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected) throws MalformedURLException {
+    }
+    
+    public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected) throws MalformedURLException {
         // TEST
         try { 
             System.out.println("Sending Statistics...(partial inspected " + inspected +")");
@@ -81,9 +85,9 @@ public class Request {
         } catch (RemoteException ex) {
             Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
         }
-	}
+    }
 
-	public byte[] getTarget() {
+    public byte[] getTarget() {
         try {
             // TEST
             String hash = "Prova";
@@ -102,17 +106,18 @@ public class Request {
             Logger.getLogger(Parameters.ALGORITHM).log(Level.SEVERE, null, nsae);
             return null;
         }
-	}
-	private void leave() {
-		try {
-			if(server.leave(ID)) {
-				prompt("User leaved successfully");
-			}
-			else {
-				prompt("Something went wrong in leave function");
-			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
+    }
+    
+    private void leave() {
+        try {
+            if(server.leave(ID)) {
+                prompt("User leaved successfully");
+            }
+            else {
+                prompt("Something went wrong in leave function");
+            }
+        } catch (RemoteException e) {
+                e.printStackTrace();
+        }
+    }
 }
