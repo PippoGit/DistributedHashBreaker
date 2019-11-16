@@ -1,7 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+    TODO: 
+
+    - Gestire la roba Threadsafe su WebServer
+    - Aggiornare la percentage totale (adesso non viene mai aggiornata credo)
+    - AllocationGraph sulla dashboard non funziona troppo bene
+    - Bug nella Heatmap della dashboard (non so perchè)
+
+
  */
 package it.unipi.ing.cds.dhbrmi;
 
