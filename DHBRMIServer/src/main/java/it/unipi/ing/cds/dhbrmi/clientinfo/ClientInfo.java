@@ -3,6 +3,8 @@ package it.unipi.ing.cds.dhbrmi.clientinfo;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import it.unipi.ing.cds.parameters.Parameters;
+
 public class ClientInfo {
 	private UUID id;
 	private String nickName;
@@ -13,7 +15,8 @@ public class ClientInfo {
 	private int bucketNr;
 	private ArrayList<byte[]> collisionsFound;
 	private long inspected;
-	private String url; 
+	private String url;
+	private long lastHeartBeat;
 	
 	public ClientInfo(String nickName, String hostIP, int hostPort) {
 		inspected = 0;
@@ -23,6 +26,13 @@ public class ClientInfo {
 		this.hostPort = hostPort;
 		this.url = "//" + hostIP + ":" + Integer.toString(hostPort) + "/" + nickName;
 		this.id = UUID.randomUUID();
+		lastHeartBeat = System.currentTimeMillis();
+	}
+	public void beats() {
+		lastHeartBeat = System.currentTimeMillis();
+	}
+	public boolean isActive() {
+		return lastHeartBeat > System.currentTimeMillis() - Parameters.GUARD_TIME;
 	}
 	public String getUrl() {
 		return url;

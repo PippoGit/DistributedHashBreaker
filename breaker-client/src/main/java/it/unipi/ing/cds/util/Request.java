@@ -40,11 +40,19 @@ public class Request {
 		System.out.println(this.nickname + " joined");
 	}
 	
+	public void prompt(String s) {
+		System.out.println("[CLIENT-REQUEST] " + s);
+	}
+	
 	public void getId(String nickname, String hostIP, int hostPort) throws MalformedURLException {
         try { 
             System.out.println("Testing RMI...");
             this.ID = server.getId(nickname, hostIP, hostPort);
-            System.out.println("ID=" + this.ID);
+            if(this.ID == null) {
+            	prompt("No attack is planned right now");
+            	return;
+            }
+            prompt("ID=" + this.ID);
             
         } catch (RemoteException ex) {
 	        Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,12 +75,9 @@ public class Request {
 	}
 	public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected) throws MalformedURLException {
         // TEST
-		int bucket = 0;
         try { 
-            System.out.println("Sending Statistics...");
+            System.out.println("Sending Statistics...(partial inspected " + inspected +")");
             server.sendStatistics(partialCollisions, inspected, ID);
-            System.out.println("Received " + bucket);
-            
         } catch (RemoteException ex) {
             Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -97,5 +102,17 @@ public class Request {
             Logger.getLogger(Parameters.ALGORITHM).log(Level.SEVERE, null, nsae);
             return null;
         }
+	}
+	private void leave() {
+		try {
+			if(server.leave(ID)) {
+				prompt("User leaved successfully");
+			}
+			else {
+				prompt("Something went wrong in leave function");
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 }

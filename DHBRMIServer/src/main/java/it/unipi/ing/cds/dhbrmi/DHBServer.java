@@ -32,7 +32,7 @@ public class DHBServer {
         try {
             //a servant object is created
             DHBRemoteServerInterface c = new DHBRemoteObj();
-            ((DHBRemoteObj)c).initState(); // RIMUOVERREEEEEE
+            //((DHBRemoteObj)c).initState(); // RIMUOVERREEEEEE
             //next: binding to the rmiregistry
             Naming.rebind("//"+MYREGISTRY_HOST+":"+Integer.toString(MYREGISTRY_PORT)+"/"+DHBServer.servantName, c);
 

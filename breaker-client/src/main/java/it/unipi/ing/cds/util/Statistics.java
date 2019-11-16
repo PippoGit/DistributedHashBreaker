@@ -29,7 +29,7 @@ public class Statistics {
 	private ArrayList<byte[]> partialCollisions;	// Used to send updates to the server
 	private long executionTime;
 	private long inspected;
-	private long partialInspected;
+	private long lastInspected;
 	private long start;
 	
 	public Statistics(int num) {
@@ -41,11 +41,11 @@ public class Statistics {
 		partialCollisions = new ArrayList<byte[]>();
 		executionTime = 0;
 		inspected = 0;
-		partialInspected = 0;
+		lastInspected = 0;
 		start = System.currentTimeMillis();
 		clientGUI = ClientGUI.getInstance();
 	}
-	public void update(int id, ArrayList<byte[]> partialCollisions, long inspected) {
+	public void  update(int id, ArrayList<byte[]> partialCollisions, long inspected) {
 		// Per thread Statistics
 		PerThreadStatistics tmp = stats.get(id);
 		for(byte[] pc : partialCollisions)
@@ -57,10 +57,10 @@ public class Statistics {
 		
 		this.partialCollisions.addAll(partialCollisions);
 		
-		this.partialInspected = 0;
+		this.inspected = 0;
 		for(Entry<Integer, PerThreadStatistics> item:stats.entrySet())
-			this.partialInspected += item.getValue().inspected;
-		this.inspected += tmp.inspected;
+			//this.partialInspected += item.getValue().inspected;
+			this.inspected += item.getValue().inspected;
 		
 		executionTime = System.currentTimeMillis() - start;
 		
@@ -90,7 +90,9 @@ public class Statistics {
 		return inspected;
 	}
 	public long getPartialInspected() {
-		return partialInspected;
+		long tmp = inspected - lastInspected;
+		lastInspected = inspected;
+		return tmp;
 	}
 	public void showStatistics() {
 		for(int i = 0 ; i < num; i++)

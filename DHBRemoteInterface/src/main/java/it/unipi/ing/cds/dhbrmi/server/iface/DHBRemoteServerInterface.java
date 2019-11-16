@@ -16,4 +16,5 @@ public interface DHBRemoteServerInterface extends Remote {
     public String planAttack(String hash) throws RemoteException;
     public String getHash() throws RemoteException;
     public String getId(String nickname, String hostIP, int hostPort) throws RemoteException;
+    public boolean leave(String uuid) throws RemoteException;
 }

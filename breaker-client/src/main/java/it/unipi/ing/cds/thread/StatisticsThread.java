@@ -30,17 +30,26 @@ public class StatisticsThread extends Thread {
 	
 	public void run() {
 		int i = 0;
-		String str = new String("#Collision by current step: 0 "); // da cancellare
+		
+		int prova = 0;
+		
 		while(working) {
 			try {
+				
 				Thread.sleep(Parameters.SLEEP_TIME);
 				for(AnalyzerThread t : threads)
 					t.update();
 				stats.updateGlobal();
 				
 				if(++i == Parameters.CYCLES) {
-					System.out.println(str.concat(Integer.toString(stats.getPartialCollisions().size())+ " ") + ". inspected: " + stats.getPartialInspected());
-					req.sendStatistics(stats.getPartialCollisions(), stats.getPartialInspected());
+					prova++;
+					long partialInspected = stats.getPartialInspected();
+					System.out.println("Statistics: INSPECTED=" + stats.getInspected() + " PARTIAL=" + partialInspected);
+					if(prova == 10) {
+						Thread.sleep(15000);
+						prova = 0;
+					}
+					req.sendStatistics(stats.getPartialCollisions(), partialInspected);
 					stats.clearPartialCollisions();
 					i = 0;
 				}
@@ -56,8 +65,9 @@ public class StatisticsThread extends Thread {
 				t.update();
 			}
 			stats.updateGlobal();
-			System.out.println(str.concat(Integer.toString(stats.getPartialCollisions().size())+ " ") + ". inspected: " + stats.getPartialInspected());
-			req.sendStatistics(stats.getPartialCollisions(), stats.getPartialInspected());
+			long partialInspected = stats.getPartialInspected();
+			System.out.println("Statistics: INSPECTED=" + stats.getInspected() + " PARTIAL=" + partialInspected);
+			req.sendStatistics(stats.getPartialCollisions(), partialInspected);
 			stats.clearPartialCollisions();
 			//stats.showStatistics();
 		} catch (InterruptedException | MalformedURLException e) {

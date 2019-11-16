@@ -12,6 +12,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import it.unipi.ing.cds.dhbrmi.client.iface.DHBRemoteClientInterface;
 import it.unipi.ing.cds.dhbrmi.clientinfo.ClientInfo;
+import it.unipi.ing.cds.dhbrmi.guardian.Guardian;
 import it.unipi.ing.cds.dhbrmi.server.iface.DHBRemoteServerInterface;
 import it.unipi.ing.cds.parameters.Parameters;
 
@@ -33,22 +34,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Semaphore;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
 	private static final long serialVersionUID = 1L;
 	// Resources for the RMI Server
-    private static final int NUM_BUCKETS = 30;
+    private static final int NUM_BUCKETS = 30;	// Per Filippo: usa la variabile definita in Parameters
     private String hashToBreak;
     
+    private boolean attackInProgress;
     private String idAttack;			// id of current Attack
     private double totalPercentage;		// percentage of completed bucket
     private int numCollisions;			// collision found
     private String etc;					// ???
-    
-    private int numAvailableBuckets;
-    private int numWorkingBuckets;
-    private int numCompletedBuckets;
     
     // Critica
     private Map<String, ClientInfo> clients;
@@ -57,6 +57,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     private List<Integer>  completedBuckets;
     //
     
+    private Guardian guard;
+    private Semaphore mutex;
+    
     // Stuff to send data to Tomcat 
     private final static String NOTIFY_ENDPOINT = "ws://localhost:8080/DHBServer/notify";
     private DHBWebSocketClient wsTomcat;
@@ -64,8 +67,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     public DHBRemoteObj() throws RemoteException {
         super();
         idAttack = Integer.toString(0);
-        clients = new HashMap<String, ClientInfo>();
-        	
+        attackInProgress = false;
+        initState();
+        
         /*
         try {
             // Connect to Tomcat...
@@ -83,22 +87,30 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     }
     
     public void initState() {
-        // ( Available Bucket initialization
+    	
+    	if(attackInProgress)
+    		cancelAttack();
+    	
+        // ( Available, inProgress, completed Buckets initialization
         availableBuckets = new ArrayList<Integer>();
         for(int i = 0; i < Parameters.NUM_OF_BUCKETS; i++)
         	availableBuckets.add(i);
         Collections.shuffle(availableBuckets);
+        availableBuckets = Collections.synchronizedList(availableBuckets);
+        inProgressBuckets = Collections.synchronizedList(new ArrayList<Integer>());
+        completedBuckets = Collections.synchronizedList(new ArrayList<Integer>());
         // )
-        inProgressBuckets = new ArrayList<Integer>();
-        completedBuckets = new ArrayList<Integer>();
+        clients = new ConcurrentHashMap<String, ClientInfo>();
+        	
+        mutex = new Semaphore(1);
+        guard = new Guardian(this, clients, mutex);
         
         this.idAttack = Integer.toString(Integer.parseInt(idAttack) + 1);
         this.totalPercentage = 0;
         this.numCollisions = 0;
         this.etc = "2h 27m";	// To properly update. Later
-        this.numAvailableBuckets = Parameters.NUM_OF_BUCKETS;
-        this.numWorkingBuckets = 0;
-        this.numCompletedBuckets = 0;
+        attackInProgress = true;
+        System.gc();
     }
     
     private String getCurrentStateJSON() {
@@ -108,9 +120,6 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         state.addProperty("totalPercentage", totalPercentage);
         state.addProperty("numCollisions", numCollisions);
         state.addProperty("etc", etc);
-        state.addProperty("numAvailableBuckets", numAvailableBuckets);
-        state.addProperty("numWorkingBuckets", numWorkingBuckets);
-        state.addProperty("numCompletedBuckets", numCompletedBuckets);
             
         JsonArray jbuckets = new JsonArray();
         for(int i=0; i<NUM_BUCKETS; i++) {
@@ -148,10 +157,16 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
 
     public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected, String userID) throws RemoteException {
     	ClientInfo ci = clients.get(userID);
+    	if(ci == null) {
+    		prompt("No client with username " + userID);
+    		return;
+    	}
         ci.updateCollisions(partialCollisions);
         ci.updateInspected(inspected);
-        prompt(ci.getNickName() + " statistics: INSPECTED=" + inspected + " COLLISIONS=" + partialCollisions.size());
-        if(inspected == Parameters.BUCKET_SIZE) {	// all bucket has been inspected, then add it to completed buckets list
+        ci.beats();
+        prompt(ci.getNickName() + " statistics: INSPECTED=" + inspected +" (TOTAL="+ ci.getInspected()+") " + " COLLISIONS=" + partialCollisions.size());
+        if(ci.getInspected() == Parameters.BUCKET_SIZE) {	// all bucket has been inspected, then add it to completed buckets list
+        	prompt(ci.getNickName() + " has completed his bucket (" + ci.getBucketNr() + ")");
         	completedBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
         	clients.remove(userID);
         }
@@ -169,6 +184,24 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
 		} catch (MalformedURLException | NotBoundException e) {
 			e.printStackTrace();
 		}
+    }
+    private void cancelAttack() {
+    	prompt("Cancelling Attack");
+    	try {
+			mutex.acquire();
+	    	for(ClientInfo ci : clients.values()) {
+	    		if(!ci.isActive()) {
+	    			prompt("Proceeding to remove client " + ci.getId());
+	    			revoke(ci.getId());
+	    		}
+	    	}
+		} catch (InterruptedException | RemoteException e) {
+			e.printStackTrace();
+		} finally {
+			mutex.release();
+			clients.clear();
+		}
+    	attackInProgress = false;
     }
 
     public String planAttack(String hash) throws RemoteException {
@@ -200,9 +233,24 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
 
 	public String getId(String nickname, String hostIP, int hostPort) throws RemoteException {
 		// Add the new client to the list of already joined clients
-		prompt(nickname + "joined. IP=" + hostIP + "PORT=" + hostPort);
-		ClientInfo ci = new ClientInfo(nickname, hostIP, hostPort);
-		clients.put(ci.getId(), ci);
-		return ci.getId();
+		if(attackInProgress) {
+			prompt(nickname + "joined. IP=" + hostIP + "PORT=" + hostPort);
+			ClientInfo ci = new ClientInfo(nickname, hostIP, hostPort);
+			clients.put(ci.getId(), ci);
+			if(!guard.isAlive()) {
+				guard.start();
+			}
+			return ci.getId();
+		}
+		return null;
+	}
+	public boolean leave(String uuid) throws RemoteException {
+		try {
+			revoke(uuid);
+			return true;
+		} catch(Exception e) {
+			prompt("Something went wrong in leave function");
+			return false;
+		}
 	}
 }

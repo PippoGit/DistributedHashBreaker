@@ -13,5 +13,7 @@ public class Parameters {
     
     public static final String ALGORITHM = "SHA-256";
     public static final long SLEEP_TIME = 500;
+    
+    public static final long GUARD_TIME = 3000;
 
 }
