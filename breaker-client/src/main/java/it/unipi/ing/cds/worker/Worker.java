@@ -127,9 +127,23 @@ public class Worker extends Thread{
         return analyzerThreads;
     }
     public void terminateAll() {
-        for (AnalyzerThread thread : threads) 
+        for (AnalyzerThread thread : threads)
             thread.stopRunning();
         statThread.stopWorking();
         tThread.stopWorking();
+        
+		try {
+			for (AnalyzerThread thread : threads)
+				thread.join();
+	        statThread.join();
+	        tThread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    public void leave() {
+    	terminateAll();
+    	req.leave();
     }
 }

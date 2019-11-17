@@ -3,8 +3,6 @@ package it.unipi.ing.cds.parameters;
 import java.rmi.registry.Registry;
 
 public class Parameters {
-
-    public static final int SHRINKED = 32 / 8;
     
     public static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
     public static final int BUCKET_BITS = 8*BUCKET_BYTES;

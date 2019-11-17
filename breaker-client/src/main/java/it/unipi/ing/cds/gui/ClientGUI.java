@@ -49,6 +49,8 @@ public class ClientGUI extends JFrame {
 	private long lastListSize = 0;
 	private Semaphore mutex;
 	private JLabel execTime;
+	private boolean startAction;
+	private Worker worker;
 
 	private static ClientGUI instance = null;
 	private JTabbedPane tabbedPane;
@@ -63,6 +65,7 @@ public class ClientGUI extends JFrame {
 	private ClientGUI() {
 		
 		mutex = new Semaphore(1);
+		startAction = true;
 		
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,23 +164,34 @@ public class ClientGUI extends JFrame {
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(textField.getText().equals(new String("")) || textField.getText().equals(new String("Insert Nickname here"))) {
-					textField.setText("Insert Nickname here");
-					return;
-				}
 				setSize(453, 432);
 				tabbedPane.setSelectedIndex(0);
-				startBtn.setEnabled(false);
 				textLog.setVisible(true);
 				scrollPane.setVisible(true);
 				tabbedPane.setVisible(true);
 				
-				contentPane.revalidate();
+				if(startAction) {
+					if(textField.getText().equals(new String("")) || textField.getText().equals(new String("Insert Nickname here"))) {
+						textField.setText("Insert Nickname here");
+						return;
+					}
+					startBtn.setEnabled(false);
+					
+					// START THE JOB
+					worker = new Worker(textField.getText());
+					worker.start();
+					startAction = false;
+					startBtn.setText("LEAVE");
+					startBtn.setEnabled(true);
+				}else {
+					startBtn.setEnabled(false);
+					worker.leave();
+					startBtn.setText("START");
+					startAction = true;
+					startBtn.setEnabled(true);
+				}
 				
-				// START THE JOB
-				System.out.println(textField.getText());
-				new Worker(textField.getText()).start();
-				startBtn.setEnabled(false);
+				contentPane.revalidate();
 				
 			}
 		});
@@ -224,12 +238,12 @@ public class ClientGUI extends JFrame {
 	}
 
 	public void updateGlobalStatistics(int numberOfCollisions, long inspected) {
-		globalPie.updatePieSeries("Remaining", (double)(Parameters.BUCKET_SIZE - inspected + lastListSize));
-		globalPie.updatePieSeries("Inspected", (double)(inspected - lastListSize));
+		globalPie.updatePieSeries("Remaining", (double)(Parameters.BUCKET_SIZE - inspected /*+ lastListSize*/));
+		globalPie.updatePieSeries("Inspected", (double)(inspected /*- lastListSize*/));
 		globalPie.setTitle("Global Stats " + "- " + numberOfCollisions + " collisions found");
 		globalStatPanel.setVisible(false);
 		globalStatPanel.setVisible(true);
-		lastListSize = inspected;
+		//lastListSize = inspected;
 	}
 	
 	public void updateClock(int secs) {

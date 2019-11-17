@@ -10,13 +10,14 @@ import it.unipi.ing.cds.parameters.Parameters;
 
 public class Guardian extends Thread {
 	
-	private static int gid = 0;
+	private static int gid = -1;
 	
 	private DHBRemoteObj server;
 	private Map<String, ClientInfo> clients;
 	private Semaphore mutex;
 	
     public Guardian(DHBRemoteObj server, Map<String, ClientInfo> clients, Semaphore mutex) {
+    	gid++;
     	this.server = server;
     	this.clients = clients;
     	this.mutex = mutex;
@@ -26,27 +27,31 @@ public class Guardian extends Thread {
     	prompt("Guardian thread activated");
         while(!clients.isEmpty()) {
         	try {
-        		prompt("Analyzing line 29");
 				Thread.sleep(Parameters.GUARD_TIME);
-				prompt("Analyzing line 31");
 	        	mutex.acquire();
-	        	prompt("Analyzing line 33");
 	        	for(ClientInfo ci : clients.values()) {
 	        		prompt("Analyzing " + ci.getNickName());
 	        		if(!ci.isActive()) {
 	        			prompt("Client "+ ci.getNickName() + " is no longer active. Proceeding to remove it");
-	        			server.revoke(ci.getId());
+	        			try {
+							server.revoke(ci.getId());
+						} catch (RemoteException e) {
+							prompt("Client " + ci.getNickName() + " disconnected. Proceeding to remove it");
+							server.revokeDisconnected(ci.getId());
+							//e.printStackTrace();
+						}
 	        		}
 	        	}
-			} catch (InterruptedException | RemoteException e) {
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}finally {
 				mutex.release();
 			}
         }
+        server.guardianTerminate();
         prompt("No more clients, guardian process terminated");
     }
     private void prompt(String s) {
-    	System.out.println("[GUARDIAN-" + gid++ + "] " + s);
+    	System.out.println("[GUARDIAN-" + gid + "] " + s);
     }
 }

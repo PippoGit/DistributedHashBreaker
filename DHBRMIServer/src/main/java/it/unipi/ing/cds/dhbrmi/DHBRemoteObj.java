@@ -58,13 +58,6 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     
     private String idAttack;			// id of current Attack
     
-    // Queste variabili sono diventate più o meno inutili con la nuova gestione degli aggiornamenti...
-    private double totalPercentage;		
-    private int numCollisions;			
-    private String etc;					
-    //////////
-    
-    
     // Critica
     private Map<String, ClientInfo> clients;
     private List<Integer>  availableBuckets;
@@ -72,7 +65,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     private List<Integer>  completedBuckets;
     //
     
-    private Guardian guard;
+    private boolean guardActive;
     private Semaphore mutex;
     
     // Stuff to send data to Tomcat 
@@ -84,6 +77,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         attackInProgress = false;
         initState();
         
+        /*
         prompt("Connecting to Tomcat WebServer...");
         try {
             // Connect to Tomcat...
@@ -92,6 +86,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         } catch (DeploymentException | IOException ex) {
             Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
     }
     
     private void prompt(String s) {
@@ -118,12 +113,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         clients = new ConcurrentHashMap<String, ClientInfo>();
         	
         mutex = new Semaphore(1);
-        guard = new Guardian(this, clients, mutex);
+        guardActive = false;
         
         this.idAttack = Integer.toString(Integer.parseInt(idAttack) + 1);
-        this.totalPercentage = 0;
-        this.numCollisions = 0;
-        this.etc = "2h 27m";	// To properly update. Later
         attackInProgress = true;
         System.gc();
     }
@@ -221,27 +213,26 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         ci.beats();
         
         // Notify Tomcat
-        notifyHeartbeat(ci.getBucketNr());
+        //notifyHeartbeat(ci.getBucketNr());
                
         prompt(ci.getNickName() + " statistics: INSPECTED=" + inspected +" (TOTAL="+ ci.getInspected()+") " + " COLLISIONS=" + partialCollisions.size());
         
         // Notify Tomcat
-        notifyStats(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
+        //notifyStats(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
         
         if(ci.getInspected() == Parameters.BUCKET_SIZE) {	// all bucket has been inspected, then add it to completed buckets list
             prompt(ci.getNickName() + " has completed his bucket (" + ci.getBucketNr() + ")");
             completedBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
             
             // Notify Tomcat
-            notifyCompleted(ci.getBucketNr());
+            //notifyCompleted(ci.getBucketNr());
             clients.remove(userID);
         }
-
     }
     
     public void revoke(String uuid) throws RemoteException {
-        prompt("TEST REVOKING");
         ClientInfo ci = clients.get(uuid);
+        prompt("Revoking bucket to client " + ci.getNickName());
         try {
             DHBRemoteClientInterface client = (DHBRemoteClientInterface) Naming.lookup(ci.getUrl());
             client.revoke();
@@ -250,10 +241,19 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             clients.remove(uuid);
             
             // Notify Tomcat
-            notifyRevoke(ci.getBucketNr());
+            //notifyRevoke(ci.getBucketNr());
         } catch (MalformedURLException | NotBoundException e) {
             e.printStackTrace();
         }
+    }
+    public void revokeDisconnected(String uuid) {
+        ClientInfo ci = clients.get(uuid);
+        prompt("Revoking bucket (for lost connection) to client " + ci.getNickName());
+        //Remove bucket from in progress list and re-put it in among availables
+		availableBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
+		clients.remove(uuid);
+        // Notify Tomcat
+        //notifyRevoke(ci.getBucketNr());
     }
     
     private void cancelAttack() {
@@ -276,10 +276,13 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     }
 
     public String planAttack(String hash) throws RemoteException {
+    	/*
         this.hashToBreak = hash;
         initState();
         notifyPlanAttack();
         return this.idAttack;
+        */
+    	return "dummy";
     }
     
     public int getBucket(String userId) throws RemoteException {
@@ -292,13 +295,15 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         ci.setBucketNr(bucket);
         
         // Notify Tomcat
-        notifyAlloc(bucket, ci.getNickName());
+        //notifyAlloc(bucket, ci.getNickName());
         
         return bucket;
     }
     
     public String getHash() throws RemoteException {
-        return this.hashToBreak;
+        return "dummy";
+    	//return this.hashToBreak;
+        
     }
 
     public String getId(String nickname, String hostIP, int hostPort) throws RemoteException {
@@ -308,8 +313,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             ClientInfo ci = new ClientInfo(nickname, hostIP, hostPort);
             clients.put(ci.getId(), ci);
 
-            if(!guard.isAlive()) {
-                guard.start();
+            if(!guardActive) {
+            	guardActive = true;
+            	new Guardian(this, clients, mutex).start();
             }
             return ci.getId();
         }
@@ -324,5 +330,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             prompt("Something went wrong in leave function");
             return false;
         }
+    }
+    public void guardianTerminate() {
+    	guardActive = false;
     }
 }

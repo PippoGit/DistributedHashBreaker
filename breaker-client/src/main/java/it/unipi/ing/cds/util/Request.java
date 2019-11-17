@@ -108,13 +108,13 @@ public class Request {
         }
     }
     
-    private void leave() {
+    public void leave() {
         try {
             if(server.leave(ID)) {
-                prompt("User leaved successfully");
+                prompt("User " + nickname + " leaved successfully");
             }
             else {
-                prompt("Something went wrong in leave function");
+                prompt("Something went wrong in leave function (user " + nickname + ")");
             }
         } catch (RemoteException e) {
                 e.printStackTrace();
