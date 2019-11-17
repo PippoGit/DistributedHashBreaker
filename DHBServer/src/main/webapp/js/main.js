@@ -152,6 +152,11 @@ function load_bucket(id) {
     current_bucket = current_status.buckets[id];
     update_current_bucket();
     $("#bucket-inspector").fadeIn();
+    
+    // scroll to div (this is going to be lagg af)
+    $('html,body').animate({
+        scrollTop: $('#bucket-inspector').offset().top
+    },'slow');
 }
 
 function update_current_bucket() {

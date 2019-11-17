@@ -14,9 +14,13 @@ import it.unipi.ing.cds.dhbws.resource.AttackStatusRes;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
@@ -24,7 +28,7 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/notify")
 public class NotifyEndPoint {
    
-    final private AttackStatusRes status = AttackStatusRes.getAttackStatus();
+    private AttackStatusRes status; // status = AttackStatusRes.getAttackStatus();
     
     private void broadcast() throws IOException {
         final Gson gson = new Gson();
@@ -57,10 +61,23 @@ public class NotifyEndPoint {
         }
     }
     
+    @OnOpen
+    public void onOpen(Session session) {
+        try {
+            Context initCtx;
+            initCtx = new InitialContext();
+            Context envCtx = (Context) initCtx.lookup("java:comp/env");
+            this.status = (AttackStatusRes) envCtx.lookup("bean/AttackStatusRes");
+        }
+        catch (NamingException ex) {
+            Logger.getLogger(NotifyEndPoint.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @OnMessage
     public String onMessage(String message) {
         System.out.println(" +++ [NOTIFICATION] " + message);
-               
+        
         try {
             JsonElement jsonElement = new JsonParser().parse(message);
             JsonArray request = jsonElement.getAsJsonArray();

@@ -36,18 +36,19 @@ public class AttackStatusRes {
     
     BucketRes [] buckets;
     
+    /*
+    We don't need a SINGLETON anymore, everything will be handled by TomCat Context...
+    
     // THREADSAFE SINGLETON IMPLEMENTATION (Initialization-on-demand holder idiom)
     private static class WrapperSingleton {
          static AttackStatusRes INSTANCE = new AttackStatusRes();
-     }
+    }
     public static AttackStatusRes getAttackStatus() {
         return WrapperSingleton.INSTANCE;
     }
-    
-    
-    // The constructor will be called just ONCE and by the JVM, so no multithread
-    // issues here...
-    private AttackStatusRes() {
+    */
+
+    public AttackStatusRes() {
         MONITOR = new Monitor();
         buckets = new BucketRes[NUM_OF_BUCKETS];
 
