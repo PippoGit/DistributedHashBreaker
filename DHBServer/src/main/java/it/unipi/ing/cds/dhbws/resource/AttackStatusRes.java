@@ -170,4 +170,14 @@ public class AttackStatusRes {
     public void progressBucket(int bucketId, double percentage) {
         buckets[bucketId].setPercentage(percentage);
     }
+    
+    public void updateStatsBucket(int bucketId, double percentage, int foundCollisions) {
+        setNumCollisions(numCollisions + foundCollisions);
+        progressBucket(bucketId, percentage);
+    }
+    
+    public void planAttack(String id) {
+        setIdAttack(id);
+        setPlanned(true);    
+    }
 }
