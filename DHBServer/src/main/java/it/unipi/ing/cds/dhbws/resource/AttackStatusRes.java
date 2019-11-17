@@ -158,20 +158,23 @@ public class AttackStatusRes {
         this.planned = planned;
     }
     
-    public void allocBucket(int bucket, String worker) {
+    public void allocBucket(int bucket, String worker, String uuid) {
         buckets[bucket].setAvailable(false);
         buckets[bucket].setDateAllocation(new Date(System.currentTimeMillis()));
-        buckets[bucket].setIdWorker(worker);
+        buckets[bucket].setWorkerNickname(worker);
+        buckets[bucket].setUUIDWorker(uuid);
         this.numAvailableBuckets--;
         this.numWorkingBuckets++;
     }
     
     public void revokeBucket(int bucket) {
         buckets[bucket].setAvailable(true);
+        buckets[bucket].setPercentage(0);
+        
         this.numCollisions -= buckets[bucket].getNumCollisions();
-
         this.numAvailableBuckets++;
         this.numWorkingBuckets--;
+        
     }
     
     public void completedBucket(int bucket) {

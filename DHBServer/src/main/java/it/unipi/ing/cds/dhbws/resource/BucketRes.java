@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 public class BucketRes {
     private final String id;
     private double percentage;
-    private String idWorker;
+    private String workerNickname;
+    private String UUIDWorker;
     private int numCollisions;
     
     private Date dateAllocation;
@@ -38,7 +39,7 @@ public class BucketRes {
         // Just for tests ...
         if(randomize) {
             this.percentage = new Random().nextInt(101);
-            this.idWorker = "Worker #" + new Random().nextInt(101);
+            this.workerNickname = "Worker #" + new Random().nextInt(101);
             this.available = (Math.random() < 0.05);
             
             this.dateAllocation = new Date();
@@ -46,10 +47,18 @@ public class BucketRes {
         }
     }
     
-    public void setIdWorker(String idWorker) {
-        this.idWorker = idWorker;
+    public void setWorkerNickname(String workerNickname) {
+        this.workerNickname = workerNickname;
     } 
-    
+
+    public String getUUIDWorker() {
+        return UUIDWorker;
+    }
+
+    public void setUUIDWorker(String UUIDWorker) {
+        this.UUIDWorker = UUIDWorker;
+    }
+
     public String JSONStringify() {
         Gson gson = new Gson();
         return gson.toJson(this);
@@ -58,7 +67,7 @@ public class BucketRes {
     // Not really useful... 
     public void setFromJsonObject(JsonObject jsonObject) {       
         this.percentage = jsonObject.get("percentage").getAsDouble();
-        this.idWorker = jsonObject.get("idWorker").getAsString();
+        this.workerNickname = jsonObject.get("idWorker").getAsString();
         this.available = jsonObject.get("available").getAsBoolean();
         
         try {

@@ -137,10 +137,11 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         }
     }
 
-    private void notifyAlloc(int idBucket, String worker) {      
+    private void notifyAlloc(int idBucket, String worker, String UUIDWorker) {      
         JsonObject par = new JsonObject();
         par.addProperty("bucket", idBucket);
         par.addProperty("worker", worker);
+        par.addProperty("UUIDWorker", UUIDWorker);
         notifyTomcat(Parameters.NACT_BUCKET_ALLOC, par);
     }
     
@@ -278,7 +279,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         
         // Notify Tomcat
         if(SHOULD_NOTIFY_TOMCAT)
-            notifyAlloc(bucket, ci.getNickName());
+            notifyAlloc(bucket, ci.getNickName(), userId);
         
         return bucket;
     }
@@ -316,6 +317,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             return false;
         }
     }
+    
     public void guardianTerminate() {
     	guardActive = false;
     }

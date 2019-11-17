@@ -35,7 +35,7 @@ public class NotifyEndPoint {
     private void handleAction(String action, JsonObject parameters) {
         switch(action){
             case "BUCKET_ALLOC":
-                status.allocBucket(parameters.get("bucket").getAsInt(), parameters.get("worker").getAsString());
+                status.allocBucket(parameters.get("bucket").getAsInt(), parameters.get("worker").getAsString(), parameters.get("UUIDWorker").getAsString());
                 break;
             case "BUCKET_REVOKE":
                 status.revokeBucket(parameters.get("bucket").getAsInt());

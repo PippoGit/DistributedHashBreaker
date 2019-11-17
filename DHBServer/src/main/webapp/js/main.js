@@ -69,11 +69,24 @@ function test_plan_attack() {
     };
 }
 
+function revoke_current_bucket() {
+    
+    var revoke = confirm("Are you sure you want to revoke the bucket assigned to " + current_bucket.workerNickname + "?");
+    
+    if(revoke) {
+        var revokeWS = new WebSocket(WS_REVOKE_BUCKET_ENDPOINT);
+        revokeWS.onopen = function() {
+            // attackStatusWS.send("{}");
+            console.log("revoking a bucket...");
+            revokeWS.send(JSON.stringify({uuid: current_bucket.UUIDWorker}));
+        };
+    }
+}
+
 function set_plan_mode() {
     plan_mode = true;
     $("#dashboard").hide();
     $("#plan").show();
-    
 }
 
 function set_dashboard_mode() {
@@ -131,14 +144,14 @@ function update_GUI() {
 function load_bucket(id) {
     // double selection on a bucket makes bucket section disappear!
     if(current_bucket.id == id) { 
-        $("#bucket-inspector").slideUp();
+        $("#bucket-inspector").fadeOut();
         current_bucket = {id: -1};
         return;
     }
     
     current_bucket = current_status.buckets[id];
     update_current_bucket();
-    $("#bucket-inspector").slideDown();
+    $("#bucket-inspector").fadeIn();
 }
 
 function update_current_bucket() {
@@ -150,13 +163,15 @@ function update_current_bucket() {
     bucketProgress.css("width", Math.max(3, current_bucket.percentage) + "%");
     bucketProgress.text(current_bucket.percentage + "%");
 
-    var idWorker       = (current_bucket.available)?"Not assigned":current_bucket.idWorker;
+    var workerNickname = (current_bucket.available)?"Not assigned":current_bucket.workerNickname;
     var dateAllocation = (current_bucket.available)?"Not assigned":current_bucket.dateAllocation;
     var lastHeartbeat  = (current_bucket.available)?"Not assigned":current_bucket.lastHeartbeat;
 
-    bucketUsernameLabel.text(idWorker);
+    bucketUsernameLabel.text(workerNickname);
     bucketAllocationDateLabel.text(dateAllocation);
     bucketLastHeartbeatLabel.text(lastHeartbeat);
+
+    $("#revoke-btn").toggle(!current_bucket.available);
 }
 
 function test_chart() {

@@ -98,7 +98,7 @@
                         <span class="info-text"><b>Allocation Date</b>: <span id="bucket-allocation-date-label"></span></span>
                         <span class="info-text"><b>Last heartbeat</b>: <span id="bucket-last-heartbeat-label"></span></span>
                         <p>Some information about this bucket...</p>
-                        <button class="button-error"> <i class="fas fa-trash"></i> Revoke</button>
+                        <button id="revoke-btn" onclick="revoke_current_bucket()" class="button-error"> <i class="fas fa-trash"></i> Revoke</button>
                     </div> 
                 </div>
 
@@ -129,10 +129,11 @@
         <!-- INCLUDE SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script> 
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0/dist/Chart.min.js"></script>
+
         <script src="js/BucketAllocationChart.js?v=1"></script>
         <script src="js/BucketsHeatmap.js?v=3"></script>
-        <script src="js/Parameters.js?v=2"></script>
+        <script src="js/Parameters.js?v=3"></script>
         <script src="js/AttackStatus.js?v?1"></script>
-        <script src="js/main.js?v=16"></script>
+        <script src="js/main.js?v=21"></script>
     </body>
 </html>
