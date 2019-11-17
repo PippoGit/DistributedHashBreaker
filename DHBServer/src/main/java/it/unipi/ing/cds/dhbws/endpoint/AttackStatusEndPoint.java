@@ -22,9 +22,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/attack")
 public class AttackStatusEndPoint {
-    final private AttackStatusRes status = AttackStatusRes.getAttackStatus();
-    String currentAttack;
-    
+    final private AttackStatusRes status = AttackStatusRes.getAttackStatus();    
     
     private void sendStatus(Session session) {
         try {

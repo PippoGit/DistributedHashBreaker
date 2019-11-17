@@ -17,9 +17,11 @@ public class AttackStatusRes {
     
     // Callback
     private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
+
+    // Monitor and stuff
+    private transient final Monitor MONITOR; // A Guava Monitor is just a "more powerful ReentrantLock"
+
     
-    private final Monitor MONITOR = new Monitor(); // A Guava Monitor is just a "more powerful ReentrantLock"
-       
     // Resources
     private String idAttack;
     private boolean planned;
@@ -46,16 +48,17 @@ public class AttackStatusRes {
     // The constructor will be called just ONCE and by the JVM, so no multithread
     // issues here...
     private AttackStatusRes() {
+        MONITOR = new Monitor();
         buckets = new BucketRes[NUM_OF_BUCKETS];
 
-        this.idAttack            = "";
-        this.totalPercentage     = 0;
-        this.numCollisions       = 0;
-        this.etc                 = "tbd";
-        this.numAvailableBuckets = NUM_OF_BUCKETS;
-        this.numWorkingBuckets   = 0;
-        this.numCompletedBuckets = 0;
-        this.planned             = false;
+        idAttack            = "";
+        totalPercentage     = 0;
+        numCollisions       = 0;
+        etc                 = "tbd";
+        numAvailableBuckets = NUM_OF_BUCKETS;
+        numWorkingBuckets   = 0;
+        numCompletedBuckets = 0;
+        planned             = false;
         
         // GENERATE BUCKETS!
         for(int i = 0; i < NUM_OF_BUCKETS; i++) {
@@ -149,8 +152,8 @@ public class AttackStatusRes {
             buckets[bucket].setDateAllocation(new Date(System.currentTimeMillis()));
             buckets[bucket].setWorkerNickname(worker);
             buckets[bucket].setUUIDWorker(uuid);
-            this.numAvailableBuckets--;
-            this.numWorkingBuckets++;
+            numAvailableBuckets--;
+            numWorkingBuckets++;
         } finally {
             MONITOR.leave();
         }
@@ -163,9 +166,9 @@ public class AttackStatusRes {
             buckets[bucket].setAvailable(true);
             buckets[bucket].setPercentage(0);
 
-            this.numCollisions -= buckets[bucket].getNumCollisions();
-            this.numAvailableBuckets++;
-            this.numWorkingBuckets--;
+            numCollisions -= buckets[bucket].getNumCollisions();
+            numAvailableBuckets++;
+            numWorkingBuckets--;
         } finally {
             MONITOR.leave();
         }
@@ -175,9 +178,9 @@ public class AttackStatusRes {
         MONITOR.enter();
         try {
             buckets[bucket].setDateCompleted(new Date(System.currentTimeMillis()));
-            this.numCompletedBuckets++;
-            this.numWorkingBuckets--;
-            this.totalPercentage = 100*this.numCompletedBuckets/NUM_OF_BUCKETS;
+            numCompletedBuckets++;
+            numWorkingBuckets--;
+            totalPercentage = 100*numCompletedBuckets/NUM_OF_BUCKETS;
         } finally {
             MONITOR.leave();
         }        
@@ -192,22 +195,12 @@ public class AttackStatusRes {
         }  
     }
     
-    
-    public void progressBucket(int bucket, double percentage) {
-        MONITOR.enter();
-        try {
-            buckets[bucket].setPercentage(percentage);
-        } finally {
-            MONITOR.leave();
-        }             
-    }
-    
     public void updateStatsBucket(int bucket, double percentage, int foundCollisions) {
         MONITOR.enter();
         try {
-            setNumCollisions(numCollisions + foundCollisions);
+            numCollisions += foundCollisions;
             buckets[bucket].addCollisions(foundCollisions);
-            progressBucket(bucket, percentage);
+            buckets[bucket].setPercentage(percentage);
         } finally {
             MONITOR.leave();
         }  

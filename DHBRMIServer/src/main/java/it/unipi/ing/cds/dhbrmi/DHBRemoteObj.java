@@ -2,7 +2,6 @@
 
     TODO: 
 
-    ! I metodi sulla classe AttackStatus dovrebbero essere ThreadSafe
     ! Cambiato il singleton con un'implementazione threadsafe, 
       però forse non è ancora la cosa migliore?
 
