@@ -2,6 +2,24 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+
+
+TRY THIS:
+
+public class MySingleton {
+
+     private static class MyWrapper {
+         static MySingleton INSTANCE = new MySingleton();
+     }
+
+     private MySingleton () {}
+
+     public static MySingleton getInstance() {
+         return MyWrapper.INSTANCE;
+     }
+}
+
+
  */
 package it.unipi.ing.cds.dhbws.resource;
 
@@ -12,20 +30,21 @@ import java.util.List;
 import javax.websocket.Session;
 
 public class AttackStatusRes {
-    //Callback stuff???
-    private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
-    
-    //Singleton
-    private static AttackStatusRes _instance;
-    
+    // Parameters
     private static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
     private static final int BUCKET_BITS = 8*BUCKET_BYTES;
     private static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
-    
     private static final int MOST_SIGNIFICANT_BYTES = 1;
     private static final int NUM_OF_BUCKETS = (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
     
-    private String idAttack; // maybe useless?
+    // Callback
+    private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
+    
+    // Singleton
+    private static AttackStatusRes _instance;
+   
+    // Resources
+    private String idAttack;
     private boolean planned;
     
     private double totalPercentage;
@@ -41,7 +60,6 @@ public class AttackStatusRes {
     public AttackStatusRes() {
         buckets = new BucketRes[NUM_OF_BUCKETS];
 
-        // Quick test...
         this.idAttack            = "";
         this.totalPercentage     = 0;
         this.numCollisions       = 0;
