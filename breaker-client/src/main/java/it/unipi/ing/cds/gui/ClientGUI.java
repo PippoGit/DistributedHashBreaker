@@ -307,7 +307,8 @@ public class ClientGUI extends JFrame {
 			mutex.release();
 		}
 	}
-	public void enableButton() {
-		startBtn.setEnabled(true);
+	public void setStartAction() {
+		startBtn.setText("START");
+		startAction = true;
 	}
 }

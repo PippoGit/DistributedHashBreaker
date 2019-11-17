@@ -22,7 +22,7 @@ public class Request {
 	private static Request istance=null;
 
 	public static Request getInstance(String nickname) {
-            if(istance==null)
+        if(istance==null)
 	    	istance = new Request(nickname);
 	    return istance;
 	}    
@@ -31,15 +31,14 @@ public class Request {
 	    return istance;
 	}  
 	private Request(String nickname) {
-            this.nickname = nickname;
-            
-            try {
-                server = (DHBRemoteServerInterface) Naming.lookup(Parameters.DHBRMIURL);
-            } catch (MalformedURLException | RemoteException | NotBoundException e) {
-                e.printStackTrace();
-            }
-            
-            System.out.println(this.nickname + " joined");
+        this.nickname = nickname;
+        try {
+            server = (DHBRemoteServerInterface) Naming.lookup(Parameters.DHBRMIURL);
+        } catch (MalformedURLException | RemoteException | NotBoundException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println(this.nickname + " joined");
 	}
 	
 	public void prompt(String s) {

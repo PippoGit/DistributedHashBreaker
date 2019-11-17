@@ -97,6 +97,9 @@ public class Worker extends Thread{
 	        statThread.join();
 	        
 	        // SHOW GLOBAL STATISTICS
+	        // -------- da testare --------- (reset btn)
+	        resetBtn();
+	        
 	        ArrayList<byte[]> collisions = stats.getCollisions();
 	        clientGUI.updateTextLogln("Global Statistics: Collisions = " + collisions.size() + " Inspected = " + stats.getInspected() + " Execution Time = " + stats.getExecutionTime());
 	        byte[] tmp = null;
@@ -112,7 +115,7 @@ public class Worker extends Thread{
     	} catch(InterruptedException | MalformedURLException | RemoteException e) {
     		e.printStackTrace();
     	}
-    	clientGUI.enableButton();
+    	//clientGUI.enableButton();
     	System.gc();
     }
     private List<AnalyzerThread> createAnalyzerThreads(long start) {
@@ -145,5 +148,8 @@ public class Worker extends Thread{
     public void leave() {
     	terminateAll();
     	req.leave();
+    }
+    public void resetBtn() {
+    	clientGUI.setStartAction();
     }
 }

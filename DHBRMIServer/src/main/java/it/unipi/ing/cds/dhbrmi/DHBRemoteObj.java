@@ -46,7 +46,7 @@ import java.util.concurrent.Semaphore;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
-    private static final boolean SHOULD_NOTIFY_TOMCAT = true;
+    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
     
     private static final long serialVersionUID = 1L;
     
@@ -285,7 +285,6 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             return this.hashToBreak;
         else
             return "dummy";
-        
     }
 
     public String getId(String nickname, String hostIP, int hostPort) throws RemoteException {
