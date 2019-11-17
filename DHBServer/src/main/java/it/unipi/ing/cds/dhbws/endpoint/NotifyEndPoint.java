@@ -6,6 +6,7 @@
 package it.unipi.ing.cds.dhbws.endpoint;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -34,23 +35,23 @@ public class NotifyEndPoint {
     private void handleAction(String action, JsonObject parameters) {
         switch(action){
             case "BUCKET_ALLOC":
-                status.allocBucket(parameters.get("bucketId").getAsInt(), parameters.get("worker").getAsString());
+                status.allocBucket(parameters.get("bucket").getAsInt(), parameters.get("worker").getAsString());
                 break;
             case "BUCKET_REVOKE":
-                status.revokeBucket(parameters.get("bucketId").getAsInt());
+                status.revokeBucket(parameters.get("bucket").getAsInt());
                 break;
             case "BUCKET_COMPLETED":
-                status.completedBucket(parameters.get("bucketId").getAsInt());
+                status.completedBucket(parameters.get("bucket").getAsInt());
                 break;
             case "BUCKET_HEARTBEAT":
-                status.beatBucket(parameters.get("bucketId").getAsInt());
+                status.beatBucket(parameters.get("bucket").getAsInt());
                 break;
             case "BUCKET_STATS":
-                status.updateStatsBucket(parameters.get("bucketId").getAsInt(), parameters.get("percentage").getAsDouble(), parameters.get("foundCollisions").getAsInt());
+                status.updateStatsBucket(parameters.get("bucket").getAsInt(), parameters.get("percentage").getAsDouble(), parameters.get("foundCollisions").getAsInt());
                 break;
             
             case "PLAN_ATTACK":
-                status.planAttack(parameters.get("idAttack").getAsString());
+                status.planAttack(parameters.get("attack").getAsString());
                 break;
         }
     }
@@ -61,9 +62,13 @@ public class NotifyEndPoint {
                
         try {
             JsonElement jsonElement = new JsonParser().parse(message);
-            JsonObject jsonObject = jsonElement.getAsJsonObject();
-            String action = jsonObject.get("action").getAsString();
-            handleAction(action, jsonObject.get("params").getAsJsonObject());
+            JsonArray request = jsonElement.getAsJsonArray();
+            String action = request.get(0).getAsString();
+            
+            // Update state
+            handleAction(action, request.get(1).getAsJsonObject());
+            
+            // Push realtime upd
             broadcast();
         } catch (IOException ex) {
             Logger.getLogger(NotifyEndPoint.class.getName()).log(Level.SEVERE, null, ex);

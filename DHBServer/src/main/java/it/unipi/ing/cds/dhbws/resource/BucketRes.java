@@ -18,7 +18,7 @@ public class BucketRes {
     private final String id;
     private double percentage;
     private String idWorker;
-    private int numCollisions; // TBD
+    private int numCollisions;
     
     private Date dateAllocation;
     private Date lastHeartbeat;
@@ -29,11 +29,12 @@ public class BucketRes {
     public BucketRes(String id) {
         this.id = id;
         this.available = true;
+        this.numCollisions = 0;
     }
     
     public BucketRes(String id, boolean randomize) {
         this.id = id;
-        
+       
         // Just for tests ...
         if(randomize) {
             this.percentage = new Random().nextInt(101);
@@ -110,5 +111,11 @@ public class BucketRes {
         this.available = available;
     }
 
+    public int getNumCollisions() {
+        return numCollisions;
+    }
     
+    public void addCollisions(int collisions) {
+        this.numCollisions += collisions;
+    }
 }

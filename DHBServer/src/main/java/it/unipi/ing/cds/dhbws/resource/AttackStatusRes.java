@@ -158,40 +158,42 @@ public class AttackStatusRes {
         this.planned = planned;
     }
     
-    public void allocBucket(int bucketId, String worker) {
-        buckets[bucketId].setAvailable(false);
-        buckets[bucketId].setDateAllocation(new Date(System.currentTimeMillis()));
-        buckets[bucketId].setIdWorker(worker);
+    public void allocBucket(int bucket, String worker) {
+        buckets[bucket].setAvailable(false);
+        buckets[bucket].setDateAllocation(new Date(System.currentTimeMillis()));
+        buckets[bucket].setIdWorker(worker);
         this.numAvailableBuckets--;
         this.numWorkingBuckets++;
     }
     
-    public void revokeBucket(int bucketId) {
-        buckets[bucketId].setAvailable(true);
+    public void revokeBucket(int bucket) {
+        buckets[bucket].setAvailable(true);
+        this.numCollisions -= buckets[bucket].getNumCollisions();
 
         this.numAvailableBuckets++;
         this.numWorkingBuckets--;
     }
     
-    public void completedBucket(int bucketId) {
-        buckets[bucketId].setDateCompleted(new Date(System.currentTimeMillis()));
+    public void completedBucket(int bucket) {
+        buckets[bucket].setDateCompleted(new Date(System.currentTimeMillis()));
         this.numCompletedBuckets++;
         this.numWorkingBuckets--;
         this.totalPercentage = 100*this.numCompletedBuckets/NUM_OF_BUCKETS;
     }
     
-    public void beatBucket(int bucketId) {
-        buckets[bucketId].setLastHeartbeat(new Date(System.currentTimeMillis()));
+    public void beatBucket(int bucket) {
+        buckets[bucket].setLastHeartbeat(new Date(System.currentTimeMillis()));
     }
     
     
-    public void progressBucket(int bucketId, double percentage) {
-        buckets[bucketId].setPercentage(percentage);
+    public void progressBucket(int bucket, double percentage) {
+        buckets[bucket].setPercentage(percentage);
     }
     
-    public void updateStatsBucket(int bucketId, double percentage, int foundCollisions) {
+    public void updateStatsBucket(int bucket, double percentage, int foundCollisions) {
         setNumCollisions(numCollisions + foundCollisions);
-        progressBucket(bucketId, percentage);
+        buckets[bucket].addCollisions(foundCollisions);
+        progressBucket(bucket, percentage);
     }
     
     public void planAttack(String id) {

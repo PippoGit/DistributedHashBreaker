@@ -37,6 +37,7 @@ import java.util.logging.Logger;
 import javax.websocket.DeploymentException;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,7 +50,7 @@ import java.util.concurrent.Semaphore;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
-    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
+    private static final boolean SHOULD_NOTIFY_TOMCAT = true;
     
     private static final long serialVersionUID = 1L;
     
@@ -122,84 +123,57 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         System.gc();
     }
     
-    private void notifyBucketAction(int bucketId, String action) {
+    private void notifyTomcat(String action, JsonObject par) {
         Gson gson = new Gson();
-        
-        JsonObject msg = new JsonObject();
-        JsonObject par = new JsonObject();
+        JsonArray request = new JsonArray();
 
-        msg.addProperty("action", action);
-        par.addProperty("bucketId", bucketId);
-        msg.add("params", par);
+        request.add(action);
+        request.add(par);
+                
         try {            
-           wsTomcat.sendText(gson.toJson(msg));
+           wsTomcat.sendText(gson.toJson(request));
         } catch (IOException ex) {
             Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void notifyAlloc(int bucketId, String worker) {      
-        Gson gson = new Gson();
-        
-        JsonObject msg = new JsonObject();
+    private void notifyAlloc(int idBucket, String worker) {      
         JsonObject par = new JsonObject();
-
-        msg.addProperty("action", Parameters.NACT_BUCKET_ALLOC);
-        par.addProperty("bucketId", bucketId);
+        par.addProperty("bucket", idBucket);
         par.addProperty("worker", worker);
-        msg.add("params", par);
-        try {            
-           wsTomcat.sendText(gson.toJson(msg));
-        } catch (IOException ex) {
-            Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        notifyTomcat(Parameters.NACT_BUCKET_ALLOC, par);
     }
     
-    private void notifyHeartbeat(int bucketId) {       
-        notifyBucketAction(bucketId, Parameters.NACT_BUCKET_HEARTBEAT);
-       
+    private void notifyHeartbeat(int idBucket) {              
+        JsonObject par = new JsonObject();
+        par.addProperty("bucket", idBucket);
+        notifyTomcat(Parameters.NACT_BUCKET_HEARTBEAT, par);
     }
     
-    private void notifyCompleted(int bucketId) {
-        notifyBucketAction(bucketId, Parameters.NACT_BUCKET_COMPLETED);
+    private void notifyCompleted(int idBucket) {        
+        JsonObject par = new JsonObject();
+        par.addProperty("bucket", idBucket);
+        notifyTomcat(Parameters.NACT_BUCKET_COMPLETED, par);
     }    
 
-    private void notifyRevoke(int bucketId) {
-        notifyBucketAction(bucketId, Parameters.NACT_BUCKET_REVOKE);
+    private void notifyRevoke(int idBucket) {        
+        JsonObject par = new JsonObject();
+        par.addProperty("bucket", idBucket);
+        notifyTomcat(Parameters.NACT_BUCKET_REVOKE, par);
     }  
     
-    private void notifyStats(int bucketId, long inspected, int collisions) {
-        Gson gson = new Gson();
-        
-        JsonObject msg = new JsonObject();
+    private void notifyStats(int idBucket, long inspected, int collisions) {       
         JsonObject par = new JsonObject();
-
-        msg.addProperty("action", Parameters.NACT_BUCKET_STATS);
-        par.addProperty("bucketId", bucketId);
+        par.addProperty("bucket", idBucket);
         par.addProperty("percentage", (100*inspected)/Parameters.BUCKET_SIZE);
         par.addProperty("foundCollisions", collisions);
-        msg.add("params", par);
-        try {            
-           wsTomcat.sendText(gson.toJson(msg));
-        } catch (IOException ex) {
-            Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        notifyTomcat(Parameters.NACT_BUCKET_STATS, par);
     }
     
-    private void notifyPlanAttack() {
-        Gson gson = new Gson();
-        JsonObject msg = new JsonObject();
+    private void notifyPlanAttack() {       
         JsonObject par = new JsonObject();
-
-        msg.addProperty("action", Parameters.NACT_PLAN_ATTACK);
-        par.addProperty("idAttack", idAttack);
-        msg.add("params", par);
-        
-        try {            
-           wsTomcat.sendText(gson.toJson(msg));
-        } catch (IOException ex) {
-            Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        par.addProperty("attack", idAttack);
+        notifyTomcat(Parameters.NACT_PLAN_ATTACK, par);
     }
     
 
