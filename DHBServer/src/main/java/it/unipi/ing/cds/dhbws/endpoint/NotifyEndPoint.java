@@ -31,52 +31,26 @@ public class NotifyEndPoint {
         }
     }
     
-    private void bucketAlloc(int bucketId, String worker) {
-        status.allocBucket(bucketId, worker);
-    }
-    
-    private void bucketRevoke(int bucketId) {
-        status.revokeBucket(bucketId);
-    }
-    
-    private void bucketHeartbeat(int bucketId) {
-        status.beatBucket(bucketId);
-    }
-    
-    private void bucketCompleted(int bucketId) {
-        status.completedBucket(bucketId);
-    }
-    
-    private void bucketStats(int bucketId, double percentage, int foundCollisions) {
-        status.setNumCollisions(status.getNumCollisions() + foundCollisions);
-        status.progressBucket(bucketId, percentage);
-    }
-    
-    private void planAttack(String id) {
-        status.setIdAttack(id);
-        status.setPlanned(true);
-    }
-    
     private void handleAction(String action, JsonObject parameters) {
         switch(action){
             case "BUCKET_ALLOC":
-                bucketAlloc(parameters.get("bucketId").getAsInt(), parameters.get("worker").getAsString());
+                status.allocBucket(parameters.get("bucketId").getAsInt(), parameters.get("worker").getAsString());
                 break;
             case "BUCKET_REVOKE":
-                bucketRevoke(parameters.get("bucketId").getAsInt());
+                status.revokeBucket(parameters.get("bucketId").getAsInt());
                 break;
             case "BUCKET_COMPLETED":
-                bucketCompleted(parameters.get("bucketId").getAsInt());
+                status.completedBucket(parameters.get("bucketId").getAsInt());
                 break;
             case "BUCKET_HEARTBEAT":
-                bucketHeartbeat(parameters.get("bucketId").getAsInt());
+                status.beatBucket(parameters.get("bucketId").getAsInt());
                 break;
             case "BUCKET_STATS":
-                bucketStats(parameters.get("bucketId").getAsInt(), parameters.get("percentage").getAsDouble(), parameters.get("foundCollisions").getAsInt());
+                status.updateStatsBucket(parameters.get("bucketId").getAsInt(), parameters.get("percentage").getAsDouble(), parameters.get("foundCollisions").getAsInt());
                 break;
             
             case "PLAN_ATTACK":
-                planAttack(parameters.get("idAttack").getAsString());
+                status.planAttack(parameters.get("idAttack").getAsString());
                 break;
         }
     }
