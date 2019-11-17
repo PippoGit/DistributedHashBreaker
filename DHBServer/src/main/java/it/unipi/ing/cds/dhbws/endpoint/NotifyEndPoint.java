@@ -23,6 +23,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/notify")
 public class NotifyEndPoint {
+   
     final private AttackStatusRes status = AttackStatusRes.getAttackStatus();
     
     private void broadcast() throws IOException {

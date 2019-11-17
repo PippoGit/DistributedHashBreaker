@@ -3,12 +3,9 @@
     TODO: 
 
     ! I metodi sulla classe AttackStatus dovrebbero essere ThreadSafe
-    ! Cambiare il singleton con qualcosa che sia più adatto!
+    ! Cambiato il singleton con un'implementazione threadsafe, 
+      però forse non è ancora la cosa migliore?
 
-    - Revoke dalla dashboard di un bucket
-    - Dopo Revoke bisogna abbassare il numero di collisioni
-      Potrebbe essere necessario aggiungere il numero di collisioni trovate per ogni
-      bucket dentro la struttura dati BucketRes
     - Adesso gli aggiornamenti alla dashboard vengono pushati tutti insieme 
       (alternativa: il metodo broadcast() viene sostituito da uno che pusha solo
        la roba che è stata effettivamente aggiornata, il client dovrebbe funzionare

@@ -1,28 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-
-
-TRY THIS:
-
-public class MySingleton {
-
-     private static class MyWrapper {
-         static MySingleton INSTANCE = new MySingleton();
-     }
-
-     private MySingleton () {}
-
-     public static MySingleton getInstance() {
-         return MyWrapper.INSTANCE;
-     }
-}
-
-
- */
 package it.unipi.ing.cds.dhbws.resource;
 
+import com.google.common.util.concurrent.Monitor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -40,9 +18,8 @@ public class AttackStatusRes {
     // Callback
     private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
     
-    // Singleton
-    private static AttackStatusRes _instance;
-   
+    private final Monitor MONITOR = new Monitor(); // A Guava Monitor is just a "more powerful ReentrantLock"
+       
     // Resources
     private String idAttack;
     private boolean planned;
@@ -56,8 +33,19 @@ public class AttackStatusRes {
     private int numCompletedBuckets;
     
     BucketRes [] buckets;
-       
-    public AttackStatusRes() {
+    
+    // THREADSAFE SINGLETON IMPLEMENTATION (Initialization-on-demand holder idiom)
+    private static class WrapperSingleton {
+         static AttackStatusRes INSTANCE = new AttackStatusRes();
+     }
+    public static AttackStatusRes getAttackStatus() {
+        return WrapperSingleton.INSTANCE;
+    }
+    
+    
+    // The constructor will be called just ONCE and by the JVM, so no multithread
+    // issues here...
+    private AttackStatusRes() {
         buckets = new BucketRes[NUM_OF_BUCKETS];
 
         this.idAttack            = "";
@@ -75,13 +63,6 @@ public class AttackStatusRes {
         }
     }
     
-    public static AttackStatusRes getAttackStatus() {
-        if(_instance == null) {
-            _instance = new AttackStatusRes();
-        }
-        return _instance;
-    }
-
     public String getIdAttack() {
         return idAttack;
     }
@@ -158,49 +139,87 @@ public class AttackStatusRes {
         this.planned = planned;
     }
     
+    
+    // CRITICAL stuff here!
     public void allocBucket(int bucket, String worker, String uuid) {
-        buckets[bucket].setAvailable(false);
-        buckets[bucket].setDateAllocation(new Date(System.currentTimeMillis()));
-        buckets[bucket].setWorkerNickname(worker);
-        buckets[bucket].setUUIDWorker(uuid);
-        this.numAvailableBuckets--;
-        this.numWorkingBuckets++;
+        MONITOR.enter();
+        try {
+            // do things while occupying the monitor
+            buckets[bucket].setAvailable(false);
+            buckets[bucket].setDateAllocation(new Date(System.currentTimeMillis()));
+            buckets[bucket].setWorkerNickname(worker);
+            buckets[bucket].setUUIDWorker(uuid);
+            this.numAvailableBuckets--;
+            this.numWorkingBuckets++;
+        } finally {
+            MONITOR.leave();
+        }
+
     }
     
     public void revokeBucket(int bucket) {
-        buckets[bucket].setAvailable(true);
-        buckets[bucket].setPercentage(0);
-        
-        this.numCollisions -= buckets[bucket].getNumCollisions();
-        this.numAvailableBuckets++;
-        this.numWorkingBuckets--;
-        
+        MONITOR.enter();
+        try {
+            buckets[bucket].setAvailable(true);
+            buckets[bucket].setPercentage(0);
+
+            this.numCollisions -= buckets[bucket].getNumCollisions();
+            this.numAvailableBuckets++;
+            this.numWorkingBuckets--;
+        } finally {
+            MONITOR.leave();
+        }
     }
     
     public void completedBucket(int bucket) {
-        buckets[bucket].setDateCompleted(new Date(System.currentTimeMillis()));
-        this.numCompletedBuckets++;
-        this.numWorkingBuckets--;
-        this.totalPercentage = 100*this.numCompletedBuckets/NUM_OF_BUCKETS;
+        MONITOR.enter();
+        try {
+            buckets[bucket].setDateCompleted(new Date(System.currentTimeMillis()));
+            this.numCompletedBuckets++;
+            this.numWorkingBuckets--;
+            this.totalPercentage = 100*this.numCompletedBuckets/NUM_OF_BUCKETS;
+        } finally {
+            MONITOR.leave();
+        }        
     }
     
     public void beatBucket(int bucket) {
-        buckets[bucket].setLastHeartbeat(new Date(System.currentTimeMillis()));
+        MONITOR.enter();
+        try {
+            buckets[bucket].setLastHeartbeat(new Date(System.currentTimeMillis()));
+        } finally {
+            MONITOR.leave();
+        }  
     }
     
     
     public void progressBucket(int bucket, double percentage) {
-        buckets[bucket].setPercentage(percentage);
+        MONITOR.enter();
+        try {
+            buckets[bucket].setPercentage(percentage);
+        } finally {
+            MONITOR.leave();
+        }             
     }
     
     public void updateStatsBucket(int bucket, double percentage, int foundCollisions) {
-        setNumCollisions(numCollisions + foundCollisions);
-        buckets[bucket].addCollisions(foundCollisions);
-        progressBucket(bucket, percentage);
+        MONITOR.enter();
+        try {
+            setNumCollisions(numCollisions + foundCollisions);
+            buckets[bucket].addCollisions(foundCollisions);
+            progressBucket(bucket, percentage);
+        } finally {
+            MONITOR.leave();
+        }  
     }
     
     public void planAttack(String id) {
-        setIdAttack(id);
-        setPlanned(true);    
+        MONITOR.enter();
+        try {
+            setIdAttack(id);
+            setPlanned(true);    
+        } finally {
+            MONITOR.leave();
+        }  
     }
 }
