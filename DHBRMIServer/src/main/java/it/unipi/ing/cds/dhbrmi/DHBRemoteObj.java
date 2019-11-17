@@ -49,6 +49,8 @@ import java.util.concurrent.Semaphore;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
+    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
+    
     private static final long serialVersionUID = 1L;
     
     // Resources for the RMI Server
@@ -77,16 +79,16 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         attackInProgress = false;
         initState();
         
-        /*
-        prompt("Connecting to Tomcat WebServer...");
-        try {
-            // Connect to Tomcat...
-            wsTomcat = new DHBWebSocketClient(Parameters.NOTIFY_ENDPOINT);
-            System.out.println("Connected!");
-        } catch (DeploymentException | IOException ex) {
-            Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
+        if(SHOULD_NOTIFY_TOMCAT) {
+            prompt("Connecting to Tomcat WebServer...");
+            try {
+                // Connect to Tomcat...
+                wsTomcat = new DHBWebSocketClient(Parameters.NOTIFY_ENDPOINT);
+                System.out.println("Connected!");
+            } catch (DeploymentException | IOException ex) {
+                Logger.getLogger(DHBRemoteObj.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        */
     }
     
     private void prompt(String s) {
@@ -213,19 +215,22 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         ci.beats();
         
         // Notify Tomcat
-        //notifyHeartbeat(ci.getBucketNr());
+        if(SHOULD_NOTIFY_TOMCAT)
+            notifyHeartbeat(ci.getBucketNr());
                
         prompt(ci.getNickName() + " statistics: INSPECTED=" + inspected +" (TOTAL="+ ci.getInspected()+") " + " COLLISIONS=" + partialCollisions.size());
         
         // Notify Tomcat
-        //notifyStats(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
+        if(SHOULD_NOTIFY_TOMCAT)
+            notifyStats(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
         
         if(ci.getInspected() == Parameters.BUCKET_SIZE) {	// all bucket has been inspected, then add it to completed buckets list
             prompt(ci.getNickName() + " has completed his bucket (" + ci.getBucketNr() + ")");
             completedBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
             
             // Notify Tomcat
-            //notifyCompleted(ci.getBucketNr());
+            if(SHOULD_NOTIFY_TOMCAT)
+                notifyCompleted(ci.getBucketNr());
             clients.remove(userID);
         }
     }
@@ -241,7 +246,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             clients.remove(uuid);
             
             // Notify Tomcat
-            //notifyRevoke(ci.getBucketNr());
+            if(SHOULD_NOTIFY_TOMCAT)
+                notifyRevoke(ci.getBucketNr());
         } catch (MalformedURLException | NotBoundException e) {
             e.printStackTrace();
         }
@@ -252,8 +258,10 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         //Remove bucket from in progress list and re-put it in among availables
 		availableBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
 		clients.remove(uuid);
+                
         // Notify Tomcat
-        //notifyRevoke(ci.getBucketNr());
+        if(SHOULD_NOTIFY_TOMCAT)
+            notifyRevoke(ci.getBucketNr());
     }
     
     private void cancelAttack() {
@@ -276,13 +284,13 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     }
 
     public String planAttack(String hash) throws RemoteException {
-    	/*
-        this.hashToBreak = hash;
-        initState();
-        notifyPlanAttack();
-        return this.idAttack;
-        */
-    	return "dummy";
+        if(SHOULD_NOTIFY_TOMCAT) {
+            this.hashToBreak = hash;
+            initState();
+            notifyPlanAttack();
+            return this.idAttack;
+        } else
+            return "dummy";
     }
     
     public int getBucket(String userId) throws RemoteException {
@@ -295,14 +303,17 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         ci.setBucketNr(bucket);
         
         // Notify Tomcat
-        //notifyAlloc(bucket, ci.getNickName());
+        if(SHOULD_NOTIFY_TOMCAT)
+            notifyAlloc(bucket, ci.getNickName());
         
         return bucket;
     }
     
     public String getHash() throws RemoteException {
-        return "dummy";
-    	//return this.hashToBreak;
+        if(SHOULD_NOTIFY_TOMCAT)
+            return this.hashToBreak;
+        else
+            return "dummy";
         
     }
 

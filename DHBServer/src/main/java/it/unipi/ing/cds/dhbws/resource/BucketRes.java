@@ -34,6 +34,7 @@ public class BucketRes {
     public BucketRes(String id, boolean randomize) {
         this.id = id;
         
+        // Just for tests ...
         if(randomize) {
             this.percentage = new Random().nextInt(101);
             this.idWorker = "Worker #" + new Random().nextInt(101);
@@ -52,7 +53,8 @@ public class BucketRes {
         Gson gson = new Gson();
         return gson.toJson(this);
     }
-    
+
+    // Not really useful... 
     public void setFromJsonObject(JsonObject jsonObject) {       
         this.percentage = jsonObject.get("percentage").getAsDouble();
         this.idWorker = jsonObject.get("idWorker").getAsString();
