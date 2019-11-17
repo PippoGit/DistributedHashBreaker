@@ -130,9 +130,9 @@ function update_GUI() {
 
 function load_bucket(id) {
     // double selection on a bucket makes bucket section disappear!
-    if(current_bucket.id !== undefined && current_bucket.id == id) { 
+    if(current_bucket.id == id) { 
         $("#bucket-inspector").slideUp();
-        current_bucket = {};
+        current_bucket = {id: -1};
         return;
     }
     
@@ -142,7 +142,7 @@ function load_bucket(id) {
 }
 
 function update_current_bucket() {
-    if(current_bucket === {} || current_bucket == undefined || current_bucket.id === -1) return;
+    if(current_bucket.id === -1) return;
     
     current_bucket = current_status.buckets[current_bucket.id]; // this thing here makes no sense to me.
     

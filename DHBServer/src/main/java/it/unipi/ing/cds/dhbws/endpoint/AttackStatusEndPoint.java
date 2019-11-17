@@ -9,11 +9,6 @@ import it.unipi.ing.cds.dhbws.resource.AttackStatusRes;
 import com.google.gson.Gson;
 import java.io.IOException;
 
-// Timeout stuff...
-//import java.util.concurrent.Executors;
-//import java.util.concurrent.ScheduledExecutorService;
-//import java.util.concurrent.TimeUnit;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.OnClose;

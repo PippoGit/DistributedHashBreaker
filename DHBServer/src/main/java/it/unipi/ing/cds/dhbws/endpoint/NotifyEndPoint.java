@@ -19,12 +19,9 @@ import javax.websocket.OnMessage;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-/**
- *
- * @author filipposcotto
- */
+
 @ServerEndpoint("/notify")
-public class Notify {
+public class NotifyEndPoint {
     final private AttackStatusRes status = AttackStatusRes.getAttackStatus();
     
     private void broadcast() throws IOException {
@@ -95,7 +92,7 @@ public class Notify {
             handleAction(action, jsonObject.get("params").getAsJsonObject());
             broadcast();
         } catch (IOException ex) {
-            Logger.getLogger(Notify.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NotifyEndPoint.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "200";
     }

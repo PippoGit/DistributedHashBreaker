@@ -3,10 +3,15 @@
     TODO: 
 
     - Gestire la roba Threadsafe su WebServer
-    - Aggiornare la percentage totale (adesso non viene mai aggiornata credo)
-    - AllocationGraph sulla dashboard non funziona troppo bene
-    - Bug nella Heatmap della dashboard (non so perchè)
-
+    - Revoke dalla dashboard di un bucket
+    - Dopo Revoke bisogna abbassare il numero di collisioni
+      Potrebbe essere necessario aggiungere il numero di collisioni trovate per ogni
+      bucket dentro la struttura dati BucketRes
+    - Adesso gli aggiornamenti alla dashboard vengono pushati tutti insieme 
+      (alternativa: il metodo broadcast() viene sostituito da uno che pusha solo
+       la roba che è stata effettivamente aggiornata, il client dovrebbe funzionare
+       lo stesso)
+    
 
  */
 package it.unipi.ing.cds.dhbrmi;
@@ -77,7 +82,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         attackInProgress = false;
         initState();
         
-        System.out.println("Connecting to Tomcat WebServer...");
+        prompt("Connecting to Tomcat WebServer...");
         try {
             // Connect to Tomcat...
             wsTomcat = new DHBWebSocketClient(Parameters.NOTIFY_ENDPOINT);

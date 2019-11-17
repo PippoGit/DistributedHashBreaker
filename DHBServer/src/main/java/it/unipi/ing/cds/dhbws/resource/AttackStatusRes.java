@@ -5,10 +5,6 @@
  */
 package it.unipi.ing.cds.dhbws.resource;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -163,6 +159,7 @@ public class AttackStatusRes {
         buckets[bucketId].setDateCompleted(new Date(System.currentTimeMillis()));
         this.numCompletedBuckets++;
         this.numWorkingBuckets--;
+        this.totalPercentage = 100*this.numCompletedBuckets/NUM_OF_BUCKETS;
     }
     
     public void beatBucket(int bucketId) {
