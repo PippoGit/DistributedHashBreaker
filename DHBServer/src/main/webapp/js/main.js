@@ -176,7 +176,7 @@ function update_current_bucket() {
     bucketAllocationDateLabel.text(dateAllocation);
     bucketLastHeartbeatLabel.text(lastHeartbeat);
 
-    $("#revoke-btn").toggle(!current_bucket.available);
+    $("#revoke-btn").toggle(!(current_bucket.available || current_bucket.percentage == 100));
 }
 
 function test_chart() {

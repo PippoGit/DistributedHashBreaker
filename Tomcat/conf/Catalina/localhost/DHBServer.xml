@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="/Users/filipposcotto/Desktop/.Workspace/Concurrent and Distributed Systems/Project/DistributedHashBreaker/DHBServer/target/DHBServer-1.0-SNAPSHOT" path="/DHBServer">
+  <Resource auth="Container" factory="org.apache.naming.factory.BeanFactory" name="bean/AttackStatusRes" type="it.unipi.ing.cds.dhbws.resource.AttackStatusRes"/>
+</Context>
