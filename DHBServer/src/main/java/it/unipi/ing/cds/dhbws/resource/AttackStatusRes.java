@@ -95,10 +95,6 @@ public class AttackStatusRes {
         return numCompletedBuckets;
     }
 
-    public BucketRes[] getBuckets() {
-        return buckets;
-    }
-
     public List<Session> getSessions() {
         return sessions;
     }
