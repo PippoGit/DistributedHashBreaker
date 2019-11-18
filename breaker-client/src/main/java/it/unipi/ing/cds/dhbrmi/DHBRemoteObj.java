@@ -23,5 +23,6 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteClient
 	public void revoke() throws RemoteException {
 		prompt("Server revoking bucket to thread " + worker.getId());
 		worker.terminateAll();
+		worker.resetBtn();
 	}
 }
