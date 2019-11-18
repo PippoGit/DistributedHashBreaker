@@ -71,66 +71,34 @@ public class AttackStatusRes {
         return idAttack;
     }
 
-    public void setIdAttack(String idAttack) {
-        this.idAttack = idAttack;
-    }
-
     public double getTotalPercentage() {
         return totalPercentage;
-    }
-
-    public void setTotalPercentage(double totalPercentage) {
-        this.totalPercentage = totalPercentage;
     }
 
     public int getNumCollisions() {
         return numCollisions;
     }
 
-    public void setNumCollisions(int numCollisions) {
-        this.numCollisions = numCollisions;
-    }
-
     public String getEtc() {
         return etc;
-    }
-
-    public void setEtc(String etc) {
-        this.etc = etc;
     }
 
     public int getNumAvailableBuckets() {
         return numAvailableBuckets;
     }
 
-    public void setNumAvailableBuckets(int numAvailableBuckets) {
-        this.numAvailableBuckets = numAvailableBuckets;
-    }
-
     public int getNumWorkingBuckets() {
         return numWorkingBuckets;
-    }
-
-    public void setNumWorkingBuckets(int numWorkingBuckets) {
-        this.numWorkingBuckets = numWorkingBuckets;
     }
 
     public int getNumCompletedBuckets() {
         return numCompletedBuckets;
     }
 
-    public void setNumCompletedBuckets(int numCompletedBuckets) {
-        this.numCompletedBuckets = numCompletedBuckets;
-    }
-
     public BucketRes[] getBuckets() {
         return buckets;
     }
 
-    public void setBuckets(BucketRes[] buckets) {
-        this.buckets = buckets;
-    }
-    
     public List<Session> getSessions() {
         return sessions;
     }
@@ -138,11 +106,6 @@ public class AttackStatusRes {
     public boolean isPlanned() {
         return planned;
     }
-
-    public void setPlanned(boolean planned) {
-        this.planned = planned;
-    }
-    
     
     // CRITICAL stuff here!
     public void allocBucket(int bucket, String worker, String uuid) {
@@ -210,8 +173,8 @@ public class AttackStatusRes {
     public void planAttack(String id) {
         MONITOR.enter();
         try {
-            setIdAttack(id);
-            setPlanned(true);    
+            this.idAttack = id;
+            this.planned = true;    
         } finally {
             MONITOR.leave();
         }  
