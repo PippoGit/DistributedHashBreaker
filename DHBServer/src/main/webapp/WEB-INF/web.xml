@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-env-ref>
+  <description>
+    Object factory for AttackStatusRes instances.
+  </description>
+  <resource-env-ref-name>
+    bean/AttackStatusRes
+  </resource-env-ref-name>
+  <resource-env-ref-type>
+    it.unipi.ing.cds.dhbws.resource.AttackStatusRes
+  </resource-env-ref-type>
+</resource-env-ref>

@@ -11,6 +11,9 @@ import java.io.IOException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.websocket.OnClose;
 
 import javax.websocket.OnError;
@@ -22,7 +25,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/attack")
 public class AttackStatusEndPoint {
-    final private AttackStatusRes status = AttackStatusRes.getAttackStatus();    
+    private AttackStatusRes status; 
     
     private void sendStatus(Session session) {
         try {
@@ -51,6 +54,15 @@ public class AttackStatusEndPoint {
 
     @OnOpen
     public void onOpen(Session session) {
+        try {
+            Context initCtx;
+            initCtx = new InitialContext();
+            Context envCtx = (Context) initCtx.lookup("java:comp/env");
+            this.status = (AttackStatusRes) envCtx.lookup("bean/AttackStatusRes");
+        } catch (NamingException ex) {
+            Logger.getLogger(AttackStatusEndPoint.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        
         System.out.println("New Connection to the Dashboard!");
         sendStatus(session);
         status.getSessions().add(session);   

@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/DHBServer"/>
+<Context path="/DHBServer">
+    <Resource name="bean/AttackStatusRes" auth="Container"
+              type="it.unipi.ing.cds.dhbws.resource.AttackStatusRes"
+              factory="org.apache.naming.factory.BeanFactory"/>
+
+</Context>
