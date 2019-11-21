@@ -183,7 +183,7 @@ function test_chart() {
     var config = {
         type: 'line',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ['TimeStamp0', 'TimeStamp1', 'TimeStamp2', 'TimeStamp3', 'TimeStamp4', 'TimeStamp5', 'TimeStamp6'],
             datasets: [{
                 label: 'My First dataset',
                 backgroundColor:"#ec407a",
@@ -203,7 +203,7 @@ function test_chart() {
             responsive: true,
             title: {
                 display: true,
-                text: 'Some kind of Performance Chart'
+                text: 'Completed Buckets per Minute [CBpm]'
             },
             tooltips: {
                 mode: 'index',
@@ -218,14 +218,14 @@ function test_chart() {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Month'
+                        labelString: 'Time'
                     }
                 }],
                 yAxes: [{
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Value'
+                        labelString: 'CBpm'
                     }
                 }]
             }
