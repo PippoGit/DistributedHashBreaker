@@ -124,8 +124,8 @@ public class AttackStatusRes {
         MONITOR.enter();
         try {
             buckets[bucket].setAvailable(true);
+            totalPercentage -= buckets[bucket].getPercentage()/NUM_OF_BUCKETS; // still pretty bad
             buckets[bucket].setPercentage(0);
-
             numCollisions -= buckets[bucket].getNumCollisions();
             numAvailableBuckets++;
             numWorkingBuckets--;
@@ -140,7 +140,11 @@ public class AttackStatusRes {
             buckets[bucket].setDateCompleted(new Date(System.currentTimeMillis()));
             numCompletedBuckets++;
             numWorkingBuckets--;
-            totalPercentage = 100*numCompletedBuckets/NUM_OF_BUCKETS;
+            
+            if(numCompletedBuckets == NUM_OF_BUCKETS) {
+                System.out.println("ATTACK COMPLETED!");
+                // ...
+            }
         } finally {
             MONITOR.leave();
         }        
@@ -160,7 +164,10 @@ public class AttackStatusRes {
         try {
             numCollisions += foundCollisions;
             buckets[bucket].addCollisions(foundCollisions);
+            double oldPercentage = buckets[bucket].getPercentage(); // this looks bad
             buckets[bucket].setPercentage(percentage);
+            totalPercentage += (percentage - oldPercentage)/NUM_OF_BUCKETS; // temporary solution
+            //                                                                 (REALLY BAD)
         } finally {
             MONITOR.leave();
         }  

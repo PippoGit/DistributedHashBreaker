@@ -113,7 +113,7 @@ function build_GUI() {
 function update_GUI() {
     // Load main GUI elements 
     attackIdLabel.text("#" + current_status.idAttack);
-    totalPercentageBar.text('' + current_status.totalPercentage + "%");
+    totalPercentageBar.text('' + Math.round(current_status.totalPercentage) + "%");
     totalPercentageBar.css('width', '' + Math.max(3, current_status.totalPercentage) + "%");
     etcLabel.text(current_status.etc);
     numCollisionsLabel.text(current_status.numCollisions);
