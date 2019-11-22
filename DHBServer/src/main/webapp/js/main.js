@@ -183,27 +183,39 @@ function test_chart() {
     var config = {
         type: 'line',
         data: {
-            labels: ['TimeStamp0', 'TimeStamp1', 'TimeStamp2', 'TimeStamp3', 'TimeStamp4', 'TimeStamp5', 'TimeStamp6'],
+            labels: [
+                new Date().toLocaleTimeString(), 
+                new Date().toLocaleTimeString(),
+                new Date().toLocaleTimeString(),
+                new Date().toLocaleTimeString(),
+                new Date().toLocaleTimeString(),
+                new Date().toLocaleTimeString(),
+                new Date().toLocaleTimeString()
+            ],
             datasets: [{
-                label: 'My First dataset',
-                backgroundColor:"#ec407a",
-                borderColor:"#ec407a",
-                data: [15, 115, 15, 315, 145, 155, 144],
-                fill: false
-            }, {
-                label: 'My Second dataset',
                 fill: false,
                 backgroundColor: "#536de6",
                 borderColor: "#536de6",
-                data: [123, 133, 144, 122, 155, 125, 145]
+                data: [
+                    123, 
+                    142,
+                    150,
+                    20,
+                    30,
+                    166,
+                    12
+                ]
             }]
         },
         options: {
+            legend: {
+                display: false
+            },
             aspectRatio: 2,
             responsive: true,
             title: {
                 display: true,
-                text: 'Completed Buckets per Minute [CBpm]'
+                text: 'Inspected Plaintexts [plaintext/s]'
             },
             tooltips: {
                 mode: 'index',
@@ -225,7 +237,7 @@ function test_chart() {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'CBpm'
+                        labelString: 'plaintext/s'
                     }
                 }]
             }
