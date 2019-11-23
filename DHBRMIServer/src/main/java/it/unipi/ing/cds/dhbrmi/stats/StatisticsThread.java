@@ -50,7 +50,6 @@ public class StatisticsThread extends Thread{
                     buckets.add(bucket);
                 }
                 par.add("buckets", buckets);
-                System.out.println("TEST:   " + par.toString());
                 server.notifyTomcat(Parameters.NACT_STATS_AGGREGATED, par);
             } catch (InterruptedException e) {
                 e.printStackTrace();
