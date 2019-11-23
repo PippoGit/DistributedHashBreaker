@@ -1,10 +1,11 @@
 package it.unipi.ing.cds.parameters;
 
 import java.rmi.registry.Registry;
+import java.util.UUID;
 
 public class Parameters {
     
-    public static final int BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
+    public static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
     public static final int BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
     
@@ -18,6 +19,12 @@ public class Parameters {
     // SERVER
     public static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
     public static final String MYREGISTRY_HOST = "127.0.0.1";
-    public static final String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";  
+    public static final String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
+    
+    //RESERVED UUIDs
+	public static UUID noAttackPlanned = UUID.fromString("00000000-0000-0000-0000-00000000");
+	public static UUID noAvailableBucket = UUID.fromString("1000000-0000-0000-0000-00000000");
+	public static UUID remoteError = UUID.fromString("2000000-0000-0000-0000-00000000");
+	public static UUID connectionError = UUID.fromString("3000000-0000-0000-0000-00000000");
 
 }

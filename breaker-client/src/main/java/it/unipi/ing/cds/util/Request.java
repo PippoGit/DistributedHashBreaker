@@ -45,18 +45,16 @@ public class Request {
 		System.out.println("[CLIENT-REQUEST] " + s);
 	}
 	
-	public void getId(String nickname, String hostIP, int hostPort) throws MalformedURLException {
+	public String getId(String nickname, String hostIP, int hostPort) throws MalformedURLException {
         try { 
             System.out.println("Testing RMI...");
             this.ID = server.getId(nickname, hostIP, hostPort);
-            if(this.ID == null) {
-            	prompt("No attack is planned right now");
-            	return;
-            }
             prompt("ID=" + this.ID);
+            return this.ID;
             
         } catch (RemoteException ex) {
 	        Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+	        return Parameters.remoteError.toString();
 	    }
 	}
 	
@@ -79,7 +77,7 @@ public class Request {
     public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected) throws MalformedURLException {
         // TEST
         try { 
-            System.out.println("Sending Statistics...(partial inspected " + inspected +")");
+            prompt("Sending Statistics...(partial inspected " + inspected +") with ID " + ID);
             server.sendStatistics(partialCollisions, inspected, ID);
         } catch (RemoteException ex) {
             Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);

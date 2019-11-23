@@ -32,9 +32,10 @@ public class Guardian extends Thread {
 	        	for(ClientInfo ci : clients.values()) {
 	        		prompt("Analyzing " + ci.getNickName());
 	        		if(!ci.isActive()) {
-	        			prompt("Client "+ ci.getNickName() + " is no longer active. Proceeding to remove it");
+	        			String id = ci.getId();
+	        			prompt("Client "+ ci.getNickName() + " ( " + id + ") is no longer active. Proceeding to remove it");
 	        			try {
-							server.revoke(ci.getId());
+							server.revoke(id);
 						} catch (RemoteException e) {
 							prompt("Client " + ci.getNickName() + " disconnected. Proceeding to remove it");
 							server.revokeDisconnected(ci.getId());

@@ -50,7 +50,22 @@ public class Worker extends Thread{
     
     public void run() {
     	setPriority(Thread.MAX_PRIORITY);
+    	long start;
+    	String sessionID;
     	try {
+    		req = Request.getInstance(nickname);
+    		sessionID = req.getId(nickname, Parameters.MYREGISTRY_HOST, hostPort);
+	    	if(sessionID.equals(Parameters.noAttackPlanned.toString())) {
+	    		clientGUI.updateTextLogln("NO ATTACK IS PLANNED");
+	    		resetBtn();
+	    		return;
+	    	}
+	    	if(sessionID.equals(Parameters.noAvailableBucket.toString())) {
+	    		clientGUI.updateTextLogln("NO AVAILABLE BUCKETS");
+	    		resetBtn();
+	    		return;
+	    	}
+    		
     		// ( CLIENT INTERFACE INITIALIZATION (
     		System.out.println("[CLIENT] Registering " + nickname + " (" + Parameters.MYREGISTRY_HOST + "/" + hostPort + ")");
             LocateRegistry.createRegistry(hostPort);
@@ -58,9 +73,7 @@ public class Worker extends Thread{
     		DHBRemoteClientInterface clientInterface = new DHBRemoteObj(this);
     		Naming.rebind("//"+Parameters.MYREGISTRY_HOST+":"+Integer.toString(hostPort)+"/"+nickname, clientInterface);
 			// )
-	    	req = Request.getInstance(nickname);
 	    	
-	    	req.getId(nickname, Parameters.MYREGISTRY_HOST, hostPort);
 	    	
 	    	int bucketNr = req.getBucketNr();
 	    	
@@ -70,9 +83,6 @@ public class Worker extends Thread{
     		clientGUI.initGlobal();
 	    	clientGUI.updateTextLogln(target);
 	    	clientGUI.updateTextLogln("Target length: " + target.length);
-	        
-	    	long start;
-	        
 	    	clientGUI.updateTextLogln("Start Analying bucket Nr. " + bucketNr);
 	    	
 	    	start = bucketNr*((long)Math.pow(2, Parameters.BUCKET_BITS));

@@ -26,6 +26,10 @@ public class ClientInfo {
         this.hostPort = hostPort;
         this.url = "//" + hostIP + ":" + Integer.toString(hostPort) + "/" + nickName;
         this.id = UUID.randomUUID();
+        while(this.id.compareTo(Parameters.noAttackPlanned) == 0 || this.id.compareTo(Parameters.noAvailableBucket) == 0 ||
+	    		this.id.compareTo(Parameters.remoteError) == 0 || this.id.compareTo(Parameters.connectionError) == 0 ) {
+        	this.id = UUID.randomUUID();
+        }
         lastHeartBeat = System.currentTimeMillis();
     }
     public void beats() {

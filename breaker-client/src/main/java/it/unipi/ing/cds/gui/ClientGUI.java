@@ -164,7 +164,7 @@ public class ClientGUI extends JFrame {
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				setSize(453, 432);
+				setSize(510, 432);
 				tabbedPane.setSelectedIndex(0);
 				textLog.setVisible(true);
 				scrollPane.setVisible(true);
