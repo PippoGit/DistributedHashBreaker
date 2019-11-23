@@ -6,7 +6,8 @@ var current_status;
 var plan_mode = true;
     
 // GUI Elements
-var bucketAllocationChart, 
+var bucketInspectedChart,
+    bucketAllocationChart, 
     attackIdLabel,
     totalPercentageBar,
     etcLabel,
@@ -26,7 +27,7 @@ $(document).ready(function() {
     build_GUI();    
     
     // Temporary function to show time-plot (performance)
-    test_chart();
+    // test_chart();
     
     // Set events and stuff
     $("#plan-form").submit( function(e) {
@@ -106,6 +107,7 @@ function build_GUI() {
     bucketAllocationDateLabel = $("#bucket-allocation-date-label");
     bucketLastHeartbeatLabel  = $("#bucket-last-heartbeat-label");
     
+    bucketInspectedChart  = new BucketInspectedChart('bucket-inspected-chart');
     bucketAllocationChart = new BucketAllocationChart('bucket-allocation-chart');    
     heatmap               = new BucketsHeatmap('heatmap');
 }
@@ -122,6 +124,8 @@ function update_GUI() {
     bucketAllocationChart.updateData(current_status.numWorkingBuckets,
                                      current_status.numCompletedBuckets,
                                      current_status.numAvailableBuckets);
+    
+    bucketInspectedChart.pushData(current_status.inspected);
     
     // ONLY IF IT'S THE FIRST TIME...
     if(!heatmap.initialized) {

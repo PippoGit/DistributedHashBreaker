@@ -6,7 +6,7 @@
 
 var BucketAllocationChart = function(ctx){
     this._ctx = document.getElementById(ctx).getContext('2d');
-    this. _chart;
+    this._chart = {};
     this.numWorkingBuckets   = 0;
     this.numCompletedBuckets = 0;
     this.numAvailableBuckets = 0;

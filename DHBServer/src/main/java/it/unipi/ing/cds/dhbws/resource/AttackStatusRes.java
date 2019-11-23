@@ -34,6 +34,8 @@ public class AttackStatusRes {
     private int numWorkingBuckets;
     private int numCompletedBuckets;
     
+    private long inspected;
+    
     BucketRes [] buckets;
     
     /*
@@ -60,6 +62,7 @@ public class AttackStatusRes {
         numWorkingBuckets   = 0;
         numCompletedBuckets = 0;
         planned             = false;
+        inspected           = 0;
         
         // GENERATE BUCKETS!
         for(int i = 0; i < NUM_OF_BUCKETS; i++) {
@@ -159,9 +162,11 @@ public class AttackStatusRes {
         }  
     }
     
-    public void updateStatsBucket(int bucket, double percentage, int foundCollisions) {
+    public void updateStatsBucket(int bucket, long inspected, int foundCollisions) {
         MONITOR.enter();
         try {
+            double percentage = (100*inspected)/BUCKET_SIZE;
+            this.inspected += inspected;
             numCollisions += foundCollisions;
             buckets[bucket].addCollisions(foundCollisions);
             double oldPercentage = buckets[bucket].getPercentage(); // this looks bad

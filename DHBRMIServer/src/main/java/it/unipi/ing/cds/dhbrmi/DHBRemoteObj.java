@@ -162,7 +162,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     private void notifyStats(int idBucket, long inspected, int collisions) {       
         JsonObject par = new JsonObject();
         par.addProperty("bucket", idBucket);
-        par.addProperty("percentage", (100*inspected)/Parameters.BUCKET_SIZE);
+        par.addProperty("inspected", inspected);
         par.addProperty("foundCollisions", collisions);
         notifyTomcat(Parameters.NACT_BUCKET_STATS, par);
     }

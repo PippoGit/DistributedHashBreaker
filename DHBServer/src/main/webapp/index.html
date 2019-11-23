@@ -41,7 +41,7 @@
                                     <fieldset>
                                         <legend>Preferences</legend>
                                         <label for="hash-input-form">String of the hash:</label>
-                                        <input required id="hash-input-form" type="text" placeholder="Hash to break"></input>
+                                        <input required id="hash-input-form" type="text" placeholder="Hash to break"/>
                                     </fieldset>
                                     <button id="plan-form-submit" class="pure-button pure-button-primary button-indigo"> <i class="fab fa-telegram-plane"></i> Plan Attack </button>
                                </form>
@@ -62,7 +62,7 @@
                                 <h4 class="card-title">Attack <span id="attack-id-label"></span> - progress</h4>
                                 <div class="progress-bar"><span id="total-percentage"></span></div>
                                 <span class="info-text"><b>Expected time to complete (ETC)</b>: <span id="etc-label"></span></span>
-                                <canvas id="myChart"></canvas>
+                                <canvas id="bucket-inspected-chart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -131,10 +131,11 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.0/dist/Chart.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
         
-        <script src="js/BucketAllocationChart.js?v=1"></script>
+        <script src="js/BucketInspectedChart.js?v=9"></script>
+        <script src="js/BucketAllocationChart.js?v=2"></script>
         <script src="js/BucketsHeatmap.js?v=3"></script>
         <script src="js/Parameters.js?v=3"></script>
         <script src="js/AttackStatus.js?v?1"></script>
-        <script src="js/main.js?v=34"></script>
+        <script src="js/main.js?v=36"></script>
     </body>
 </html>

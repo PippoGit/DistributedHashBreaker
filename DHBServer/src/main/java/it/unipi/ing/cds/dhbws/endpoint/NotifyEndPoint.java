@@ -52,7 +52,7 @@ public class NotifyEndPoint {
                 status.beatBucket(parameters.get("bucket").getAsInt());
                 break;
             case "BUCKET_STATS":
-                status.updateStatsBucket(parameters.get("bucket").getAsInt(), parameters.get("percentage").getAsDouble(), parameters.get("foundCollisions").getAsInt());
+                status.updateStatsBucket(parameters.get("bucket").getAsInt(), parameters.get("inspected").getAsLong(), parameters.get("foundCollisions").getAsInt());
                 break;
             
             case "PLAN_ATTACK":
