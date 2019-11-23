@@ -15,11 +15,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BucketRes {
-    private final String id;
+    private final  String id;
     private double percentage;
     private String workerNickname;
     private String UUIDWorker;
-    private int numCollisions;
+    private int    numCollisions;
+    private long   inspected;
     
     private Date dateAllocation;
     private Date lastHeartbeat;
@@ -28,9 +29,10 @@ public class BucketRes {
     private boolean available;
     
     public BucketRes(String id) {
-        this.id = id;
-        this.available = true;
+        this.id            = id;
+        this.available     = true;
         this.numCollisions = 0;
+        this.inspected     = 0;
     }
     
     public BucketRes(String id, boolean randomize) {
@@ -126,5 +128,13 @@ public class BucketRes {
     
     public void addCollisions(int collisions) {
         this.numCollisions += collisions;
+    }
+    
+    public void setInspected(long inspected) {
+        this.inspected = inspected;
+    }
+    
+    public long getInspecetd() {
+        return inspected;
     }
 }

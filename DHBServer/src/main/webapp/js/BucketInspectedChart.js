@@ -12,16 +12,25 @@ var BucketInspectedChart = function(ctx){
 };
 
 BucketInspectedChart.prototype.pushData = function(value) {
-    var index = this._chart.data.datasets[0].data.push(value - this.lastInspected);
+    var k_val = Math.round(value/1000);
+    
+    // Some initial check
+    if(k_val == this.lastInspected) return; // this means there was no need to update the chart
+    if(this.lastInspected == 0) this.lastInspected = k_val;
+
+    // Add data and labels for the new entry
+    var index = this._chart.data.datasets[0].data.push(k_val - this.lastInspected);
     this._chart.data.labels[index-1] = new Date().toLocaleTimeString();
     
-    if(this._chart.data.datasets[0].data.length == 20) // ??? idk
+    // Scroll the plot if too much data...
+    if(this._chart.data.datasets[0].data.length == 10)
     {
-        // should remove first entry and stuff...
-        this._chart.data.datasets[0].data.shift(15);
-        this._chart.data.labels.shift(15);
+        this._chart.data.datasets[0].data.shift(5);
+        this._chart.data.labels.shift(5);
     }
-    this.lastInspected = value;
+    
+    // finally update the chart
+    this.lastInspected = k_val;
     this._chart.update();
 };
 
@@ -38,6 +47,7 @@ BucketInspectedChart.prototype.init = function() {
             }]
         },
         options: {
+            animation: false,
             legend: {
                 display: false
             },
@@ -45,7 +55,7 @@ BucketInspectedChart.prototype.init = function() {
             responsive: true,
             title: {
                 display: true,
-                text: 'Inspected Plaintexts [plaintext/s]'
+                text: 'Inspected Plaintexts [KPlnTxt/TimeInterval]'
             },
             tooltips: {
                 mode: 'index',
@@ -67,7 +77,11 @@ BucketInspectedChart.prototype.init = function() {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'plaintext/s'
+                        labelString: '# of Plaintext'
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value) {if (value % 1 === 0) {return value;}}
                     }
                 }]
             }

@@ -125,7 +125,8 @@ function update_GUI() {
                                      current_status.numCompletedBuckets,
                                      current_status.numAvailableBuckets);
     
-    bucketInspectedChart.pushData(current_status.inspected);
+    if(current_status.totalInspected !== undefined)
+        bucketInspectedChart.pushData(current_status.totalInspected);
     
     // ONLY IF IT'S THE FIRST TIME...
     if(!heatmap.initialized) {

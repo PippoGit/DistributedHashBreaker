@@ -37,13 +37,14 @@ public class NotifyEndPoint {
         }
     }
     
-    private void handleAction(String action, JsonObject parameters) {
+    private void handleAction(String action, JsonObject parameters) throws IOException {
         switch(action){
             case "BUCKET_ALLOC":
                 status.allocBucket(parameters.get("bucket").getAsInt(), parameters.get("worker").getAsString(), parameters.get("UUIDWorker").getAsString());
                 break;
             case "BUCKET_REVOKE":
                 status.revokeBucket(parameters.get("bucket").getAsInt());
+                broadcast();
                 break;
             case "BUCKET_COMPLETED":
                 status.completedBucket(parameters.get("bucket").getAsInt());
@@ -51,12 +52,14 @@ public class NotifyEndPoint {
             case "BUCKET_HEARTBEAT":
                 status.beatBucket(parameters.get("bucket").getAsInt());
                 break;
+                
             case "BUCKET_STATS":
                 status.updateStatsBucket(parameters.get("bucket").getAsInt(), parameters.get("inspected").getAsLong(), parameters.get("foundCollisions").getAsInt());
+                broadcast();
                 break;
-            
             case "PLAN_ATTACK":
                 status.planAttack(parameters.get("attack").getAsString());
+                broadcast();
                 break;
         }
     }
@@ -85,9 +88,6 @@ public class NotifyEndPoint {
             
             // Update state
             handleAction(action, request.get(1).getAsJsonObject());
-            
-            // Push realtime upd
-            broadcast();
         } catch (IOException ex) {
             Logger.getLogger(NotifyEndPoint.class.getName()).log(Level.SEVERE, null, ex);
         }
