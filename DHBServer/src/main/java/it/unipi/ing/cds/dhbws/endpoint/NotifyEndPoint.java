@@ -33,7 +33,7 @@ public class NotifyEndPoint {
     private void broadcast() throws IOException {
         final Gson gson = new Gson();
         for(Session s: status.getSessions()) {
-            s.getBasicRemote().sendText(gson.toJson(status));
+            s.getAsyncRemote().sendText(gson.toJson(status));
         }
     }
     
@@ -41,13 +41,15 @@ public class NotifyEndPoint {
         switch(action){
             case "BUCKET_ALLOC":
                 status.allocBucket(parameters.get("bucket").getAsInt(), parameters.get("worker").getAsString(), parameters.get("UUIDWorker").getAsString());
+                broadcast();
                 break;
             case "BUCKET_REVOKE":
                 status.revokeBucket(parameters.get("bucket").getAsInt());
                 broadcast();
                 break;
             case "BUCKET_COMPLETED":
-                status.completedBucket(parameters.get("bucket").getAsInt());
+                status.completedBucket(parameters.get("bucket").getAsInt(), parameters.get("inspected").getAsLong(), parameters.get("foundCollisions").getAsInt());
+                broadcast();
                 break;
             case "BUCKET_HEARTBEAT":
                 status.beatBucket(parameters.get("bucket").getAsInt());
@@ -55,6 +57,11 @@ public class NotifyEndPoint {
                 
             case "BUCKET_STATS":
                 status.updateStatsBucket(parameters.get("bucket").getAsInt(), parameters.get("inspected").getAsLong(), parameters.get("foundCollisions").getAsInt());
+                broadcast();
+                break;
+            
+            case "STATS_AGGREGATED":
+                status.updateStatsAggregated(parameters.get("buckets").getAsJsonArray());
                 broadcast();
                 break;
             case "PLAN_ATTACK":

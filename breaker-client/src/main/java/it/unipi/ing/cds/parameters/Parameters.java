@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Parameters {
     
-    public static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
+    public static final int BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
     public static final int BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
     

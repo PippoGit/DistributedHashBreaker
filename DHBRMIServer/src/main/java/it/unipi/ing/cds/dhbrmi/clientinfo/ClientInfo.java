@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import it.unipi.ing.cds.parameters.Parameters;
+import java.util.Date;
 
 public class ClientInfo {
     private UUID id;
@@ -17,7 +18,7 @@ public class ClientInfo {
     private long inspected;
     private String url;
     private long lastHeartBeat;
-
+    
     public ClientInfo(String nickName, String hostIP, int hostPort) {
         inspected = 0;
         collisionsFound = new ArrayList<byte[]>();
@@ -27,11 +28,13 @@ public class ClientInfo {
         this.url = "//" + hostIP + ":" + Integer.toString(hostPort) + "/" + nickName;
         this.id = UUID.randomUUID();
         while(this.id.compareTo(Parameters.noAttackPlanned) == 0 || this.id.compareTo(Parameters.noAvailableBucket) == 0 ||
-	    		this.id.compareTo(Parameters.remoteError) == 0 || this.id.compareTo(Parameters.connectionError) == 0 ) {
-        	this.id = UUID.randomUUID();
+              this.id.compareTo(Parameters.remoteError) == 0 || this.id.compareTo(Parameters.connectionError) == 0 ) {
+            this.id = UUID.randomUUID();
         }
+        
         lastHeartBeat = System.currentTimeMillis();
     }
+    
     public void beats() {
         lastHeartBeat = System.currentTimeMillis();
     }
@@ -74,4 +77,13 @@ public class ClientInfo {
     public void setHostPort(int hostPort) {
         this.hostPort = hostPort;
     }
+    
+    public int getNumCollisions() {
+        return this.collisionsFound.size();
+    }
+    
+    public long getLastHeartbeat() {
+        return lastHeartBeat;
+    }
+    
 }

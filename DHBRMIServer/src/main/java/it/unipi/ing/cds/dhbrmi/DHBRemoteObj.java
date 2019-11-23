@@ -1,17 +1,3 @@
-/*
-
-    TODO: 
-
-    ! Cambiato il singleton con un'implementazione threadsafe, 
-      però forse non è ancora la cosa migliore?
-
-    - Adesso gli aggiornamenti alla dashboard vengono pushati tutti insieme 
-      (alternativa: il metodo broadcast() viene sostituito da uno che pusha solo
-       la roba che è stata effettivamente aggiornata, il client dovrebbe funzionare
-       lo stesso)
-    
-
- */
 package it.unipi.ing.cds.dhbrmi;
 
 import java.rmi.Naming;
@@ -22,6 +8,7 @@ import java.rmi.server.UnicastRemoteObject;
 import it.unipi.ing.cds.dhbrmi.client.iface.DHBRemoteClientInterface;
 import it.unipi.ing.cds.dhbrmi.clientinfo.ClientInfo;
 import it.unipi.ing.cds.dhbrmi.guardian.Guardian;
+import it.unipi.ing.cds.dhbrmi.stats.StatisticsThread;
 import it.unipi.ing.cds.dhbrmi.server.iface.DHBRemoteServerInterface;
 import it.unipi.ing.cds.parameters.Parameters;
 
@@ -46,7 +33,7 @@ import java.util.concurrent.Semaphore;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
-    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
+    private static final boolean SHOULD_NOTIFY_TOMCAT = true;
     
     private static final long serialVersionUID = 1L;
     
@@ -67,6 +54,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     private boolean guardActive;
     private Semaphore mutex;
     
+    private long lastModified;
+    
     // Stuff to send data to Tomcat 
     private DHBWebSocketClient wsTomcat;
     
@@ -74,6 +63,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         super();
         idAttack = Integer.toString(0);
         attackInProgress = false;
+        lastModified = -1;
+        
         initState();
         
         if(SHOULD_NOTIFY_TOMCAT) {
@@ -116,10 +107,14 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         
         this.idAttack = Integer.toString(Integer.parseInt(idAttack) + 1);
         attackInProgress = true;
+        
+        // start statistics thread
+        new StatisticsThread(this, clients).start();
+        
         System.gc();
     }
     
-    private void notifyTomcat(String action, JsonObject par) {
+    public void notifyTomcat(String action, JsonObject par) {
         Gson gson = new Gson();
         JsonArray request = new JsonArray();
 
@@ -147,9 +142,11 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         notifyTomcat(Parameters.NACT_BUCKET_HEARTBEAT, par);
     }
     
-    private void notifyCompleted(int idBucket) {        
+    private void notifyCompleted(int idBucket, long inspected, int numCollisions) {        
         JsonObject par = new JsonObject();
         par.addProperty("bucket", idBucket);
+        par.addProperty("inspected", inspected);
+        par.addProperty("foundCollisions", numCollisions);
         notifyTomcat(Parameters.NACT_BUCKET_COMPLETED, par);
     }    
 
@@ -179,31 +176,39 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             prompt("No client with username " + userID);
             return;
     	}
+        
+        this.lastModified = System.currentTimeMillis();
+        
         ci.updateCollisions(partialCollisions);
         ci.updateInspected(inspected);
         ci.beats();
         
         // Notify Tomcat
-        if(SHOULD_NOTIFY_TOMCAT)
-            notifyHeartbeat(ci.getBucketNr());
+        // if(SHOULD_NOTIFY_TOMCAT) {
+        //    notifyHeartbeat(ci.getBucketNr());
+        // }
                
         prompt(ci.getNickName() + " statistics: INSPECTED=" + inspected +" (TOTAL="+ ci.getInspected()+") " + " COLLISIONS=" + partialCollisions.size());
         
         // Notify Tomcat
-        if(SHOULD_NOTIFY_TOMCAT)
-            notifyStats(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
+        // if(SHOULD_NOTIFY_TOMCAT) {
+        //    notifyStats(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
+        // }
         
         if(ci.getInspected() == Parameters.BUCKET_SIZE) {	// all bucket has been inspected, then add it to completed buckets list
             prompt(ci.getNickName() + " has completed his bucket (" + ci.getBucketNr() + ")");
             completedBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
             prompt("Completed buckets = " + completedBuckets.size());
+            
+            // Notify Tomcat
+            if(SHOULD_NOTIFY_TOMCAT)
+                notifyCompleted(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
+            
             if(completedBuckets.size() == 4) { // quattro
             	prompt("Attack completed");
             	cancelAttack();
             }
-            // Notify Tomcat
-            if(SHOULD_NOTIFY_TOMCAT)
-                notifyCompleted(ci.getBucketNr());
+
             clients.remove(userID);
         }
     }
@@ -322,5 +327,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     
     public void guardianTerminate() {
     	guardActive = false;
+    }
+    
+    public long getLastModified() {
+        return lastModified;
     }
 }

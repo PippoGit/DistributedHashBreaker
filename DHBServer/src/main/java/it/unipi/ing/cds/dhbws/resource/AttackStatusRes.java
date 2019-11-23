@@ -1,6 +1,9 @@
 package it.unipi.ing.cds.dhbws.resource;
 
 import com.google.common.util.concurrent.Monitor;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -13,7 +16,7 @@ public class AttackStatusRes {
     public static final int BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
     public static final int MOST_SIGNIFICANT_BYTES = 1;
-    public static final int NUM_OF_BUCKETS = (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
+    public static final int NUM_OF_BUCKETS = 4; // (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
     
     // Callback
     private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
@@ -123,6 +126,7 @@ public class AttackStatusRes {
             buckets[bucket].setDateAllocation(new Date(System.currentTimeMillis()));
             buckets[bucket].setWorkerNickname(worker);
             buckets[bucket].setUUIDWorker(uuid);
+            buckets[bucket].setLastHeartbeat(new Date(System.currentTimeMillis()));
             numAvailableBuckets--;
             numWorkingBuckets++;
         } finally {
@@ -145,10 +149,24 @@ public class AttackStatusRes {
         }
     }
     
-    public void completedBucket(int bucket) {
+    public void completedBucket(int bucket, long inspected, int foundCollisions) {
         MONITOR.enter();
         try {
             buckets[bucket].setDateCompleted(new Date(System.currentTimeMillis()));
+            
+            // Force percentage to be 100% 
+            double oldPercentage = buckets[bucket].getPercentage(); 
+            buckets[bucket].setPercentage(100);
+            totalPercentage += (100 - oldPercentage)/NUM_OF_BUCKETS;
+            
+            // Force inspected Update
+            buckets[bucket].setInspected(inspected);
+            this.totalInspected = getTotalInspected();
+            
+            // Update found collisions
+            numCollisions += foundCollisions;
+            buckets[bucket].addCollisions(foundCollisions);
+            
             numCompletedBuckets++;
             numWorkingBuckets--;
             
@@ -183,6 +201,41 @@ public class AttackStatusRes {
             double oldPercentage = buckets[bucket].getPercentage(); 
             buckets[bucket].setPercentage(percentage);
             totalPercentage += (percentage - oldPercentage)/NUM_OF_BUCKETS;
+        } finally {
+            MONITOR.leave();
+        }  
+    }
+    
+    public void updateStatsAggregated(JsonArray buckets) {
+        MONITOR.enter();
+        try {
+            for(JsonElement bb : buckets) {
+                JsonObject b = bb.getAsJsonObject();
+                int i = b.get("id").getAsInt();
+                
+                if(this.buckets[i].getPercentage() == 100 || this.buckets[i].isAvailable()) continue; // actualy this should never happen...
+                
+                
+                // Update collisions
+                int foundCollisions = b.get("foundCollisions").getAsInt();
+                numCollisions += foundCollisions;
+                this.buckets[i].addCollisions(foundCollisions);
+                
+                // Update inspected
+                long inspected = b.get("inspected").getAsLong();
+                this.buckets[i].setInspected(inspected);
+                
+                //Update percentage
+                double percentage = (100*inspected)/BUCKET_SIZE;
+                double oldPercentage = this.buckets[i].getPercentage(); 
+                this.buckets[i].setPercentage(percentage);
+                totalPercentage += (percentage - oldPercentage)/NUM_OF_BUCKETS;
+                
+                // Update heartbeat
+                this.buckets[i].setLastHeartbeat(new Date(b.get("lastHeartbeat").getAsLong()));
+            }
+            // Other global stats...
+            this.totalInspected = getTotalInspected();            
         } finally {
             MONITOR.leave();
         }  

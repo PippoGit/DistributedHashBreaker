@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Parameters {
     
-    public static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
+    public static final int BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
     public static final int BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
     
@@ -26,12 +26,13 @@ public class Parameters {
     public static final String NACT_PLAN_ATTACK      = "PLAN_ATTACK";
     public static final String NACT_BUCKET_REVOKE    = "BUCKET_REVOKE";
     public static final String NACT_BUCKET_STATS     = "BUCKET_STATS";
+    public static final String NACT_STATS_AGGREGATED = "STATS_AGGREGATED";
     
     //RESERVED UUIDs
-	public static UUID noAttackPlanned = UUID.fromString("00000000-0000-0000-0000-00000000");
-	public static UUID noAvailableBucket = UUID.fromString("1000000-0000-0000-0000-00000000");
-	public static UUID remoteError = UUID.fromString("2000000-0000-0000-0000-00000000");
-	public static UUID connectionError = UUID.fromString("3000000-0000-0000-0000-00000000");
+    public static UUID noAttackPlanned = UUID.fromString("00000000-0000-0000-0000-00000000");
+    public static UUID noAvailableBucket = UUID.fromString("1000000-0000-0000-0000-00000000");
+    public static UUID remoteError = UUID.fromString("2000000-0000-0000-0000-00000000");
+    public static UUID connectionError = UUID.fromString("3000000-0000-0000-0000-00000000");
 
 
 }

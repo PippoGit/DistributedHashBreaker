@@ -23,7 +23,7 @@ public class DHBWebSocketClient {
     final Session session;
     
     public void sendText(String msg) throws IOException {
-        session.getBasicRemote().sendText(msg);
+        session.getAsyncRemote().sendText(msg);
     }
     
     private void open(Session session, EndpointConfig EndpointConfig) {
