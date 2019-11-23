@@ -10,9 +10,7 @@ import com.google.gson.JsonObject;
 import it.unipi.ing.cds.dhbrmi.DHBRemoteObj;
 import it.unipi.ing.cds.dhbrmi.clientinfo.ClientInfo;
 import it.unipi.ing.cds.parameters.Parameters;
-import java.rmi.RemoteException;
 import java.util.Map;
-import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -32,7 +30,7 @@ public class StatisticsThread extends Thread{
         while(true) {
             try {
                 do {
-                    Thread.sleep(5000);
+                    Thread.sleep(Parameters.STATISTICS_THREAD_SLEEP_TIME);
                     System.out.println("[STATISTICS_THREAD] Waking up!");
                 } while(server.getLastModified() <= lastTimestamp);
 

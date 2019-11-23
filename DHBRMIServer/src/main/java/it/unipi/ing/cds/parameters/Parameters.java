@@ -15,6 +15,8 @@ public class Parameters {
     public static final long SLEEP_TIME = 500;
     
     public static final long GUARD_TIME = 3000;
+    
+    public static final long STATISTICS_THREAD_SLEEP_TIME = 5000;
 
     // WEBSOCKET STUFF
     public final static String NOTIFY_ENDPOINT = "ws://localhost:8080/DHBServer/notify";
