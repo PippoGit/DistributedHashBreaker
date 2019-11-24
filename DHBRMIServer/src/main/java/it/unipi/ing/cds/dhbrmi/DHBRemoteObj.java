@@ -33,7 +33,7 @@ import java.util.concurrent.Semaphore;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
-    private static final boolean SHOULD_NOTIFY_TOMCAT = true;
+    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
     
     private static final long serialVersionUID = 1L;
     
@@ -267,7 +267,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     }
 
     public String planAttack(String hash) throws RemoteException {
-    	cancelAttack();
+    	if(attackInProgress)
+    		cancelAttack();
     	initState();
         if(SHOULD_NOTIFY_TOMCAT) {
             this.hashToBreak = hash;
