@@ -1,4 +1,4 @@
-package it.unipi.ing.cds.dhbrmi;
+package it.unipi.ing.cds.dhbrmi.client;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

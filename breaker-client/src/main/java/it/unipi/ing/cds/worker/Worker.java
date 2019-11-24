@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import it.unipi.ing.cds.dhbrmi.DHBRemoteObj;
+import it.unipi.ing.cds.dhbrmi.client.DHBRemoteObj;
 import it.unipi.ing.cds.dhbrmi.client.iface.DHBRemoteClientInterface;
 import it.unipi.ing.cds.gui.ClientGUI;
 import it.unipi.ing.cds.parameters.Parameters;

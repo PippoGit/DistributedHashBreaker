@@ -261,7 +261,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         } catch (InterruptedException | RemoteException e) {
             e.printStackTrace();
         } finally {
-        	attackInProgress = false;
+            attackInProgress = false;
             mutex.release();
         }
     }
