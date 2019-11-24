@@ -88,12 +88,17 @@ function set_plan_mode() {
     plan_mode = true;
     $("#dashboard").hide();
     $("#plan").show();
+    $("#plan-mode-menu-button").addClass("pure-menu-selected");
+    $("#current-attack-menu-button").removeClass("pure-menu-selected");
 }
 
 function set_dashboard_mode() {
     plan_mode = false;
     $("#plan").hide();
     $("#dashboard").show();
+    $("#plan-mode-menu-button").removeClass("pure-menu-selected");
+    $("#current-attack-menu-button").addClass("pure-menu-selected");
+
 }
 
 function build_GUI() {

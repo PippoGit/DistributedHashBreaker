@@ -20,10 +20,9 @@
         <div class="menu-wrapper">
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Current attack</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Plan new attack</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Revoke attack</a></li>
-                    <li class="pure-menu-item pure-menu-disabled">Preferences</li>
+                    <li id="current-attack-menu-button" class="pure-menu-item"><a onclick="set_dashboard_mode()" href="#" class="pure-menu-link">Current attack</a></li>
+                    <li id="plan-mode-menu-button"      class="pure-menu-item"><a onclick="set_plan_mode()" href="#" class="pure-menu-link">Plan new attack</a></li>
+                    <!-- <li class="pure-menu-item"><a href="#" class="pure-menu-link">Revoke attack</a></li> -->
                 </ul>
             </div>
         </div>
@@ -31,7 +30,7 @@
         <!-- MAIN CONTENT -->
         <div id="plan">
             <section id="main-section" class="content-wrapper">
-                <h2 class="title"> No attack planned! </h2>
+                <h2 class="title"> Plan mode </h2>
                 <div class="pure-g">
                     <div class="pure-u-1">
                         <div class="card">
@@ -136,6 +135,6 @@
         <script src="js/BucketsHeatmap.js?v=3"></script>
         <script src="js/Parameters.js?v=3"></script>
         <script src="js/AttackStatus.js?v?1"></script>
-        <script src="js/main.js?v=38"></script>
+        <script src="js/main.js?v=39"></script>
     </body>
 </html>

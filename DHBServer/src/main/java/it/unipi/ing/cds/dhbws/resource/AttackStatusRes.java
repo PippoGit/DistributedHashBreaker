@@ -56,7 +56,10 @@ public class AttackStatusRes {
     public AttackStatusRes() {
         MONITOR = new Monitor();
         buckets = new BucketRes[NUM_OF_BUCKETS];
-
+        resetStatus();
+    }
+    
+    private void resetStatus() {
         idAttack            = "";
         totalPercentage     = 0;
         numCollisions       = 0;
@@ -244,6 +247,7 @@ public class AttackStatusRes {
     public void planAttack(String id) {
         MONITOR.enter();
         try {
+            resetStatus();
             this.idAttack = id;
             this.planned = true;    
         } finally {
