@@ -51,6 +51,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     private List<Integer>  completedBuckets;
     //
     
+    private StatisticsThread statisticsThread;
+    
     private boolean guardActive;
     private Semaphore mutex;
     
@@ -63,9 +65,10 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         super();
         idAttack = Integer.toString(0);
         attackInProgress = false;
+        guardActive = false;
         lastModified = -1;
         
-        initState();
+        //initState();
         
         if(SHOULD_NOTIFY_TOMCAT) {
             prompt("Connecting to Tomcat WebServer...");
@@ -108,8 +111,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         this.idAttack = Integer.toString(Integer.parseInt(idAttack) + 1);
         attackInProgress = true;
         
-        // start statistics thread
-        new StatisticsThread(this, clients).start();
+        //start statistics thread
+        statisticsThread = new StatisticsThread(this, clients);
+        statisticsThread.start();
         
         System.gc();
     }
@@ -204,12 +208,12 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             if(SHOULD_NOTIFY_TOMCAT)
                 notifyCompleted(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
             
+            clients.remove(userID);
+            
             if(completedBuckets.size() == 4) { // quattro
             	prompt("Attack completed");
             	cancelAttack();
             }
-
-            clients.remove(userID);
         }
     }
     
@@ -252,13 +256,14 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
                     revoke(ci.getId());
                 }
             }
+            clients.clear();
+            statisticsThread.stopWorking();
         } catch (InterruptedException | RemoteException e) {
             e.printStackTrace();
         } finally {
+        	attackInProgress = false;
             mutex.release();
-            clients.clear();
         }
-    	attackInProgress = false;
     }
 
     public String planAttack(String hash) throws RemoteException {
@@ -267,7 +272,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         if(SHOULD_NOTIFY_TOMCAT) {
             this.hashToBreak = hash;
             notifyPlanAttack();
-            return this.idAttack;
+            return this.hashToBreak;
         } else
             return "dummy";
     }
