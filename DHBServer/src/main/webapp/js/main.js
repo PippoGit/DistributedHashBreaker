@@ -3,7 +3,8 @@
 // Status objects
 var current_bucket = { id:-1 };
 var current_status;
-var plan_mode = true;
+var plan_mode = true,
+    planned   = false;
     
 // GUI Elements
 var bucketInspectedChart,
@@ -48,9 +49,11 @@ $(document).ready(function() {
         if(state.error != undefined) {
             // ERROR => ATTACK NOT PLANNED
             set_plan_mode();
+            planned = false;
             return;
         }
         
+        planned = true;
         if(plan_mode) set_dashboard_mode();
         Object.keys(state).forEach(function(k){
             current_status.updateStatusVariable(k, state[k]);
@@ -93,6 +96,7 @@ function set_plan_mode() {
 }
 
 function set_dashboard_mode() {
+    if(!planned) return;
     plan_mode = false;
     $("#plan").hide();
     $("#dashboard").show();
