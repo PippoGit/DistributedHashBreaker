@@ -19,7 +19,7 @@ public class AnalyzerThread extends Thread {
 	
 	private ArrayList<byte[]> collisions;
 
-    public AnalyzerThread(long plaintextsPerThread, int subBucket, long start, byte[] target, Statistics stats) {
+    public AnalyzerThread(long plaintextsPerThread, int subBucket, long start, byte[] target, Statistics stats, ClientGUI clientGUI) {
     	this.subBucket = subBucket;
         this.target = target;
         running = true;
@@ -28,7 +28,7 @@ public class AnalyzerThread extends Thread {
         iterator = lb;
         collisions = new ArrayList<byte[]>();
         this.stats = stats;
-        clientGUI = ClientGUI.getInstance();
+        this.clientGUI = clientGUI;
     }
 
     public void run() {

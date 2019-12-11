@@ -9,7 +9,7 @@ public class CDS {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ClientGUI frame = ClientGUI.getInstance();
+					ClientGUI frame = new ClientGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

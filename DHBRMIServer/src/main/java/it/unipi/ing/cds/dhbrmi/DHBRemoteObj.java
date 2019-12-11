@@ -30,10 +30,11 @@ import java.util.Map;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
-    private static final boolean SHOULD_NOTIFY_TOMCAT = true;
+    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
     
     private static final long serialVersionUID = 1L;
     
@@ -52,6 +53,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     //
     
     private StatisticsThread statisticsThread;
+    private AtomicBoolean go;
     
     private boolean guardActive;
     private Semaphore mutex;
@@ -67,8 +69,9 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         attackInProgress = false;
         guardActive = false;
         lastModified = -1;
+        go = new AtomicBoolean(true);
         
-        //initState();
+        initState();
         
         if(SHOULD_NOTIFY_TOMCAT) {
             prompt("Connecting to Tomcat WebServer...");
@@ -93,7 +96,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         // ( Available, inProgress, completed Buckets initialization
         availableBuckets = new ArrayList<Integer>();
         
-        for(int i = 0; i < 4 /*Parameters.NUM_OF_BUCKETS*/; i++) { //quattro
+        for(int i = 0; i < Parameters.NUM_OF_BUCKETS; i++) {
             availableBuckets.add(i);
         }
         
@@ -114,6 +117,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         //start statistics thread
         statisticsThread = new StatisticsThread(this, clients);
         statisticsThread.start();
+        go.set(true);
         
         System.gc();
     }
@@ -140,11 +144,13 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         notifyTomcat(Parameters.NACT_BUCKET_ALLOC, par);
     }
     
+    /*
     private void notifyHeartbeat(int idBucket) {              
         JsonObject par = new JsonObject();
         par.addProperty("bucket", idBucket);
         notifyTomcat(Parameters.NACT_BUCKET_HEARTBEAT, par);
     }
+    */
     
     private void notifyCompleted(int idBucket, long inspected, int numCollisions) {        
         JsonObject par = new JsonObject();
@@ -160,6 +166,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         notifyTomcat(Parameters.NACT_BUCKET_REVOKE, par);
     }  
     
+    /*
     private void notifyStats(int idBucket, long inspected, int collisions) {       
         JsonObject par = new JsonObject();
         par.addProperty("bucket", idBucket);
@@ -167,6 +174,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         par.addProperty("foundCollisions", collisions);
         notifyTomcat(Parameters.NACT_BUCKET_STATS, par);
     }
+    */
     
     private void notifyPlanAttack() {       
         JsonObject par = new JsonObject();
@@ -175,6 +183,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     }
 
     public void sendStatistics(ArrayList<byte[]> partialCollisions, long inspected, String userID) throws RemoteException {
+    	if(!go.get())
+    		return;
     	ClientInfo ci = clients.get(userID);
     	if(ci == null) {
             prompt("No client with username " + userID);
@@ -200,6 +210,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
         // }
         
         if(ci.getInspected() == Parameters.BUCKET_SIZE) {	// all bucket has been inspected, then add it to completed buckets list
+        	clients.remove(userID);
             prompt(ci.getNickName() + " has completed his bucket (" + ci.getBucketNr() + ")");
             completedBuckets.add(inProgressBuckets.remove(inProgressBuckets.indexOf(ci.getBucketNr())));
             prompt("Completed buckets = " + completedBuckets.size());
@@ -207,10 +218,8 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             // Notify Tomcat
             if(SHOULD_NOTIFY_TOMCAT)
                 notifyCompleted(ci.getBucketNr(), ci.getInspected(), partialCollisions.size());
-            
-            clients.remove(userID);
-            
-            if(completedBuckets.size() == 4) { // quattro
+
+            if(completedBuckets.size() == Parameters.NUM_OF_BUCKETS) { 
             	prompt("Attack completed");
             	cancelAttack();
             }
@@ -247,6 +256,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
     }
     
     private void cancelAttack() {
+    	go.set(false);
     	prompt("Cancelling Attack");
     	try {
             mutex.acquire();
@@ -264,6 +274,7 @@ public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServer
             attackInProgress = false;
             mutex.release();
         }
+    	go.set(true);
     }
 
     public String planAttack(String hash) throws RemoteException {

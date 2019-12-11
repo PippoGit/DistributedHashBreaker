@@ -27,11 +27,12 @@ public class StatisticsThread extends Thread{
     }
     
     public void run() {
+    	prompt("Waking up!");
         while(working) {
             try {
                 do {
                     Thread.sleep(Parameters.STATISTICS_THREAD_SLEEP_TIME);
-                    prompt("Waking up!");
+                    
                 } while(server.getLastModified() <= lastTimestamp);
 
                 

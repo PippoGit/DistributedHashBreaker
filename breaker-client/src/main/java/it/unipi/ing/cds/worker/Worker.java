@@ -36,14 +36,14 @@ public class Worker extends Thread{
 	private StatisticsThread statThread;
 	private TThread tThread;
 	
-    public Worker(String nickname) {
+    public Worker(String nickname, ClientGUI clientGUI) {
         NUMBER_OF_THREADS = 1;
         cores = Runtime.getRuntime().availableProcessors();
         while(2*NUMBER_OF_THREADS <= cores)
         	NUMBER_OF_THREADS*=2;
         mutex = new Semaphore(1);
-        clientGUI = ClientGUI.getInstance();
-        stats = new Statistics(NUMBER_OF_THREADS);
+        this.clientGUI = clientGUI;
+        stats = new Statistics(NUMBER_OF_THREADS, this.clientGUI);
         this.nickname = nickname;
         hostPort = AvailablePortFinder.getNextAvailable();
     }
@@ -73,7 +73,6 @@ public class Worker extends Thread{
     		DHBRemoteClientInterface clientInterface = new DHBRemoteObj(this);
     		Naming.rebind("//"+Parameters.MYREGISTRY_HOST+":"+Integer.toString(hostPort)+"/"+nickname, clientInterface);
 			// )
-	    	
 	    	
 	    	int bucketNr = req.getBucketNr();
 	    	
@@ -106,8 +105,6 @@ public class Worker extends Thread{
 	        tThread.join();
 	        statThread.join();
 	        
-	        // SHOW GLOBAL STATISTICS
-	        // -------- da testare --------- (reset btn)
 	        resetBtn();
 	        
 	        ArrayList<byte[]> collisions = stats.getCollisions();
@@ -133,7 +130,7 @@ public class Worker extends Thread{
         clientGUI.updateTextLogln("Number of cores: " + cores + "\t Number of threads: " + NUMBER_OF_THREADS);
         long plaintextsPerThread = Parameters.BUCKET_SIZE / NUMBER_OF_THREADS;
         for (int i = 0; i < NUMBER_OF_THREADS; i++) {
-            AnalyzerThread thread = new AnalyzerThread(plaintextsPerThread, i, start, target, stats);
+            AnalyzerThread thread = new AnalyzerThread(plaintextsPerThread, i, start, target, stats, this.clientGUI);
             thread.setPriority(Thread.MIN_PRIORITY);
             analyzerThreads.add(thread);
         }
@@ -161,5 +158,8 @@ public class Worker extends Thread{
     }
     public void resetBtn() {
     	clientGUI.setStartAction();
+    }
+    public void click() {
+    	clientGUI.click();
     }
 }

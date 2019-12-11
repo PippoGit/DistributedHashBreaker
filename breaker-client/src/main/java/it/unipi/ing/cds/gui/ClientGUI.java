@@ -46,23 +46,15 @@ public class ClientGUI extends JFrame {
 	private PieChart[] pies;
 	private PieChart globalPie;
 	private int nThreads;
-	private long lastListSize = 0;
 	private Semaphore mutex;
 	private JLabel execTime;
 	private boolean startAction;
 	private Worker worker;
 
-	private static ClientGUI instance = null;
 	private JTabbedPane tabbedPane;
 	private JTextField textField;
 	
-	public static ClientGUI getInstance() {
-		if(instance == null)
-			instance = new ClientGUI();
-		return instance;
-	}
-	
-	private ClientGUI() {
+	public ClientGUI() {
 		
 		mutex = new Semaphore(1);
 		startAction = true;
@@ -99,10 +91,9 @@ public class ClientGUI extends JFrame {
 					textField.setText(new String("Insert Nickname here"));
 				}
 			}
-			
 		});
-		textField.setColumns(10);
 		
+		textField.setColumns(10);
 		execTime = new JLabel("Execution Time");
 		execTime.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -178,7 +169,7 @@ public class ClientGUI extends JFrame {
 					startBtn.setEnabled(false);
 					
 					// START THE JOB
-					worker = new Worker(textField.getText());
+					worker = new Worker(textField.getText(), ClientGUI.this);
 					worker.start();
 					startAction = false;
 					startBtn.setText("LEAVE");
@@ -310,5 +301,8 @@ public class ClientGUI extends JFrame {
 	public void setStartAction() {
 		startBtn.setText("START");
 		startAction = true;
+	}
+	public void click() {
+		startBtn.doClick();
 	}
 }

@@ -32,7 +32,7 @@ public class Statistics {
 	private long lastInspected;
 	private long start;
 	
-	public Statistics(int num) {
+	public Statistics(int num, ClientGUI clientGUI) {
 		this.num = num;
 		stats = new HashMap<Integer,PerThreadStatistics>(num);
 		for(int i = 0; i < num; i++)
@@ -43,7 +43,7 @@ public class Statistics {
 		inspected = 0;
 		lastInspected = 0;
 		start = System.currentTimeMillis();
-		clientGUI = ClientGUI.getInstance();
+		this.clientGUI = clientGUI;
 	}
 	public void  update(int id, ArrayList<byte[]> partialCollisions, long inspected) {
 		// Per thread Statistics

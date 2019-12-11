@@ -30,9 +30,7 @@ public class StatisticsThread extends Thread {
 	
 	public void run() {
 		int i = 0;
-		
-		int prova = 0;
-		
+				
 		while(working) {
 			try {
 				
@@ -42,13 +40,8 @@ public class StatisticsThread extends Thread {
 				stats.updateGlobal();
 				
 				if(++i == Parameters.CYCLES) {
-					prova++;
 					long partialInspected = stats.getPartialInspected();
 					System.out.println("Statistics: INSPECTED=" + stats.getInspected() + " PARTIAL=" + partialInspected);
-					//if(prova == 10) {
-					//	Thread.sleep(15000);
-					//	prova = 0;
-					//}
 					req.sendStatistics(stats.getPartialCollisions(), partialInspected);
 					stats.clearPartialCollisions();
 					i = 0;

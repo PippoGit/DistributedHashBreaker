@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.unipi.ing.cds.dhbrmi;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-
+import it.unipi.ing.cds.dhbrmi.DHBRemoteObj;
 import it.unipi.ing.cds.dhbrmi.server.iface.DHBRemoteServerInterface;
 
 public class DHBServer {
@@ -31,7 +26,7 @@ public class DHBServer {
         DHBServer.servantName = servantName;
         try {
             //a servant object is created
-            DHBRemoteServerInterface c = new DHBRemoteObj();
+        	DHBRemoteServerInterface c = new DHBRemoteObj();
             //((DHBRemoteObj)c).initState(); // RIMUOVERREEEEEE
             //next: binding to the rmiregistry
             Naming.rebind("//"+MYREGISTRY_HOST+":"+Integer.toString(MYREGISTRY_PORT)+"/"+DHBServer.servantName, c);

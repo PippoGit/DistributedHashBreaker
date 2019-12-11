@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import it.unipi.ing.cds.parameters.Parameters;
-import java.util.Date;
 
 public class ClientInfo {
     private UUID id;
