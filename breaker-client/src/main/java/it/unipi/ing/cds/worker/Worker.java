@@ -54,7 +54,8 @@ public class Worker extends Thread{
     	String sessionID;
     	try {
     		req = Request.getInstance(nickname);
-    		sessionID = req.getId(nickname, Parameters.MYREGISTRY_HOST, hostPort);
+    		sessionID = req.getId(nickname, Parameters.MYREGISTRY_CLIENT_HOST, hostPort);
+                System.out.println(sessionID);
 	    	if(sessionID.equals(Parameters.noAttackPlanned.toString())) {
 	    		clientGUI.updateTextLogln("NO ATTACK IS PLANNED");
 	    		resetBtn();
@@ -71,7 +72,7 @@ public class Worker extends Thread{
             LocateRegistry.createRegistry(hostPort);
             System.out.println("Registry created - port "+Integer.toString(hostPort));
     		DHBRemoteClientInterface clientInterface = new DHBRemoteObj(this);
-    		Naming.rebind("//"+Parameters.MYREGISTRY_HOST+":"+Integer.toString(hostPort)+"/"+nickname, clientInterface);
+    		Naming.rebind("//"+Parameters.MYREGISTRY_CLIENT_HOST+":"+Integer.toString(hostPort)+"/"+nickname, clientInterface);
 			// )
 	    	
 	    	int bucketNr = req.getBucketNr();
