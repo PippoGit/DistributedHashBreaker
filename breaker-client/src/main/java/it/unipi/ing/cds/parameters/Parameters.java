@@ -15,6 +15,12 @@ public class Parameters {
     public static final String ALGORITHM = "SHA-256";
     public static final long SLEEP_TIME = 500;
     public static final int CYCLES = 3; // Define the number of sleeps before sending updates to the server
+
+
+    // CLIENTE
+    public static final int MYREGISTRY_CLIENT_PORT = Registry.REGISTRY_PORT;//i.e., 1099
+    public static final String MYREGISTRY_CLIENT_HOST = "10.102.5.178";
+    public static final String DHBRMI_CLIENT_URL = "//" + MYREGISTRY_CLIENT_HOST + ":" + Integer.toString(MYREGISTRY_CLIENT_PORT) + "/DHBServer";
     
     // SERVER
     public static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
