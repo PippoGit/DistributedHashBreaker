@@ -1,6 +1,7 @@
 package it.unipi.ing.cds.thread;
 import it.unipi.ing.cds.gui.ClientGUI;
 import it.unipi.ing.cds.util.Hash;
+import it.unipi.ing.cds.util.SoundUtil;
 import it.unipi.ing.cds.util.Statistics;
 
 import java.nio.ByteBuffer;
@@ -46,6 +47,7 @@ public class AnalyzerThread extends Thread {
 	        			break;
 	        	}
 	    		if(i == target.length) {
+	    			SoundUtil.tone(1000, 100);
     	        	collisions.add(bytes);
 	    		}
 	    		iterator++;
