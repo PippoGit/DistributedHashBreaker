@@ -4,8 +4,9 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import it.unipi.ing.cds.dhbrmi.DHBRemoteObj;
 import it.unipi.ing.cds.dhbrmi.server.iface.DHBRemoteServerInterface;
+import it.unipi.ing.cds.dhbrmi.*;
+
 
 public class DHBServer {
     //the default port for rmiregistry is 1099;
@@ -64,6 +65,7 @@ public class DHBServer {
         // Remember:
         // RMI's class loader will download classes from remote locations 
         // only if a security manager has been set.
+		System.setProperty("java.rmi.server.hostname","10.102.29.76");
         if (System.getSecurityManager() == null) {
             // java.lang.SecurityManager 
             System.setProperty("java.security.policy","file:src/security.policy"); // I think this is required for macos (?)

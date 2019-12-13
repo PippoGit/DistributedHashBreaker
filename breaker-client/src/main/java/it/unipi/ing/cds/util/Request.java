@@ -34,6 +34,7 @@ public class Request {
         this.nickname = nickname;
         try {
             server = (DHBRemoteServerInterface) Naming.lookup(Parameters.DHBRMIURL);
+            System.out.println(Parameters.DHBRMIURL);
         } catch (MalformedURLException | RemoteException | NotBoundException e) {
             e.printStackTrace();
         }
@@ -53,7 +54,8 @@ public class Request {
             return this.ID;
             
         } catch (RemoteException ex) {
-	        Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, ex);
+        	prompt("ciao");
+	       ex.printStackTrace();
 	        return Parameters.remoteError.toString();
 	    }
 	}

@@ -52,7 +52,7 @@ public class StatisticsThread extends Thread{
                 }
                 par.add("buckets", buckets);
                 server.notifyTomcat(Parameters.NACT_STATS_AGGREGATED, par);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
