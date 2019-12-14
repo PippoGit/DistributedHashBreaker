@@ -65,7 +65,7 @@ public class DHBServer {
         // Remember:
         // RMI's class loader will download classes from remote locations 
         // only if a security manager has been set.
-		System.setProperty("java.rmi.server.hostname","10.102.29.76");
+		System.setProperty("java.rmi.server.hostname", MYREGISTRY_HOST);
         if (System.getSecurityManager() == null) {
             // java.lang.SecurityManager 
             System.setProperty("java.security.policy","file:src/security.policy"); // I think this is required for macos (?)

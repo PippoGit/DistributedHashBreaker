@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DHBRemoteObj extends UnicastRemoteObject implements DHBRemoteServerInterface {
     
-    private static final boolean SHOULD_NOTIFY_TOMCAT = false;
+    private static final boolean SHOULD_NOTIFY_TOMCAT = true;
     
     private static final long serialVersionUID = 1L;
     

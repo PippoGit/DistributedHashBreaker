@@ -126,7 +126,6 @@ function update_GUI() {
     attackIdLabel.text("#" + current_status.idAttack);
     totalPercentageBar.text('' + Math.round(current_status.totalPercentage) + "%");
     totalPercentageBar.css('width', '' + Math.max(3, current_status.totalPercentage) + "%");
-    etcLabel.text(current_status.etc);
     numCollisionsLabel.text(current_status.numCollisions);
 
     // Update graphs
@@ -134,8 +133,11 @@ function update_GUI() {
                                      current_status.numCompletedBuckets,
                                      current_status.numAvailableBuckets);
     
-    if(current_status.totalInspected !== undefined)
+    if(current_status.totalInspected !== undefined) {
         bucketInspectedChart.pushData(current_status.totalInspected);
+        let etc = (bucketInspectedChart.lastInspected === 0) ? "tbd" : Math.round((current_status.space / bucketInspectedChart.lastInspected)) + " ms";        
+        etcLabel.text(etc);
+    }
     
     // ONLY IF IT'S THE FIRST TIME...
     if(!heatmap.initialized) {
@@ -150,6 +152,9 @@ function update_GUI() {
             heatmap.updateBucket(b);
         });
     }
+    
+    if(current_status.totalPercentage == 100) etcLabel.text("Done!");
+
     
     // It might be necessary to update current bucket
     update_current_bucket();

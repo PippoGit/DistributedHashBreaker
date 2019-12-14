@@ -12,11 +12,11 @@ import javax.websocket.Session;
 
 public class AttackStatusRes {
     // Parameters
-    public static final int BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
-    public static final int BUCKET_BITS = 8*BUCKET_BYTES;
+    public static final int  BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
+    public static final int  BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
-    public static final int MOST_SIGNIFICANT_BYTES = 1;
-    public static final int NUM_OF_BUCKETS = 4; // (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
+    public static final int  MOST_SIGNIFICANT_BYTES = 1;
+    public static final int  NUM_OF_BUCKETS = 4; // (int)Math.pow(2, 8*MOST_SIGNIFICANT_BYTES);
     
     // Callback
     private static List<Session> sessions = Collections.synchronizedList(new ArrayList<Session>());
@@ -31,7 +31,7 @@ public class AttackStatusRes {
     
     private double totalPercentage;
     private int numCollisions;
-    private String etc;
+    private long space;
     
     private int numAvailableBuckets;
     private int numWorkingBuckets;
@@ -63,7 +63,7 @@ public class AttackStatusRes {
         idAttack            = "";
         totalPercentage     = 0;
         numCollisions       = 0;
-        etc                 = "tbd";
+        space               = NUM_OF_BUCKETS * BUCKET_SIZE;
         numAvailableBuckets = NUM_OF_BUCKETS;
         numWorkingBuckets   = 0;
         numCompletedBuckets = 0;
@@ -88,8 +88,8 @@ public class AttackStatusRes {
         return numCollisions;
     }
 
-    public String getEtc() {
-        return etc;
+    public double getSpace() {
+        return space;
     }
 
     public int getNumAvailableBuckets() {
@@ -238,7 +238,8 @@ public class AttackStatusRes {
                 this.buckets[i].setLastHeartbeat(new Date(b.get("lastHeartbeat").getAsLong()));
             }
             // Other global stats...
-            this.totalInspected = getTotalInspected();            
+            this.totalInspected = getTotalInspected();         
+            
         } finally {
             MONITOR.leave();
         }  
