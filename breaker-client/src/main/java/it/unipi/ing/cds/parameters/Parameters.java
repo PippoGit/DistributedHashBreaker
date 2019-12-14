@@ -19,12 +19,12 @@ public class Parameters {
 
     // CLIENTE
     public static final int MYREGISTRY_CLIENT_PORT = Registry.REGISTRY_PORT;//i.e., 1099
-    public static final String MYREGISTRY_CLIENT_HOST = "127.0.0.1";
+    public static final String MYREGISTRY_CLIENT_HOST = "192.168.1.251";
     public static final String DHBRMI_CLIENT_URL = "//" + MYREGISTRY_CLIENT_HOST + ":" + Integer.toString(MYREGISTRY_CLIENT_PORT) + "/DHBServer";
     
     // SERVER
     public static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
-    public static final String MYREGISTRY_HOST = "127.0.0.1"; 
+    public static final String MYREGISTRY_HOST = "192.168.1.127"; 
     public static final String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
     
     //RESERVED UUIDs
