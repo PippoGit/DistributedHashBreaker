@@ -17,7 +17,7 @@ public class DHBServer {
     //for the sake of clarity, we just assign it the value returned 
     //by the registry creation method.
     private static Registry myRegistry;
-    private static final String MYREGISTRY_HOST = "127.0.0.1";
+    private static final String MYREGISTRY_HOST = "192.168.1.127";
     private static String servantName;
 
     public DHBServer(){

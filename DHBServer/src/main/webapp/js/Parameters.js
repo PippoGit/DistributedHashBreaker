@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-SERVER_HOST = "localhost";
+SERVER_HOST = "192.168.1.127";
 SERVER_PORT = "8080";
 
 WS_RESOURCE = "DHBServer";
