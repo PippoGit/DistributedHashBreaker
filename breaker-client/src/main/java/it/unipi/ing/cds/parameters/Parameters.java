@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Parameters {
     
-    public static final int BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
+    public static final int BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
     public static final int BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
     
@@ -19,12 +19,12 @@ public class Parameters {
 
     // CLIENTE
     public static final int MYREGISTRY_CLIENT_PORT = Registry.REGISTRY_PORT;//i.e., 1099
-    public static final String MYREGISTRY_CLIENT_HOST = "192.168.1.251";
+    public static final String MYREGISTRY_CLIENT_HOST = "10.102.5.239";
     public static final String DHBRMI_CLIENT_URL = "//" + MYREGISTRY_CLIENT_HOST + ":" + Integer.toString(MYREGISTRY_CLIENT_PORT) + "/DHBServer";
     
     // SERVER
     public static final int MYREGISTRY_PORT = Registry.REGISTRY_PORT;//i.e., 1099
-    public static final String MYREGISTRY_HOST = "192.168.1.127"; 
+    public static final String MYREGISTRY_HOST = "10.102.17.120"; 
     public static final String DHBRMIURL = "//" + MYREGISTRY_HOST + ":" + Integer.toString(MYREGISTRY_PORT) + "/DHBServer";
     
     //RESERVED UUIDs
