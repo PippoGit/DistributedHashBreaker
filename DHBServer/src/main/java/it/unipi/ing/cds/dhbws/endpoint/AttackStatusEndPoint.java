@@ -43,7 +43,6 @@ public class AttackStatusEndPoint {
     
     @OnMessage
     public String onMessage(final Session session, String message){
-        // I don't know if i actually need this method here...
         return "200";
     }
     
