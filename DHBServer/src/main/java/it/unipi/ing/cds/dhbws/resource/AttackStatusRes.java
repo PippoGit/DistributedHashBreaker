@@ -12,7 +12,7 @@ import javax.websocket.Session;
 
 public class AttackStatusRes {
     // Parameters
-    public static final int  BUCKET_BYTES = 3; // LEAST SIGNIFICANT BYTES
+    public static final int  BUCKET_BYTES = 4; // LEAST SIGNIFICANT BYTES
     public static final int  BUCKET_BITS = 8*BUCKET_BYTES;
     public static final long BUCKET_SIZE = (long)Math.pow(2, BUCKET_BITS);
     public static final int  MOST_SIGNIFICANT_BYTES = 1;
@@ -167,8 +167,8 @@ public class AttackStatusRes {
             this.totalInspected = getTotalInspected();
             
             // Update found collisions
-            numCollisions += foundCollisions;
-            buckets[bucket].addCollisions(foundCollisions);
+            numCollisions += (foundCollisions - buckets[bucket].getNumCollisions());
+            buckets[bucket].setNumCollisions(foundCollisions);
             
             numCompletedBuckets++;
             numWorkingBuckets--;
@@ -194,8 +194,9 @@ public class AttackStatusRes {
     public void updateStatsBucket(int bucket, long inspected, int foundCollisions) {
         MONITOR.enter();
         try {
-            numCollisions += foundCollisions;
-            buckets[bucket].addCollisions(foundCollisions);
+            // numCollisions += foundCollisions;
+            numCollisions += (foundCollisions - buckets[bucket].getNumCollisions());
+            buckets[bucket].setNumCollisions(foundCollisions);
             
             buckets[bucket].setInspected(inspected);
             this.totalInspected = getTotalInspected();
@@ -221,8 +222,9 @@ public class AttackStatusRes {
                 
                 // Update collisions
                 int foundCollisions = b.get("foundCollisions").getAsInt();
-                numCollisions += foundCollisions;
-                this.buckets[i].addCollisions(foundCollisions);
+                // numCollisions += foundCollisions;
+                numCollisions += (foundCollisions - this.buckets[i].getNumCollisions());
+                this.buckets[i].setNumCollisions(foundCollisions);
                 
                 // Update inspected
                 long inspected = b.get("inspected").getAsLong();

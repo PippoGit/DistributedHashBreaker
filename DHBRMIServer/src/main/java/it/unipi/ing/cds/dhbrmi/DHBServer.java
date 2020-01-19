@@ -17,7 +17,7 @@ public class DHBServer {
     //for the sake of clarity, we just assign it the value returned 
     //by the registry creation method.
     private static Registry myRegistry;
-    private static final String MYREGISTRY_HOST = "192.168.1.127";
+    private static final String MYREGISTRY_HOST = "127.0.0.1";
     private static String servantName;
 
     public DHBServer(){
@@ -28,7 +28,7 @@ public class DHBServer {
         try {
             //a servant object is created
         	DHBRemoteServerInterface c = new DHBRemoteObj();
-            //((DHBRemoteObj)c).initState(); // RIMUOVERREEEEEE
+            //((DHBRemoteObj)c).initState(); 
             //next: binding to the rmiregistry
             Naming.rebind("//"+MYREGISTRY_HOST+":"+Integer.toString(MYREGISTRY_PORT)+"/"+DHBServer.servantName, c);
 

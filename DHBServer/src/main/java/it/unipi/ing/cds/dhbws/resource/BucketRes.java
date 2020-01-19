@@ -130,6 +130,10 @@ public class BucketRes {
         this.numCollisions += collisions;
     }
     
+    public void setNumCollisions(int collisions) {
+        this.numCollisions = collisions;
+    }
+    
     public void setInspected(long inspected) {
         this.inspected = inspected;
     }
