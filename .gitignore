@@ -5,3 +5,4 @@ Tomcat/logs/*
 /DHBRMIServer/target/
 /DHBRemoteInterface/target/
 ~$Distributed Hash-breaker.pptx
+*.log
